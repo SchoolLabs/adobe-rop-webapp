@@ -16,7 +16,25 @@
     <script src="assets/js/vendor/bootstrap.js"></script>
     <script src="assets/js/vendor/retina.js"></script>
     <div id="final">LAST</div>
+    <div class="container" id="grid">
+    </div>
     <script>
-      $("#final").text(sessionStorage.getItem("score"));
+        var scores = sessionStorage.getItem("scores").split(",");
+        var sum = 0;
+        for (var i = 0; i < scores.length; i++){
+            sum += parseInt(scores[i]);
+            if (i % 5 == 0) {
+                $(".container").append( "<div class='row'></div>" );
+            }
+            if (scores[i] == 1) {
+                $(".container .row:last").append( "<div class='col-xs-15'><img class='img' id='grid-img' src='assets/img/finalcorn"+ (i + 1) +".png'></div>" );
+            } else {
+                $(".container .row:last").append( "<div class='col-xs-15 incorrect'><img class='img' id='grid-img' src='assets/img/finalcorn"+ (i + 1) +".png'></div>" );
+            }
+        }
+        $("#grid-img").load(function(){
+            $(".incorrect").addClass("cross");
+        })
+        $("#final").text(sum);
     </script>
 </body>

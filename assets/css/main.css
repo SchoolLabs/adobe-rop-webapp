@@ -10,9 +10,18 @@ html, body {
     margin: 0 auto -60px; /* Negative indent footer by it's height */
 }
 
-#main-img {
+#img-wrapper {
     max-width: 80%;
-    margin: 0% 10%;
+    margin: 50% 10% 0% 10%;
+}
+
+#real-or-fake {
+    text-align: center;
+    background-color: yellow;
+}
+
+#real-or-fake * {
+    display: inline-block;
 }
 
 #footer {
@@ -22,4 +31,43 @@ html, body {
 
 #final {
     font-size: 96px;
+}
+
+.row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.col-xs-15 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-15 {
+    width: 20%;
+    float: left;
+}
+
+.cross {
+    position: relative;
+    display: inline-block;
+}
+.cross::before, .cross::after {
+    content: '';
+    width: 90%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+.cross::before {
+    border-bottom: 2px solid red;
+    -webkit-transform: skewY(-45deg);
+    transform: skewY(-45deg);
+}
+.cross::after {
+    border-bottom: 2px solid red;
+    -webkit-transform: skewY(45deg);
+    transform: skewY(45deg);
 }
