@@ -96,35 +96,35 @@ function animate(img, delta, last){
 
   if (image_number == 1) {
     preload(
-    "/assets/img/Swipe6.jpg",
-    "/assets/img/Swipe7.jpg",
-    "/assets/img/Swipe8.jpg",
-    "/assets/img/Swipe9.jpg",
-    "/assets/img/Swipe10.jpg"
+    "assets/img/Swipe6.jpg",
+    "assets/img/Swipe7.jpg",
+    "assets/img/Swipe8.jpg",
+    "assets/img/Swipe9.jpg",
+    "assets/img/Swipe10.jpg"
     )
   } else if (image_number == 6) {
     preload(
-    "/assets/img/Swipe11.jpg",
-    "/assets/img/Swipe12.jpg",
-    "/assets/img/Swipe13.jpg",
-    "/assets/img/Swipe14.jpg",
-    "/assets/img/Swipe15.jpg"
+    "assets/img/Swipe11.jpg",
+    "assets/img/Swipe12.jpg",
+    "assets/img/Swipe13.jpg",
+    "assets/img/Swipe14.jpg",
+    "assets/img/Swipe15.jpg"
     );
   } else if (image_number == 11) {
     preload(
-    "/assets/img/Swipe16.jpg",
-    "/assets/img/Swipe17.jpg",
-    "/assets/img/Swipe18.jpg",
-    "/assets/img/Swipe19.jpg",
-    "/assets/img/Swipe20.jpg"
+    "assets/img/Swipe16.jpg",
+    "assets/img/Swipe17.jpg",
+    "assets/img/Swipe18.jpg",
+    "assets/img/Swipe19.jpg",
+    "assets/img/Swipe20.jpg"
     );
   } else if (image_number == 16) {
     preload(
-    "/assets/img/Swipe21.jpg",
-    "/assets/img/Swipe22.jpg",
-    "/assets/img/Swipe23.jpg",
-    "/assets/img/Swipe24.jpg",
-    "/assets/img/Swipe25.jpg"
+    "assets/img/Swipe21.jpg",
+    "assets/img/Swipe22.jpg",
+    "assets/img/Swipe23.jpg",
+    "assets/img/Swipe24.jpg",
+    "assets/img/Swipe25.jpg"
     );
   }
 
@@ -136,6 +136,7 @@ function animate(img, delta, last){
       //switch out old image and bring in new image
       //STUBBED FOR TESTING
       img.attr("src",preloaded_images[image_number-1].src).load(function(){
+      // img.attr("src",preloaded_images[image_number-1].src).load(function(){
       // img.attr("src","assets/img/finalcorn" + image_number +".png").load(function(){
         //restore prior margin and opacity
         img.css({
