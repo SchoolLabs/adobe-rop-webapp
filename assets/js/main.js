@@ -13,7 +13,7 @@ $(function () {
         return false;
     }
 
-    $('#main-img').click(function () {
+    $('#main-img').on("tap click", function () {
         screenfull.request($('#main-container')[0]);
         // does not require jQuery, can be used like this too:
         // screenfull.request(document.getElementById('container'));
@@ -41,7 +41,7 @@ $(function () {
 
     // a little hack to be able to switch pages while in fullscreen.
     // we basically just creates a seamless iframe and navigate in that instead.
-    $('#continue').click(function () {
+    $('#continue').on("tap click", function () {
         $('#main-container').children().css("display","none");
         // We create an iframe and fill the window with it
         var iframe = document.createElement('iframe')
@@ -57,7 +57,7 @@ $(function () {
         iframe.style.height = '100%';
         $('#main-container').prepend(iframe);
         document.body.style.overflow = 'hidden';
-    })
+    });
 
     document.addEventListener(screenfull.raw.fullscreenchange, function () {
         var elem = screenfull.element;
