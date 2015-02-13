@@ -17,7 +17,8 @@
     <script src="assets/js/vendor/jquery.touchSwipe.min.js"></script>
     <script src="assets/js/vendor/bootstrap.js"></script>
     <script src="assets/js/vendor/retina.js"></script>
-    <script src="assets/js/vendor/screenfull.js"></script>
+    <script src="assets/js/vendor/spin.min.js"></script>
+    <script src="assets/js/vendor/jquery.spin.js"></script>
     <div class="container" id="main-container">
       <div class="row" id="header">
         <div class="col-xs-12">
@@ -48,12 +49,32 @@
     <div class="hidden">
         <script type="text/javascript">
             <!--//--><![CDATA[//><!--
-                var preloaded_images = new Array()
+                var opts = {
+                  lines: 13, // The number of lines to draw
+                  length: 20, // The length of each line
+                  width: 10, // The line thickness
+                  radius: 30, // The radius of the inner circle
+                  corners: 1, // Corner roundness (0..1)
+                  rotate: 0, // The rotation offset
+                  direction: 1, // 1: clockwise, -1: counterclockwise
+                  color: '#000', // #rgb or #rrggbb or array of colors
+                  speed: 1, // Rounds per second
+                  trail: 60, // Afterglow percentage
+                  shadow: false, // Whether to render a shadow
+                  hwaccel: false, // Whether to use hardware acceleration
+                  className: 'spinner', // The CSS class to assign to the spinner
+                  zIndex: 2e9, // The z-index (defaults to 2000000000)
+                  top: '50%', // Top position relative to parent
+                  left: '50%' // Left position relative to parent
+                };
+                var preloaded_images = new Array();
                 function preload() {
+                    $("#prompt-col").spin();
                     for (i = 0; i < preload.arguments.length; i++) {
                         preloaded_images.push(new Image());
-                        preloaded_images[preloaded_images.length - 1].src = preload.arguments[i]
+                        preloaded_images[preloaded_images.length - 1].src = preload.arguments[i];
                     }
+                    $("#prompt-col").spin(false);
                 }
                 preload(
                     "assets/img/Swipe1.jpg",
