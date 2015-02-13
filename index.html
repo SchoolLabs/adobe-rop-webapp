@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <title>Adobe</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
     <meta name="description" content="Yes No">
     <link href="assets/css/vendor/reset.css" rel="stylesheet">
     <link href="assets/css/vendor/bootstrap.css" rel="stylesheet">
@@ -18,25 +18,25 @@
     <script src="assets/js/vendor/bootstrap.js"></script>
     <script src="assets/js/vendor/retina.js"></script>
     <script src="assets/js/vendor/screenfull.js"></script>
-    <div class="container continue-container" id="main-container">
+    <div class="container" id="main-container">
       <div class="row" id="header">
         <div class="col-xs-12">
-
         </div>
       </div>
-      <div class="row" id="fullscreen-row">
-        <div class="col-xs-12" id="fullscreen-col">
-          TOUCH ICON FOR FULLSCREEN
+      <div class="row" id="img-text-row">
+        <div class="col-xs-12" id="img-text-col">
+          <img class="img-responsive" id="real-or-fake" src="assets/img/realorfake.png">
         </div>
       </div>
-      <div class="row" id="ps-img-row">
-        <div class="col-xs-12" id="ps-img-col">
+      <div class="row" id="img-row">
+        <div class="col-xs-12" id="img-col">
+          <img class="img" id="main-img" src="assets/img/Swipe1.jpg">
           <img class="img" id="ps-logo" src="assets/img/PS-Logo.png">
         </div>
       </div>
-      <div class="row" id="continue-row">
-        <div class="col-xs-12" id="continue-col">
-          SWIPE BELOW TO CONTINUE
+      <div class="row" id="prompt-row">
+        <div class="col-xs-12" id="prompt-col">
+            SWIPE TO BEGIN
         </div>
       </div>
       <div class="row" id="footer">
@@ -44,6 +44,26 @@
           FOOTER
         </div>
       </div>
+    </div>
+    <div class="hidden">
+        <script type="text/javascript">
+            <!--//--><![CDATA[//><!--
+                var preloaded_images = new Array()
+                function preload() {
+                    for (i = 0; i < preload.arguments.length; i++) {
+                        preloaded_images.push(new Image());
+                        preloaded_images[preloaded_images.length - 1].src = preload.arguments[i]
+                    }
+                }
+                preload(
+                    "/assets/img/Swipe1.jpg",
+                    "/assets/img/Swipe2.jpg",
+                    "/assets/img/Swipe3.jpg",
+                    "/assets/img/Swipe4.jpg",
+                    "/assets/img/Swipe5.jpg"
+                )
+            //--><!]]>
+        </script>
     </div>
     <script src="assets/js/main.js"></script>
 </body>
