@@ -1,6 +1,7 @@
 html, body {
     background-color: turquoise;
     height: 100%;
+    text-align: center;
 }
 
 #wrap {
@@ -10,18 +11,43 @@ html, body {
     margin: 0 auto -60px; /* Negative indent footer by it's height */
 }
 
-#img-wrapper {
-    max-width: 80%;
-    margin: 50% 10% 0% 10%;
+#main-container, #main-container * {
+    padding-left: 0%;
+    padding-right: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+#main-container {
+    background-color: lightgreen;
+    height: 100%;
+    width: 100%;
+}
+
+#img-text-row {
+    width: 100%;
+    height: 100%;
+    height: auto;
+    background-color: orange;
 }
 
 #real-or-fake {
-    text-align: center;
+    width: 100%;
+    padding: 10% 20% 0% 20%;
+    margin-bottom: -6%;
     background-color: yellow;
 }
 
-#real-or-fake * {
-    display: inline-block;
+#img-row {
+    width: 100%;
+    margin-bottom: 0%;
+    background-color: blue;
+    position: absolute;
+    bottom: 60px;
+}
+
+#swipe-img {
+
 }
 
 #footer {
@@ -70,4 +96,23 @@ html, body {
     border-bottom: 2px solid red;
     -webkit-transform: skewY(45deg);
     transform: skewY(45deg);
+}
+
+@media(min-width:768px){
+    #real-or-fake {
+        width: 100%;
+        padding: 0% 30% 0% 30%;
+        margin-bottom: -6%;
+        background-color: yellow;
+    }
+
+    #img-row {
+        padding-left: 30%;
+        padding-right: 30%;
+        width: 100%;
+        position: absolute;
+        bottom: 60px;
+        margin-bottom: 0%;
+        background-color: blue;
+    }
 }
