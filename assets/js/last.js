@@ -15,4 +15,5 @@ $(".img").load(function(){
     $(".incorrect").addClass("cross");
     $("#footer").height(total - header - img_text_row - $("#grid").height());
 });
-// $("#final").text(sum);
+$("#footer").css({"color":"white"});
+$("#footer").text(sum + "/25 answers correct!");

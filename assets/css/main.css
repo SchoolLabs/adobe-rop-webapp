@@ -1,5 +1,6 @@
 html, body {
-    background-color: turquoise;
+    background-color: #474747;
+/*    background-color: turquoise;*/
     height: 100%;
     text-align: center;
 }
@@ -12,7 +13,8 @@ html, body {
 }
 
 #main-container {
-    background-color: lightgreen;
+    background-color: #474747;
+/*    background-color: lightgreen;*/
     height: 100%;
     width: 100%;
     padding: 0%;
@@ -21,7 +23,9 @@ html, body {
 
 #header {
     margin-bottom: 0%;
-    background-color: salmon;
+    background-color: #474747;
+    color: #474747; /* CHANGE */
+/*    background-color: salmon;*/
     margin: 0%;
     height: 10%;
     width: 100%;
@@ -33,7 +37,6 @@ html, body {
 #img-text-row {
     width: 100%;
     margin: 0%;
-    background-color: white;
 }
 
 #img-text-col {
@@ -44,14 +47,16 @@ html, body {
 #real-or-fake {
     width: 100%;
     padding: 0% 20% 0% 20%;
-    background-color: yellow;
+    background-color: #474747;
+/*    background-color: yellow;*/
 }
 
 #img-row {
     width: 100%;
     padding: 0%;
     margin: 0%;
-    background-color: blue;
+    background-color: #474747;
+/*    background-color: blue;*/
 }
 
 #img-col {
@@ -61,7 +66,9 @@ html, body {
 
 #footer {
     margin: 0%;
-    background-color: magenta;
+    background-color: #474747;
+    color: #474747; /* CHANGE */
+/*    background-color: magenta;*/
     height: 10%;
     width: 100%;
 }
@@ -119,18 +126,20 @@ html, body {
     transform: skewY(45deg);
 }
 
+#footer .col-xs-15 {
+    color: white;
+}
+
 @media(min-width:768px){
     #img-text-row {
         width: 100%;
         padding: 0% 20% 0% 20%;
-        background-color: yellow;
     }
 
-    #img-row {
+    #img-row, #grid {
         padding-left: 30%;
         padding-right: 30%;
         width: 100%;
         margin-bottom: 0%;
-        background-color: blue;
     }
 }
