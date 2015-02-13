@@ -13,21 +13,19 @@ $(function () {
         return false;
     }
 
+// $(".continue-container").on("swiperight", function(e){
+//     window.location.href = "main.html";
+//     // console.log("hi");
+//     // screenfull.request($('#main-container')[0]);
+// });
+
     // $('#main-img').click(function () {
     //     screenfull.request($('#main-container')[0]);
     //     // does not require jQuery, can be used like this too:
     //     // screenfull.request(document.getElementById('container'));
     // });
 
-    $("#ps-logo").swipe( {
-        tap:function(event, target) {
-            screenfull.request($('#main-container')[0]);
-        }
-    });
 
-    // $(".continue-container").on("swiperight", function(){
-    //     screenfull.request($('#main-container')[0]);
-    // });
 
     // $('#exit').click(function () {
     //     screenfull.exit();
@@ -47,23 +45,23 @@ $(function () {
 
     // a little hack to be able to switch pages while in fullscreen.
     // we basically just creates a seamless iframe and navigate in that instead.
-    $(".continue-container").on("swiperight", function(){
-        $('#main-container').children().css("display","none")
-        // We create an iframe and fill the window with it
-        var iframe = document.createElement('iframe')
-        iframe.setAttribute('id', 'external-iframe');
-        iframe.setAttribute('src', 'main.html');
-        iframe.setAttribute('frameborder', 'no');
-        iframe.style.position = 'absolute';
-        iframe.style.top = '0';
-        iframe.style.right = '0';
-        iframe.style.bottom = '0';
-        iframe.style.left = '0';
-        iframe.style.width = '100%';
-        iframe.style.height = '100%';
-        $('#main-container').prepend(iframe);
-        document.body.style.overflow = 'hidden';
-    })
+    // $(".continue-container").on("swiperight", function(){
+    //     $('#main-container').children().css("display","none")
+    //     // We create an iframe and fill the window with it
+    //     var iframe = document.createElement('iframe')
+    //     iframe.setAttribute('id', 'external-iframe');
+    //     iframe.setAttribute('src', 'main.html');
+    //     iframe.setAttribute('frameborder', 'no');
+    //     iframe.style.position = 'absolute';
+    //     iframe.style.top = '0';
+    //     iframe.style.right = '0';
+    //     iframe.style.bottom = '0';
+    //     iframe.style.left = '0';
+    //     iframe.style.width = '100%';
+    //     iframe.style.height = '100%';
+    //     $('#main-container').prepend(iframe);
+    //     document.body.style.overflow = 'hidden';
+    // })
 
     document.addEventListener(screenfull.raw.fullscreenchange, function () {
         var elem = screenfull.element;
@@ -103,6 +101,31 @@ var delta = 0;
 var correct_number = 0;
 var image_number = 1;
 var scores = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+$("#ps-logo").swipe( {
+    tap:function(event, target) {
+        // window.location.href = "main.html";
+        window.screenfull.request($('#main-container')[0]);
+    }
+});
+
+$(".continue-container").on("swiperight", function(){
+    $('#main-container').children().css("display","none")
+    // We create an iframe and fill the window with it
+    var iframe = document.createElement('iframe')
+    iframe.setAttribute('id', 'external-iframe');
+    iframe.setAttribute('src', 'main.html');
+    iframe.setAttribute('frameborder', 'no');
+    iframe.style.position = 'absolute';
+    iframe.style.top = '0';
+    iframe.style.right = '0';
+    iframe.style.bottom = '0';
+    iframe.style.left = '0';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    $('#main-container').prepend(iframe);
+    document.body.style.overflow = 'hidden';
+})
 
 /* Event handlers. Call score_swipe to calculate delta and kickoff slide_transition */
 $("#main-img").on("swiperight", function(e) {
