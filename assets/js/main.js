@@ -19,7 +19,7 @@ $(function () {
     //     // screenfull.request(document.getElementById('container'));
     // });
 
-    $("#main-img").swipe( {
+    $("#ps-logo").swipe( {
         tap:function(event, target) {
             screenfull.request($('#main-container')[0]);
         }
