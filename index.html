@@ -74,7 +74,9 @@
                         preloaded_images.push(new Image());
                         preloaded_images[preloaded_images.length - 1].src = preload.arguments[i];
                     }
-                    $("#prompt-col").spin(false);
+                    $(window).load(function(){
+                        $("#prompt-col").spin(false);
+                    });
                 }
                 preload(
                     "assets/img/Swipe1.jpg",
