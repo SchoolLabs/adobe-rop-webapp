@@ -132,6 +132,7 @@ function animate(img, delta, last){
 
   //move left or right based on delta calculated above and reduce opacity
   img.animate({marginLeft: delta + "px",opacity: 0}, SWIPE_SPEED, "linear", function(){
+    // if (1 == false) {
     if (last == false) {
       //switch out old image and bring in new image
       //STUBBED FOR TESTING
@@ -146,8 +147,32 @@ function animate(img, delta, last){
       });
     } else {
       sessionStorage.setItem("scores", scores);
-      // $(location).attr("href", "last.html");
-      window.open("last.html");
+      build_grid();
     }
   });
+
+  function build_grid(){
+      $("#main-img").hide();
+      $("#grid").css({"opacity":1});
+        var scores = sessionStorage.getItem("scores").split(",");
+        var sum = 0;
+        for (var i = 0; i < scores.length; i++){
+            sum += parseInt(scores[i]);
+            if (i % 5 == 0) {
+                $("#grid").append( "<div class='row grid-row'></div>" );
+            }
+            if (scores[i] == 1) {
+                $(".grid-row:last").append( "<div class='col-xs-15 grid-img'><img class='img' src='assets/img/Grid"+ (i + 1) +".png'></div>" );
+            } else {
+                $(".grid-row:last").append( "<div class='col-xs-15 grid-img incorrect'><img class='img' src='assets/img/Grid"+ (i + 1) +".png'></div>" );
+            }
+        }
+        $(".img").load(function(){
+            $(".incorrect").addClass("cross");
+            $("#footer").height(total - header - img_text_row - $("#grid").height());
+        });
+        $("#grid").css({"color":"white"});
+        $("#grid-text").text(sum + "/25 answers correct!");
+  }
+
 }
