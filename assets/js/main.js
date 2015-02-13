@@ -146,7 +146,7 @@ function animate(img, delta, last){
       });
     } else {
       sessionStorage.setItem("scores", scores);
-      window.location.href = "last.html";
+      location.href = "last.html";
     }
   });
 }
