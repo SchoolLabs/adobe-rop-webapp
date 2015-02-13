@@ -4,6 +4,10 @@ var img_text_row = $("#img-text-row").height();
 var img_row = $("#img-row").height();
 var footer = $("#footer").height();
 
+if (screenfull.enabled) {
+    screenfull.request();
+}
+
 $( window ).resize(function(){
   $("#footer").height(total - header - img_text_row - img_row);
 });
