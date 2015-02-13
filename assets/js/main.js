@@ -19,9 +19,9 @@ $(function () {
     //     // screenfull.request(document.getElementById('container'));
     // });
 
-    // $("#continue").click(function(){
-    //     screenfull.request();
-    // });
+    $(".continue-container").on("swiperight", function(){
+        screenfull.request($('#main-container')[0]);
+    });
 
     // $('#exit').click(function () {
     //     screenfull.exit();
@@ -41,24 +41,23 @@ $(function () {
 
     // a little hack to be able to switch pages while in fullscreen.
     // we basically just creates a seamless iframe and navigate in that instead.
-    $('#main-container').on("swiperight", function () {
-        screenfull.request($('#main-container')[0]);
-        $('#main-container').children().css("display","none")
-        // We create an iframe and fill the window with it
-        var iframe = document.createElement('iframe')
-        iframe.setAttribute('id', 'external-iframe');
-        iframe.setAttribute('src', 'main.html');
-        iframe.setAttribute('frameborder', 'no');
-        iframe.style.position = 'absolute';
-        iframe.style.top = '0';
-        iframe.style.right = '0';
-        iframe.style.bottom = '0';
-        iframe.style.left = '0';
-        iframe.style.width = '100%';
-        iframe.style.height = '100%';
-        $('#main-container').prepend(iframe);
-        document.body.style.overflow = 'hidden';
-    });
+    // $(".continue-container").on("swiperight", function(){
+    //     $('#main-container').children().css("display","none")
+    //     // We create an iframe and fill the window with it
+    //     var iframe = document.createElement('iframe')
+    //     iframe.setAttribute('id', 'external-iframe');
+    //     iframe.setAttribute('src', 'main.html');
+    //     iframe.setAttribute('frameborder', 'no');
+    //     iframe.style.position = 'absolute';
+    //     iframe.style.top = '0';
+    //     iframe.style.right = '0';
+    //     iframe.style.bottom = '0';
+    //     iframe.style.left = '0';
+    //     iframe.style.width = '100%';
+    //     iframe.style.height = '100%';
+    //     $('#main-container').prepend(iframe);
+    //     document.body.style.overflow = 'hidden';
+    // })
 
     document.addEventListener(screenfull.raw.fullscreenchange, function () {
         var elem = screenfull.element;

@@ -33,6 +33,10 @@ html, body {
     margin: 0%;
 }
 
+#continue-row {
+    color: white;
+}
+
 #fullscreen-row {
     color: white;
 }
