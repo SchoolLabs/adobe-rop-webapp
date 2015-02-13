@@ -4,9 +4,83 @@ var img_text_row = $("#img-text-row").height();
 var img_row = $("#img-row").height();
 var footer = $("#footer").height();
 
-if (screenfull.enabled) {
-    screenfull.request();
-}
+
+
+$(function () {
+    $('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+    if (!screenfull.enabled) {
+        return false;
+    }
+
+    $('#main-img').click(function () {
+        screenfull.request($('#main-container')[0]);
+        // does not require jQuery, can be used like this too:
+        // screenfull.request(document.getElementById('container'));
+    });
+
+    // $("#continue").click(function(){
+    //     screenfull.request();
+    // });
+
+    // $('#exit').click(function () {
+    //     screenfull.exit();
+    // });
+
+    // $('#toggle').click(function () {
+    //     screenfull.toggle($('#container')[0]);
+    // });
+
+    // $('#request2').click(function () {
+    //     screenfull.request();
+    // });
+
+    // $('#demo-img').click(function () {
+    //     screenfull.toggle(this);
+    // });
+
+    // a little hack to be able to switch pages while in fullscreen.
+    // we basically just creates a seamless iframe and navigate in that instead.
+    $('#continue').click(function () {
+        $('#main-container').children().css("display","none");
+        // We create an iframe and fill the window with it
+        var iframe = document.createElement('iframe')
+        iframe.setAttribute('id', 'external-iframe');
+        iframe.setAttribute('src', 'main.html');
+        iframe.setAttribute('frameborder', 'no');
+        iframe.style.position = 'absolute';
+        iframe.style.top = '0';
+        iframe.style.right = '0';
+        iframe.style.bottom = '0';
+        iframe.style.left = '0';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        $('#main-container').prepend(iframe);
+        document.body.style.overflow = 'hidden';
+    })
+
+    document.addEventListener(screenfull.raw.fullscreenchange, function () {
+        var elem = screenfull.element;
+
+        $('#status').text('Is fullscreen: ' + screenfull.isFullscreen);
+
+        if (elem) {
+            $('#element').text('Element: ' + elem.localName + (elem.id ? '#' + elem.id : ''));
+        }
+
+        if (!screenfull.isFullscreen) {
+            $('#external-iframe').remove();
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    $(document).on(screenfull.raw.fullscreenchange, function screenfullChange() {
+        console.log('Fullscreen change');
+    });
+
+    // set the initial values
+    screenfullChange();
+});
 
 $( window ).resize(function(){
   $("#footer").height(total - header - img_text_row - img_row);

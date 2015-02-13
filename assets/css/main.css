@@ -33,6 +33,10 @@ html, body {
     margin: 0%;
 }
 
+#fullscreen-row {
+    color: white;
+}
+
 #img-text-row {
     width: 100%;
     height: 5%;
@@ -46,7 +50,7 @@ html, body {
 
 #real-or-fake {
     padding: 0% 20% 0% 20%;
-    background-color: green;
+    background-color: #474747;
 /*    background-color: yellow;*/
 }
 
