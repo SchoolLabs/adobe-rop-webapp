@@ -190,7 +190,7 @@ $("#grid").css({"background-color":"blue"});
       });
     } else {
 $("#grid").css({"background-color":"pink"});
-$("#gird-text").text(scores);
+$("#grid-text").text(scores);
       sessionStorage.setItem("scores", scores);
       build_grid();
       page = 3;
