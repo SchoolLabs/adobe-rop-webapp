@@ -77,6 +77,7 @@ function adjust_fluid(page){
         var adjust = total - header - img_text_row - img_row - grid - footer;
         $("img-row").css({"height":adjust});
     } else {
+       $("#grid").css({"height":"auto"});
 
     }
     $(window).resize();
@@ -165,8 +166,8 @@ function animate(img, delta, last){
 
   //move left or right based on delta calculated above and reduce opacity
   img.animate({marginLeft: delta + "px",opacity: 0}, SWIPE_SPEED, "linear", function(){
-    // if (1 == false) {
-    if (last == false) {
+    if (1 == false) {
+    // if (last == false) {
       //switch out old image and bring in new image
       //STUBBED FOR TESTING
       img.attr("src",preloaded_images[image_number-1].src).load(function(){
@@ -179,9 +180,10 @@ function animate(img, delta, last){
         });
       });
     } else {
-        page = 3;
       sessionStorage.setItem("scores", scores);
       build_grid();
+      page = 3;
+      adjust_fluid(page);
     }
   });
 
