@@ -1,7 +1,3 @@
-$( window ).resize(function(){
-  // $("#footer").height(total - header - img_text_row - img_row);
-});
-
 /* indicates whether image is real or fake */
 var IMAGES = [1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
@@ -76,7 +72,19 @@ function adjust_fluid(page){
         var adjust = total - header - img_text_row - img_row - grid - footer;
         $("img-row").css({"height":adjust});
     } else {
-       $("#grid").css({"height":"auto"});
+        $("#grid").css({"height":"auto"});
+        var condition = header + img_text_row + grid + footer;
+
+        while (condition > total) {
+            $(".grid-img img").css({
+                "height": (parseInt($(".grid-img img").css("height").replace("px", "")) - 1).toString() + "px",
+                "width": (parseInt($(".grid-img img").css("width").replace("px", "")) - 1).toString() + "px",
+            });
+            grid = $("#grid").outerHeight(true);
+            condition = header + img_text_row + grid + footer;
+        }
+        var adjust = total - header - img_text_row - grid - footer;
+        $("#grid").css({"height":adjust});
 
     }
     $(window).resize();
