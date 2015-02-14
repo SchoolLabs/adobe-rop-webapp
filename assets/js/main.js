@@ -139,7 +139,7 @@ function animate(img, delta, last){
     "assets/img/Grid7.jpg",
     "assets/img/Grid8.jpg",
     "assets/img/Grid9.jpg",
-    "assets/img/Grid10.jpg",
+    "assets/img/Grid10.jpg"
     );
   } else if (image_number == 6) {
     preload(
@@ -152,7 +152,7 @@ function animate(img, delta, last){
     "assets/img/Grid12.jpg",
     "assets/img/Grid13.jpg",
     "assets/img/Grid14.jpg",
-    "assets/img/Grid15.jpg",
+    "assets/img/Grid15.jpg"
     );
   } else if (image_number == 11) {
     preload(
@@ -165,7 +165,7 @@ function animate(img, delta, last){
     "assets/img/Grid17.jpg",
     "assets/img/Grid18.jpg",
     "assets/img/Grid19.jpg",
-    "assets/img/Grid20.jpg",
+    "assets/img/Grid20.jpg"
     );
   } else if (image_number == 16) {
     preload(
@@ -178,7 +178,7 @@ function animate(img, delta, last){
     "assets/img/Grid22.jpg",
     "assets/img/Grid23.jpg",
     "assets/img/Grid24.jpg",
-    "assets/img/Grid25.jpg",
+    "assets/img/Grid25.jpg"
     );
   }
 
