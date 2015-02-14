@@ -32,9 +32,6 @@ $("#prompt-row").on("swiperight", function(e) {
 })
 
 $("#main-img").on("swiperight", function(e) {
-    $("#grid").css({"opacity":1}); //debug
-    $("#grid").height("200px");
-    $("#grid").css({"background-color":"yellow"});
   delta = score_swipe(e);
   slide_transition($(this));
 })
@@ -46,7 +43,6 @@ $("#main-img").on("swipeleft", function(e) {
 $( document ).ready(function() {
     page = 1; //global
     adjust_fluid(page);
-    sessionStorage.setItem("scores", scores);
 });
 
 function adjust_fluid(page){
@@ -132,8 +128,6 @@ function animate(img, delta, last){
     highlight("fake", "red");
   }
 
-$("#grid").css({"background-color":"green"});
-
   if (image_number == 1) {
     preload(
     "assets/img/Swipe6.jpg",
@@ -169,12 +163,9 @@ $("#grid").css({"background-color":"green"});
   }
 
   image_number++;
-$("#grid").css({"background-color":"blue"});
 
   //move left or right based on delta calculated above and reduce opacity
   img.animate({marginLeft: delta + "px",opacity: 0}, SWIPE_SPEED, "linear", function(){
-
-    $("#grid").css({"background-color":"purple"});
     if (1 == false) {
     // if (last == false) {
       //switch out old image and bring in new image
@@ -189,9 +180,6 @@ $("#grid").css({"background-color":"blue"});
         });
       });
     } else {
-$("#grid").css({"background-color":"pink"});
-$("#grid-text").text(scores);
-      sessionStorage.setItem("scores", scores);
       build_grid();
       page = 3;
       adjust_fluid(page);
@@ -203,25 +191,24 @@ $("#grid-text").text(scores);
       $("#main-img").hide();
       $("#grid").css({"opacity":1});
       $("#grid").css({"background-color":"white"});
-        // var scores = sessionStorage.getItem("scores").split(",");
-        // var sum = 0;
-        // for (var i = 0; i < scores.length; i++){
-        //     sum += parseInt(scores[i]);
-        //     if (i % 5 == 0) {
-        //         $("#grid").append( "<div class='row grid-row'></div>" );
-        //     }
-        //     if (scores[i] == 1) {
-        //         $(".grid-row:last").append( "<div class='col-xs-15 grid-img'><img class='img' src='assets/img/Grid"+ (i + 1) +".png'></div>" );
-        //     } else {
-        //         $(".grid-row:last").append( "<div class='col-xs-15 grid-img incorrect'><img class='img' src='assets/img/Grid"+ (i + 1) +".png'></div>" );
-        //     }
-        // }
-        // $(".img").load(function(){
-        //     $(".incorrect").addClass("cross");
-        //     // $("#footer").height(total - header - img_text_row - $("#grid").height());
-        // });
-        // $("#grid").css({"color":"white"});
-        // $("#grid-text").text(sum + "/25 answers correct!");
+        var sum = 0;
+        for (var i = 0; i < scores.length; i++){
+            sum += parseInt(scores[i]);
+            if (i % 5 == 0) {
+                $("#grid").append( "<div class='row grid-row'></div>" );
+            }
+            if (scores[i] == 1) {
+                $(".grid-row:last").append( "<div class='col-xs-15 grid-img'><img class='img' src='assets/img/Grid"+ (i + 1) +".png'></div>" );
+            } else {
+                $(".grid-row:last").append( "<div class='col-xs-15 grid-img incorrect'><img class='img' src='assets/img/Grid"+ (i + 1) +".png'></div>" );
+            }
+        }
+        $(".img").load(function(){
+            $(".incorrect").addClass("cross");
+            // $("#footer").height(total - header - img_text_row - $("#grid").height());
+        });
+        $("#grid").css({"color":"white"});
+        $("#grid-text").text(sum + "/25 answers correct!");
   }
 
 }
