@@ -23,23 +23,22 @@ html, body {
 
 #header {
     margin-bottom: 0%;
-    background-color: #474747;
+/*    background-color: #474747;
     color: #474747; /* CHANGE */
-/*    background-color: salmon;*/
+    background-color: salmon;
     margin: 0%;
-    height: 0%;
+    height: 10%;
     width: 100%;
     padding: 0%;
-    margin: 0%;
 }
 
 .hidden {
     display: none;
+    height: 0%;
 }
 
 #prompt-row {
     color: white;
-    height: 70%;
 }
 
 #img-text-row {
@@ -62,6 +61,7 @@ html, body {
 
 #img-row {
     width: 100%;
+    height: 10%;
     padding: 0%;
     margin: 0%;
     background-color: #474747;
@@ -79,9 +79,9 @@ html, body {
 
 #footer {
     margin: 0%;
-    background-color: #474747;
+/*    background-color: #474747;
     color: #474747; /* CHANGE */
-/*    background-color: magenta;*/
+    background-color: teal;
     height: 10%;
     width: 100%;
 }
@@ -109,6 +109,7 @@ html, body {
 
 #grid {
     opacity: 0;
+    height: 0%;
 }
 
 .grid-img {

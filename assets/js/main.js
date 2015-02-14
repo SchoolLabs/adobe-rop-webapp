@@ -1,9 +1,3 @@
-var total = $(window).height();
-var header = $("#header").height();
-var img_text_row = $("#img-text-row").height();
-var img_row = $("#img-row").height();
-var footer = $("#footer").height();
-
 $( window ).resize(function(){
   // $("#footer").height(total - header - img_text_row - img_row);
 });
@@ -29,6 +23,8 @@ var scores = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 /* Event handlers. Call score_swipe to calculate delta and kickoff slide_transition */
 $("#prompt-row").on("swiperight", function(e) {
+    page = 2;
+    adjust_fluid(page);
     $("#real-or-fake").css({"opacity":1});
     $("#ps-logo").hide();
     $("#prompt-row").hide();
@@ -45,9 +41,31 @@ $("#main-img").on("swipeleft", function(e) {
 })
 
 $( document ).ready(function() {
-  sessionStorage.setItem("scores", scores);
-  // $("#footer").height(total - header - img_text_row - img_row);
+    page = 1; //global
+    adjust_fluid(page);
+    sessionStorage.setItem("scores", scores);
 });
+
+function adjust_fluid(page){
+    var total = $(window).outerHeight(true);
+    var header = $("#header").outerHeight(true);
+    var img_text_row = $("#img-text-row").outerHeight(true);
+    var img_row = $("#img-row").outerHeight(true);
+    var prompt_row = $("#prompt-row").outerHeight(true);
+    var prompt_row_margin = $("#prompt-row").outerHeight(true) - $("#prompt-row").height();
+    var grid = $("#grid").outerHeight(true);
+    var footer = $("#footer").outerHeight(true);
+    if (page == 1) {
+      $("#prompt-row").outerHeight(total - header - img_text_row - img_row - grid - footer - prompt_row_margin);
+    } else if (page == 2) {
+        console.log(page);
+        $("#img-text-row").css({"height":"auto"});
+        $("#img-row").css({"height":"auto"});
+    } else {
+
+    }
+    $(window).resize();
+}
 
 /* Calculate and return delta, which is the distance the image will move.
    This method also sets the session item "scores" each time the user swipes */
@@ -146,6 +164,7 @@ function animate(img, delta, last){
         });
       });
     } else {
+        page = 3;
       sessionStorage.setItem("scores", scores);
       build_grid();
     }
@@ -169,7 +188,7 @@ function animate(img, delta, last){
         }
         $(".img").load(function(){
             $(".incorrect").addClass("cross");
-            $("#footer").height(total - header - img_text_row - $("#grid").height());
+            // $("#footer").height(total - header - img_text_row - $("#grid").height());
         });
         $("#grid").css({"color":"white"});
         $("#grid-text").text(sum + "/25 answers correct!");
