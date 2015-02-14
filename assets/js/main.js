@@ -33,6 +33,7 @@ $("#prompt-row").on("swiperight", function(e) {
 
 $("#main-img").on("swiperight", function(e) {
     $("#grid").css({"opacity":1}); //debug
+    $("#grid").height("200px");
     $("#grid").css({"background-color":"yellow"});
   delta = score_swipe(e);
   slide_transition($(this));
