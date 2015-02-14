@@ -60,6 +60,7 @@ function adjust_fluid(page){
         img_row = $("#img-row").outerHeight(true);
         var condition = header + img_text_row + img_row + grid + footer;
         var margin = "1";
+        var adjusted = false;
         while (condition > total) {
             $("#main-img").css({
                 "margin-left": (parseInt($("#main-img").css("margin-left").replace("px", "")) + parseInt(margin)).toString() + "px",
@@ -68,6 +69,9 @@ function adjust_fluid(page){
             });
             img_row = $("#img-row").outerHeight(true);
             condition = header + img_text_row + img_row + grid + footer;
+            adjusted = true;
+        }
+        if (adjusted) {
             var adjust = total - header - img_text_row - grid - footer;
             $("img-row").css({"height":adjust});
         }
@@ -76,7 +80,7 @@ function adjust_fluid(page){
         $("#grid").css({"height":"auto"});
         grid = $("#grid").outerHeight(true);
         var condition = header + img_text_row + grid + footer;
-
+        var adjusted = false;
         while (condition > total) {
             $(".grid-img img").css({
                 "height": (parseInt($(".grid-img img").css("height").replace("px", "")) - 1).toString() + "px",
@@ -84,6 +88,9 @@ function adjust_fluid(page){
             });
             grid = $("#grid").outerHeight(true);
             condition = header + img_text_row + grid + footer;
+            adjusted = true;
+        }
+        if (adjusted) {
             var adjust = total - header - img_text_row - footer;
             $("#grid").css({"height":adjust});
         }
