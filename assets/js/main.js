@@ -23,12 +23,12 @@ var scores = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 /* Event handlers. Call score_swipe to calculate delta and kickoff slide_transition */
 $("#prompt-row").on("swiperight", function(e) {
-    page = 2;
-    adjust_fluid(page);
     $("#real-or-fake").css({"opacity":1});
     $("#ps-logo").hide();
     $("#prompt-row").hide();
     $("#main-img").show();
+    page = 2;
+    adjust_fluid(page);
 })
 
 $("#main-img").on("swiperight", function(e) {
@@ -61,6 +61,19 @@ function adjust_fluid(page){
         console.log(page);
         $("#img-text-row").css({"height":"auto"});
         $("#img-row").css({"height":"auto"});
+        img_text_row = $("#img-text-row").outerHeight(true);
+        img_row = $("#img-row").outerHeight(true);
+        var condition = header + img_text_row + img_row + grid + footer;
+        var margin = "1";
+        while (condition > total) {
+            $("#main-img").css({
+                "margin-left": (parseInt($("#main-img").css("margin-left").replace("px", "")) + parseInt(margin)).toString() + "px",
+                "margin-right": (parseInt($("#main-img").css("margin-right").replace("px", "")) + parseInt(margin)).toString() + "px",
+                "height": ($("#main-img").css("height").replace("px", "") - (2 * parseInt(margin))).toString() + "px"
+            });
+            img_row = $("#img-row").outerHeight(true);
+            condition = header + img_text_row + img_row + grid + footer;
+        }
     } else {
 
     }
