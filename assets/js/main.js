@@ -121,12 +121,15 @@ function highlight(id, color){
 
 /* Call highlight, move the swiped image, either show next image or final page */
 function animate(img, delta, last){
+    $("#grid").css({"background-color":"yellow"});
   var old_margin = img.css("marginLeft");
   if (IMAGES[image_number - 1] == 1) {
     highlight("real", "green");
   } else {
     highlight("fake", "red");
   }
+
+$("#grid").css({"background-color":"green"});
 
   if (image_number == 1) {
     preload(
@@ -163,9 +166,12 @@ function animate(img, delta, last){
   }
 
   image_number++;
+$("#grid").css({"background-color":"blue"});
 
   //move left or right based on delta calculated above and reduce opacity
   img.animate({marginLeft: delta + "px",opacity: 0}, SWIPE_SPEED, "linear", function(){
+
+    $("#grid").css({"background-color":"purple"});
     if (1 == false) {
     // if (last == false) {
       //switch out old image and bring in new image
@@ -180,6 +186,7 @@ function animate(img, delta, last){
         });
       });
     } else {
+$("#grid").css({"background-color":"pink"});
       sessionStorage.setItem("scores", scores);
       build_grid();
       page = 3;
@@ -188,6 +195,7 @@ function animate(img, delta, last){
   });
 
   function build_grid(){
+    $("#grid").css({"background-color":"orange"});
       $("#main-img").hide();
       $("#grid").css({"opacity":1});
       $("#grid").css({"background-color":"white"});
