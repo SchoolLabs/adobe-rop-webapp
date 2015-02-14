@@ -68,11 +68,13 @@ function adjust_fluid(page){
             });
             img_row = $("#img-row").outerHeight(true);
             condition = header + img_text_row + img_row + grid + footer;
+            var adjust = total - header - img_text_row - img_row - grid - footer;
+            $("img-row").css({"height":adjust});
         }
-        var adjust = total - header - img_text_row - img_row - grid - footer;
-        $("img-row").css({"height":adjust});
+
     } else {
         $("#grid").css({"height":"auto"});
+        grid = $("#grid").outerHeight(true);
         var condition = header + img_text_row + grid + footer;
 
         while (condition > total) {
@@ -82,10 +84,9 @@ function adjust_fluid(page){
             });
             grid = $("#grid").outerHeight(true);
             condition = header + img_text_row + grid + footer;
+            var adjust = total - header - img_text_row - grid - footer;
+            $("#grid").css({"height":adjust});
         }
-        var adjust = total - header - img_text_row - grid - footer;
-        $("#grid").css({"height":adjust});
-
     }
     $(window).resize();
 }
@@ -208,9 +209,7 @@ function animate(img, delta, last){
         });
       });
     } else {
-      build_grid();
-      page = 3;
-      adjust_fluid(page);
+        build_grid();
     }
   });
 
@@ -231,12 +230,13 @@ function animate(img, delta, last){
                 $(".grid-row:last").append( "<div class='col-xs-15 grid-img incorrect'><img class='img' src='assets/img/Grid"+ (i + 1) +".png'></div>" );
             }
         }
-        $(".img").load(function(){
-            $(".incorrect").addClass("cross");
-            // $("#footer").height(total - header - img_text_row - $("#grid").height());
+        imagesLoaded("#grid", function(){
+          $(".incorrect").addClass("cross");
+          page = 3;
+          adjust_fluid(page);
         });
-        $("#grid").css({"color":"white"});
-        $("#grid-text").text(sum + "/25 answers correct!");
+
+         // $("#grid-text").text(sum + "/25 answers correct!");
   }
 
 }
