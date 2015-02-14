@@ -134,15 +134,25 @@ function animate(img, delta, last){
     "assets/img/Swipe7.jpg",
     "assets/img/Swipe8.jpg",
     "assets/img/Swipe9.jpg",
-    "assets/img/Swipe10.jpg"
-    )
+    "assets/img/Swipe10.jpg",
+    "assets/img/Grid6.jpg",
+    "assets/img/Grid7.jpg",
+    "assets/img/Grid8.jpg",
+    "assets/img/Grid9.jpg",
+    "assets/img/Grid10.jpg",
+    );
   } else if (image_number == 6) {
     preload(
     "assets/img/Swipe11.jpg",
     "assets/img/Swipe12.jpg",
     "assets/img/Swipe13.jpg",
     "assets/img/Swipe14.jpg",
-    "assets/img/Swipe15.jpg"
+    "assets/img/Swipe15.jpg",
+    "assets/img/Grid11.jpg",
+    "assets/img/Grid12.jpg",
+    "assets/img/Grid13.jpg",
+    "assets/img/Grid14.jpg",
+    "assets/img/Grid15.jpg",
     );
   } else if (image_number == 11) {
     preload(
@@ -150,7 +160,12 @@ function animate(img, delta, last){
     "assets/img/Swipe17.jpg",
     "assets/img/Swipe18.jpg",
     "assets/img/Swipe19.jpg",
-    "assets/img/Swipe20.jpg"
+    "assets/img/Swipe20.jpg",
+    "assets/img/Grid16.jpg",
+    "assets/img/Grid17.jpg",
+    "assets/img/Grid18.jpg",
+    "assets/img/Grid19.jpg",
+    "assets/img/Grid20.jpg",
     );
   } else if (image_number == 16) {
     preload(
@@ -158,7 +173,12 @@ function animate(img, delta, last){
     "assets/img/Swipe22.jpg",
     "assets/img/Swipe23.jpg",
     "assets/img/Swipe24.jpg",
-    "assets/img/Swipe25.jpg"
+    "assets/img/Swipe25.jpg",
+    "assets/img/Grid21.jpg",
+    "assets/img/Grid22.jpg",
+    "assets/img/Grid23.jpg",
+    "assets/img/Grid24.jpg",
+    "assets/img/Grid25.jpg",
     );
   }
 
