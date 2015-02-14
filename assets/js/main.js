@@ -68,7 +68,7 @@ function adjust_fluid(page){
             });
             img_row = $("#img-row").outerHeight(true);
             condition = header + img_text_row + img_row + grid + footer;
-            var adjust = total - header - img_text_row - img_row - grid - footer;
+            var adjust = total - header - img_text_row - grid - footer;
             $("img-row").css({"height":adjust});
         }
 
@@ -84,7 +84,7 @@ function adjust_fluid(page){
             });
             grid = $("#grid").outerHeight(true);
             condition = header + img_text_row + grid + footer;
-            var adjust = total - header - img_text_row - grid - footer;
+            var adjust = total - header - img_text_row - footer;
             $("#grid").css({"height":adjust});
         }
     }
