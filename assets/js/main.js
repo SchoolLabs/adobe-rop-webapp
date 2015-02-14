@@ -121,6 +121,7 @@ function highlight(id, color){
 
 /* Call highlight, move the swiped image, either show next image or final page */
 function animate(img, delta, last){
+    $("#grid").css({"opacity":1}); //debug
     $("#grid").css({"background-color":"yellow"});
   var old_margin = img.css("marginLeft");
   if (IMAGES[image_number - 1] == 1) {
