@@ -23,6 +23,10 @@ $("#prompt-row").on("swiperight", function(e) {
     $("#ps-logo").hide();
     $("#prompt-row").hide();
     $("#main-img").show();
+    $("#upper-left-adobe").show();
+    $("#upper-right-ps-logo").show();
+    $("#terms").show();
+    $("#bottom-right-adobe").show();
     page = 2;
     adjust_fluid(page);
 })
@@ -53,7 +57,6 @@ function adjust_fluid(page){
     if (page == 1) {
       $("#prompt-row").outerHeight(total - header - img_text_row - img_row - grid - footer - prompt_row_margin);
     } else if (page == 2) {
-        console.log(page);
         $("#img-text-row").css({"height":"auto"});
         $("#img-row").css({"height":"auto"});
         img_text_row = $("#img-text-row").outerHeight(true);
@@ -74,6 +77,13 @@ function adjust_fluid(page){
         if (adjusted) {
             var adjust = total - header - img_text_row - grid - footer;
             $("img-row").css({"height":adjust});
+        }
+        //for taller or longer phones like iPhone 5 & 6
+        while (header + img_text_row + img_row + grid + footer < total) {
+            $("#img-text-row").css({
+                "margin-top": (parseInt($("#img-text-row").css("margin-top").replace("px", "")) + 1).toString() + "px"
+            });
+            img_text_row = $("#img-text-row").outerHeight(true);
         }
 
     } else {
@@ -150,12 +160,14 @@ function animate(img, delta, last){
     "assets/img/Swipe7.jpg",
     "assets/img/Swipe8.jpg",
     "assets/img/Swipe9.jpg",
-    "assets/img/Swipe10.jpg",
-    "assets/img/Grid6.jpg",
-    "assets/img/Grid7.jpg",
-    "assets/img/Grid8.jpg",
-    "assets/img/Grid9.jpg",
-    "assets/img/Grid10.jpg"
+    "assets/img/Swipe10.jpg"
+    );
+    preload_grid(
+    "assets/img/Grid6.png",
+    "assets/img/Grid7.png",
+    "assets/img/Grid8.png",
+    "assets/img/Grid9.png",
+    "assets/img/Grid10.png"
     );
   } else if (image_number == 6) {
     preload(
@@ -163,12 +175,14 @@ function animate(img, delta, last){
     "assets/img/Swipe12.jpg",
     "assets/img/Swipe13.jpg",
     "assets/img/Swipe14.jpg",
-    "assets/img/Swipe15.jpg",
-    "assets/img/Grid11.jpg",
-    "assets/img/Grid12.jpg",
-    "assets/img/Grid13.jpg",
-    "assets/img/Grid14.jpg",
-    "assets/img/Grid15.jpg"
+    "assets/img/Swipe15.jpg"
+    );
+    preload_grid(
+    "assets/img/Grid11.png",
+    "assets/img/Grid12.png",
+    "assets/img/Grid13.png",
+    "assets/img/Grid14.png",
+    "assets/img/Grid15.png"
     );
   } else if (image_number == 11) {
     preload(
@@ -176,12 +190,14 @@ function animate(img, delta, last){
     "assets/img/Swipe17.jpg",
     "assets/img/Swipe18.jpg",
     "assets/img/Swipe19.jpg",
-    "assets/img/Swipe20.jpg",
-    "assets/img/Grid16.jpg",
-    "assets/img/Grid17.jpg",
-    "assets/img/Grid18.jpg",
-    "assets/img/Grid19.jpg",
-    "assets/img/Grid20.jpg"
+    "assets/img/Swipe20.jpg"
+    );
+    preload_grid(
+    "assets/img/Grid16.png",
+    "assets/img/Grid17.png",
+    "assets/img/Grid18.png",
+    "assets/img/Grid19.png",
+    "assets/img/Grid20.png"
     );
   } else if (image_number == 16) {
     preload(
@@ -189,12 +205,14 @@ function animate(img, delta, last){
     "assets/img/Swipe22.jpg",
     "assets/img/Swipe23.jpg",
     "assets/img/Swipe24.jpg",
-    "assets/img/Swipe25.jpg",
-    "assets/img/Grid21.jpg",
-    "assets/img/Grid22.jpg",
-    "assets/img/Grid23.jpg",
-    "assets/img/Grid24.jpg",
-    "assets/img/Grid25.jpg"
+    "assets/img/Swipe25.jpg"
+    );
+    preload_grid(
+    "assets/img/Grid21.png",
+    "assets/img/Grid22.png",
+    "assets/img/Grid23.png",
+    "assets/img/Grid24.png",
+    "assets/img/Grid25.png"
     );
   }
 
@@ -202,8 +220,8 @@ function animate(img, delta, last){
 
   //move left or right based on delta calculated above and reduce opacity
   img.animate({marginLeft: delta + "px",opacity: 0}, SWIPE_SPEED, "linear", function(){
-    if (1 == false) {
-    // if (last == false) {
+    // if (1 == false) {
+    if (last == false) {
       //switch out old image and bring in new image
       //STUBBED FOR TESTING
       img.attr("src",preloaded_images[image_number-1].src).load(function(){
@@ -221,15 +239,13 @@ function animate(img, delta, last){
   });
 
   function build_grid(){
-    $("#grid").css({"background-color":"orange"});
-      $("#main-img").hide();
-      $("#grid").css({"opacity":1});
-      $("#grid").css({"background-color":"white"});
+        $("#main-img").hide();
+        $("#grid").css({"opacity":1});
         var sum = 0;
         for (var i = 0; i < scores.length; i++){
             sum += parseInt(scores[i]);
             if (i % 5 == 0) {
-                $("#grid").append( "<div class='row grid-row'></div>" );
+                $("<div class='row grid-row'></div>").insertBefore( $("#grid #grid-text"));
             }
             if (scores[i] == 1) {
                 $(".grid-row:last").append( "<div class='col-xs-15 grid-img'><img class='img' src='assets/img/Grid"+ (i + 1) +".png'></div>" );
@@ -242,8 +258,7 @@ function animate(img, delta, last){
           page = 3;
           adjust_fluid(page);
         });
-
-         // $("#grid-text").text(sum + "/25 answers correct!");
+        $("#grid-text").text(sum + "/25 answers correct!");
   }
 
 }

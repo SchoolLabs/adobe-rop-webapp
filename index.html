@@ -22,8 +22,9 @@
     <script src="assets/js/vendor/imagesloaded.pkgd.min.js"></script>
     <div class="container" id="main-container">
       <div class="row" id="header">
-        <div class="col-xs-12">
-        SSS
+        <div class="col-xs-12" id="header-col">
+            <img class="img" id="upper-left-adobe" src="assets/img/Adobe_creatingmagic.png">
+            <img class="img" id="upper-right-ps-logo" src="assets/img/PS-Logo.png">
         </div>
       </div>
       <div class="row" id="img-text-row">
@@ -43,10 +44,12 @@
         </div>
       </div>
       <div class="container" id="grid">
+        <div id="grid-text"></div>
       </div>
       <div class="row" id="footer">
-        <div class="col-xs-12">
-          FOOTER
+        <div class="col-xs-12" id="footer-col">
+            <a href="http://www.google.com" id="terms">Terms</a>
+            <img class="img" id="bottom-right-adobe" src="assets/img/adobe_logo.png">
         </div>
       </div>
     </div>
@@ -82,18 +85,30 @@
                         $("#prompt-col").spin(false);
                     });
                 }
+                var preloaded_grid_images = new Array();
+                function preload_grid() {
+                    for (i = 0; i < preload_grid.arguments.length; i++) {
+                        preloaded_grid_images.push(new Image());
+                        preloaded_grid_images[preloaded_grid_images.length - 1].src = preload_grid.arguments[i];
+                    }
+                    $(window).load(function(){
+                        $("#prompt-col").spin(false);
+                    });
+                }
                 preload(
                     "assets/img/Swipe1.jpg",
                     "assets/img/Swipe2.jpg",
                     "assets/img/Swipe3.jpg",
                     "assets/img/Swipe4.jpg",
-                    "assets/img/Swipe5.jpg",
-                    "assets/img/Grid1.jpg",
-                    "assets/img/Grid2.jpg",
-                    "assets/img/Grid3.jpg",
-                    "assets/img/Grid4.jpg",
-                    "assets/img/Grid5.jpg"
-                )
+                    "assets/img/Swipe5.jpg"
+                );
+                preload_grid(
+                    "assets/img/Grid1.png",
+                    "assets/img/Grid2.png",
+                    "assets/img/Grid3.png",
+                    "assets/img/Grid4.png",
+                    "assets/img/Grid5.png"
+                );
             //--><!]]>
         </script>
     </div>

@@ -23,13 +23,14 @@ html, body {
 
 #header {
     margin-bottom: 0%;
-/*    background-color: #474747;
-    color: #474747; /* CHANGE */
-    background-color: salmon;
+    background-color: #474747;
+/*    color: #474747; /* CHANGE */
+/*    background-color: salmon;*/
     margin: 0%;
     height: 10%;
     width: 100%;
     padding: 0%;
+    padding-top: 2%;
 }
 
 .hidden {
@@ -39,6 +40,24 @@ html, body {
 
 #prompt-row {
     color: white;
+}
+
+#header-col {
+    height:100%;
+}
+
+#upper-left-adobe {
+    height: 80%;
+    width: auto;
+    float: left;
+    display: none;
+}
+
+#upper-right-ps-logo {
+    height: 80%;
+    width: auto;
+    float: right;
+    display: none;
 }
 
 #img-text-row {
@@ -79,11 +98,32 @@ html, body {
 
 #footer {
     margin: 0%;
-/*    background-color: #474747;
-    color: #474747; /* CHANGE */
-    background-color: teal;
+    background-color: #474747;
+/*    color: #474747; /* CHANGE */
+/*    background-color: teal;*/
     height: 10%;
     width: 100%;
+}
+
+#footer-col {
+    height: 100%;
+}
+
+#terms {
+    float: left;
+    color: white;
+    margin-top: 4%;
+    display: none;
+}
+
+#bottom-right-adobe {
+    height: 80%;
+    width: auto;
+    float: right;
+    position: absolute;
+    bottom: 0%;
+    right: 4%;
+    display: none;
 }
 
 #final {
@@ -115,6 +155,10 @@ html, body {
 .grid-img {
     padding-right: 5px;
     padding-left: 5px;
+}
+
+#grid-text {
+    color: white;
 }
 
 .col-xs-15 {
@@ -149,7 +193,7 @@ html, body {
 }
 
 @media(min-width:768px){
-    #img-text-row {
+/*    #img-text-row {
         width: 100%;
         padding: 0% 20% 0% 20%;
     }
@@ -159,7 +203,7 @@ html, body {
         padding-right: 30%;
         width: 100%;
         margin-bottom: 0%;
-    }
+    }*/
 }
 
 @media (orientation: landscape) and (max-width:768px) {
