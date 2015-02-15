@@ -27,6 +27,7 @@ $("#prompt-row").on("swiperight", function(e) {
     $("#upper-right-ps-logo").show();
     $("#terms").show();
     $("#bottom-right-adobe").show();
+    $("#img-text-row").css("background-image", "url(assets/img/REALor_fake.png)");
     page = 2;
     adjust_fluid(page);
 })
@@ -216,23 +217,29 @@ function animate(img, delta, last){
     );
   }
 
+  var real = IMAGES[image_number - 1];
   image_number++;
 
   //move left or right based on delta calculated above and reduce opacity
   img.animate({marginLeft: delta + "px",opacity: 0}, SWIPE_SPEED, "linear", function(){
     // if (1 == false) {
     if (last == false) {
-      //switch out old image and bring in new image
-      //STUBBED FOR TESTING
-      img.attr("src",preloaded_images[image_number-1].src).load(function(){
-      // img.attr("src",preloaded_images[image_number-1].src).load(function(){
-      // img.attr("src","assets/img/finalcorn" + image_number +".png").load(function(){
-        //restore prior margin and opacity
-        img.css({
-          "margin-left": old_margin,
-          opacity: 1,
-        });
-      });
+        if (real){
+            $("#img-text-row").css("background-image", "url(assets/img/REALor_fake.png)");
+        } else {
+            $("#img-text-row").css("background-image", "url(assets/img/real_orFAKE.png)");
+        }
+        $("#real-or-fake").animate({opacity: 0},500,"linear", function() {
+                $(this).animate({opacity: 1}, 500, "linear");
+            }
+        );
+        img.attr("src",preloaded_images[image_number-1].src).load(function(){
+            //restore prior margin and opacity
+            img.css({
+              "margin-left": old_margin,
+              opacity: 1,
+            });
+          });
     } else {
         build_grid();
     }
