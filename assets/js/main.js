@@ -146,11 +146,11 @@ function adjust_fluid(page){
                 img_row = $("#img-row").outerHeight(true);
             }
         });
-
+        $("#img-row").css({"height":"auto"});
     } else if (page == 3) {
         $("#twenty-five-wrapper").hide();
         $("#main-img").show();
-        $("#img-row").css({"height":"auto"});
+
         img_text_row = $("#img-text-row").outerHeight(true);
         img_row = $("#img-row").outerHeight(true);
         grid = $("#grid").outerHeight(true);
