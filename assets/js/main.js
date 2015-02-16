@@ -329,8 +329,8 @@ function animate(img, delta, last){
 
   //move left or right based on delta calculated above and reduce opacity
   img.animate({marginLeft: delta + "px",opacity: 0}, SWIPE_SPEED, "linear", function(){
-    if (1 == false) {
-    // if (last == false) {
+    // if (1 == false) {
+    if (last == false) {
         if (real){
             $("#img-text-row").css("background-image", "url(assets/img/REALor_fake.png)");
         } else {
