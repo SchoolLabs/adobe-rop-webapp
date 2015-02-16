@@ -67,7 +67,7 @@ html, body {
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: pink;
+    background-color: #474747;
 }
 
 #img-text-col {
@@ -87,8 +87,8 @@ html, body {
     height: auto;
     padding: 0%;
     margin: 0%;
-/*    background-color: #474747;*/
-    background-color: blue;
+    background-color: #474747;
+/*    background-color: blue;*/
 }
 
 #img-col {
@@ -106,7 +106,7 @@ html, body {
     display: none;
     height: 100%;
     overflow: auto;
-    background-color: red;
+    background-color: #474747;
 }
 
 #twenty-five-text {
