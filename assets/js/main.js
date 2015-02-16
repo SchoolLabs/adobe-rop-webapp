@@ -148,7 +148,7 @@ function adjust_fluid(page){
         $("#img-row").css({"height":"auto"});
     } else if (page == 3) {
         img_text_row = $("#img-text-row").outerHeight(true);
-        $("#img-row").css({"margin-top":0});
+        $("#img-row").css({"margin-top":0, "margin-bottom":0});
         var img_row_margin = $("#img-row").outerHeight(true) - $("#img-row").height();
         img_row = $("#img-row").outerHeight(true);
         grid = $("#grid").outerHeight(true);
