@@ -86,8 +86,8 @@ html, body {
     height: auto;
     padding: 0%;
     margin: 0%;
-    background-color: #474747;
-/*    background-color: blue;*/
+/*    background-color: #474747;*/
+    background-color: blue;
 }
 
 #img-col {
