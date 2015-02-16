@@ -121,6 +121,10 @@ function adjust_fluid(page){
         $("#twenty-five-text").text("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate.");
         $("#twenty-five-wrapper").append("<img id='begin' src='assets/img/SwipetoBegin.png'>");
         imagesLoaded("#begin", function(){
+            img_text_row = $("#img-text-row").outerHeight(true);
+            img_row = $("#img-row").outerHeight(true);
+            grid = $("#grid").outerHeight(true);
+            footer = $("#footer").outerHeight(true);
             var adjusted = false;
             var condition = header + img_text_row + img_row + grid + footer;
             while (condition > total) {
