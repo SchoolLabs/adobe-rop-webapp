@@ -135,6 +135,7 @@ function adjust_fluid(page){
             if (condition > total) {
                 $("#twenty-five-text").hide();
                 $("#twenty-five-img").hide();
+                $("#img-row").css({"margin-top":0});
             }
             // for taller or longer phones like iPhone 5 & 6
             img_row = $("#img-row").outerHeight(true);
