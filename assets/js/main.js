@@ -129,7 +129,7 @@ function adjust_fluid(page){
             var condition = header + img_text_row + img_row + grid + footer;
             while (condition > total) {
                 $("#begin").css({
-                    "height": ($("#begin").css("height").replace("px", "") - 2).toString() + "px"
+                    "height": ($("#begin").css("height").replace("px", "") - 2).toString() + "px",
                     "margin-left": (parseInt($("#begin").css("margin-left").replace("px", "")) + 1).toString() + "px",
                     "margin-right": (parseInt($("#begin").css("margin-right").replace("px", "")) + 1).toString() + "px",
                 });
