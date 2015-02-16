@@ -149,12 +149,15 @@ function adjust_fluid(page){
         $("#img-row").css({"height":"auto"});
 
     } else if (page == 3) {
+        $("#twenty-five-wrapper").hide();
+        $("#main-img").show();
+        img_text_row = $("#img-text-row").outerHeight(true);
+        img_row = $("#img-row").outerHeight(true);
+        grid = $("#grid").outerHeight(true);
+        footer = $("#footer").outerHeight(true);
         var condition = header + img_text_row + img_row + grid + footer;
         var margin = "1";
         var adjusted = false;
-        $("#twenty-five-wrapper").hide();
-        $("#main-img").show();
-        $("#img-row").css({"height":"auto"});
         while (condition > total) {
             $("#main-img").css({
                 "margin-left": (parseInt($("#main-img").css("margin-left").replace("px", "")) + parseInt(margin)).toString() + "px",
