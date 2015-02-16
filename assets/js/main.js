@@ -136,15 +136,17 @@ function adjust_fluid(page){
                 $("#twenty-five-text").hide();
                 $("#twenty-five-img").hide();
                 $("#img-row").css({"margin-top":0});
+            } else {
+                img_row = $("#img-row").outerHeight(true);
+                while (header + img_text_row + img_row + grid + footer < total) {
+                    $("#img-row").css({
+                        "margin-top": (parseInt($("#img-row").css("margin-top").replace("px", "")) + 1).toString() + "px"
+                    });
+                    img_row = $("#img-row").outerHeight(true);
+                }
             }
             // for taller or longer phones like iPhone 5 & 6
-            img_row = $("#img-row").outerHeight(true);
-            while (header + img_text_row + img_row + grid + footer < total) {
-                $("#img-row").css({
-                    "margin-top": (parseInt($("#img-row").css("margin-top").replace("px", "")) + 1).toString() + "px"
-                });
-                img_row = $("#img-row").outerHeight(true);
-            }
+
         });
         $("#img-row").css({"height":"auto"});
     } else if (page == 3) {
