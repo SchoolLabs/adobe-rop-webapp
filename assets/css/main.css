@@ -138,28 +138,29 @@ html, body {
 
 #above-footer-row {
     margin: 0;
-    height: 5%;
+    height: 10%;
     background-color: #474747;
 }
 
 #above-footer-col {
     height: 100%;
+    width: 100%;
 }
 
 #left-for-fake {
     float: left;
     color: white;
-    margin-top: 4%;
-    height: 50%;
-    width: auto;
+    margin-top: 2%;
+    max-height: 100%;
+    max-width: 45%;
 }
 
 #right-for-real {
     float: right;
     color: white;
-    margin-top: 4%;
-    height: 50%;
-    width: auto;
+    margin-top: 2%;
+    max-height: 100%;
+    max-width: 45%;
 }
 
 #brag-about-it {

@@ -169,6 +169,12 @@ function adjust_fluid(page){
                 "margin-right": (parseInt($("#main-img").css("margin-right").replace("px", "")) + parseInt(margin)).toString() + "px",
                 "height": ($("#main-img").css("height").replace("px", "") - (2 * parseInt(margin))).toString() + "px"
             });
+            $("#right-for-real").css({
+                "margin-right": (parseInt($("#right-for-real").css("margin-right").replace("px", "")) + parseInt(margin)).toString() + "px",
+            });
+            $("#left-for-fake").css({
+                "margin-left": (parseInt($("#left-for-fake").css("margin-left").replace("px", "")) + parseInt(margin)).toString() + "px",
+            });
             img_row = $("#img-row").outerHeight(true);
             condition = header + img_text_row + img_row + grid + above_footer + footer;
             adjusted = true;
