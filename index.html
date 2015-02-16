@@ -40,7 +40,7 @@
       </div>
       <div class="row" id="prompt-row">
         <div class="col-xs-12" id="prompt-col">
-            SWIPE TO BEGIN
+            25 Years!
         </div>
       </div>
       <div class="container" id="grid">
@@ -52,70 +52,6 @@
             <img class="img" id="bottom-right-adobe" src="assets/img/adobe_logo.png">
         </div>
       </div>
-    </div>
-    <div class="hidden">
-        <script type="text/javascript">
-            <!--//--><![CDATA[//><!--
-                var opts = {
-                  lines: 13, // The number of lines to draw
-                  length: 20, // The length of each line
-                  width: 10, // The line thickness
-                  radius: 30, // The radius of the inner circle
-                  corners: 1, // Corner roundness (0..1)
-                  rotate: 0, // The rotation offset
-                  direction: 1, // 1: clockwise, -1: counterclockwise
-                  color: '#000', // #rgb or #rrggbb or array of colors
-                  speed: 1, // Rounds per second
-                  trail: 60, // Afterglow percentage
-                  shadow: false, // Whether to render a shadow
-                  hwaccel: false, // Whether to use hardware acceleration
-                  className: 'spinner', // The CSS class to assign to the spinner
-                  zIndex: 2e9, // The z-index (defaults to 2000000000)
-                  top: '50%', // Top position relative to parent
-                  left: '50%' // Left position relative to parent
-                };
-                var preloaded_images = new Array();
-                function preload() {
-                    $("#prompt-col").spin();
-                    for (i = 0; i < preload.arguments.length; i++) {
-                        preloaded_images.push(new Image());
-                        preloaded_images[preloaded_images.length - 1].src = preload.arguments[i];
-                    }
-                    $(window).load(function(){
-                        $("#prompt-col").spin(false);
-                    });
-                }
-                var preloaded_grid_images = new Array();
-                function preload_grid() {
-                    for (i = 0; i < preload_grid.arguments.length; i++) {
-                        preloaded_grid_images.push(new Image());
-                        preloaded_grid_images[preloaded_grid_images.length - 1].src = preload_grid.arguments[i];
-                    }
-                    $(window).load(function(){
-                        $("#prompt-col").spin(false);
-                    });
-                }
-                preload(
-                    "assets/img/Swipe1.jpg",
-                    "assets/img/Swipe2.jpg",
-                    "assets/img/Swipe3.jpg",
-                    "assets/img/Swipe4.jpg",
-                    "assets/img/Swipe5.jpg"
-                );
-                preload_grid(
-                    "assets/img/Grid1.png",
-                    "assets/img/Grid2.png",
-                    "assets/img/Grid3.png",
-                    "assets/img/Grid4.png",
-                    "assets/img/Grid5.png"
-                );
-                var preloaded_background_images = new Array();
-                preloaded_background_images.push(new Image());
-                preloaded_grid_images[preloaded_grid_images.length - 1].src = "assets/img/real_orFAKE.png";
-                preloaded_background_images.push(new Image());
-                preloaded_grid_images[preloaded_grid_images.length - 1].src = "assets/img/REALor_fake.png";
-            //--><!]]>
-        </script>
     </div>
     <script src="assets/js/main.js"></script>
 </body>

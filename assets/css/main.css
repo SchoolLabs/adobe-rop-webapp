@@ -39,6 +39,7 @@ html, body {
 
 #prompt-row {
     color: white;
+    padding: 10%;
 }
 
 #header-col {
@@ -82,7 +83,7 @@ html, body {
 
 #img-row {
     width: 100%;
-    height: 10%;
+    height: auto;
     padding: 0%;
     margin: 0%;
     background-color: #474747;
@@ -92,12 +93,43 @@ html, body {
 #img-col {
     padding: 0%;
     margin: 0%;
+    height: auto;
 }
 
 #main-img {
     display: none;
 }
 
+#twenty-five-wrapper {
+    margin: 10%;
+    display: none;
+    height: 100%;
+    overflow: auto;
+}
+
+#twenty-five-text {
+    color: white;
+    text-align: left;
+}
+
+#twenty-five-img {
+    display: block;
+    float: left;
+    width: 30%;
+    height: auto;
+    border-color: white;
+    border-width: 1px;
+    border-style: solid;
+    margin: 0% 2% 2% 0%;
+}
+
+#twenty-five-img img {
+    margin: 2px;
+}
+
+#begin {
+    padding-top: 20%;
+}
 #footer {
     margin: 0%;
     background-color: #474747;

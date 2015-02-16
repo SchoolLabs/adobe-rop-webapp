@@ -1,3 +1,75 @@
+/* preload spinner and splashscreen */
+var opts = {
+  lines: 13, // The number of lines to draw
+  length: 20, // The length of each line
+  width: 10, // The line thickness
+  radius: 30, // The radius of the inner circle
+  corners: 1, // Corner roundness (0..1)
+  rotate: 0, // The rotation offset
+  direction: 1, // 1: clockwise, -1: counterclockwise
+  color: '#000', // #rgb or #rrggbb or array of colors
+  speed: 1, // Rounds per second
+  trail: 60, // Afterglow percentage
+  shadow: false, // Whether to render a shadow
+  hwaccel: false, // Whether to use hardware acceleration
+  className: 'spinner', // The CSS class to assign to the spinner
+  zIndex: 2e9, // The z-index (defaults to 2000000000)
+  top: '50%', // Top position relative to parent
+  left: '50%' // Left position relative to parent
+};
+$("#prompt-col").append("<div id='spin'></div>");
+$("#spin").css({"padding-top":"50%"});
+var preloaded_images = new Array();
+function preload() {
+    $("#spin").spin();
+    for (i = 0; i < preload.arguments.length; i++) {
+        preloaded_images.push(new Image());
+        preloaded_images[preloaded_images.length - 1].src = preload.arguments[i];
+    }
+}
+var preloaded_grid_images = new Array();
+function preload_grid() {
+    for (i = 0; i < preload_grid.arguments.length; i++) {
+        preloaded_grid_images.push(new Image());
+        preloaded_grid_images[preloaded_grid_images.length - 1].src = preload_grid.arguments[i];
+    }
+    $(window).load(function(){
+        $("#spin").spin(false);
+        splash_screen_transition();
+    });
+}
+preload(
+    "assets/img/Swipe1.jpg",
+    "assets/img/Swipe2.jpg",
+    "assets/img/Swipe3.jpg",
+    "assets/img/Swipe4.jpg",
+    "assets/img/Swipe5.jpg"
+);
+preload_grid(
+    "assets/img/Grid1.png",
+    "assets/img/Grid2.png",
+    "assets/img/Grid3.png",
+    "assets/img/Grid4.png",
+    "assets/img/Grid5.png"
+);
+var preloaded_background_images = new Array();
+preloaded_background_images.push(new Image());
+preloaded_grid_images[preloaded_grid_images.length - 1].src = "assets/img/real_orFAKE.png";
+preloaded_background_images.push(new Image());
+preloaded_grid_images[preloaded_grid_images.length - 1].src = "assets/img/REALor_fake.png";
+
+/* Event handlers. Call score_swipe to calculate delta and kickoff slide_transition */
+function splash_screen_transition(e) {
+    page = 2;
+    adjust_fluid(page);
+}
+
+$("#img-row").on("swipeleft swiperight", function(e) {
+    console.log("Swipe");
+    page = 3;
+    adjust_fluid(page);
+});
+
 /* indicates whether image is real or fake */
 var IMAGES = [1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
@@ -10,33 +82,7 @@ var correct_number = 0;
 var image_number = 1;
 var scores = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
-// $("#ps-logo").swipe( {
-//     tap:function(event, target) {
-//         // window.location.href = "main.html";
-//         window.screenfull.request();
-//     }
-// });
-
-/* Event handlers. Call score_swipe to calculate delta and kickoff slide_transition */
-$("#prompt-row").on("swiperight", function(e) {
-    $("#real-or-fake").css({"opacity":1});
-    $("#ps-logo").hide();
-    $("#prompt-row").hide();
-    $("#main-img").show();
-    $("#upper-left-adobe").show();
-    $("#upper-right-ps-logo").show();
-    $("#terms").show();
-    $("#bottom-right-adobe").show();
-    $("#img-text-row").css("background-image", "url(assets/img/REALor_fake.png)");
-    page = 2;
-    adjust_fluid(page);
-})
-
-$("#main-img").on("swiperight", function(e) {
-  delta = score_swipe(e);
-  slide_transition($(this));
-})
-$("#main-img").on("swipeleft", function(e) {
+$("#main-img").on("swipeleft swiperight", function(e) {
   delta = score_swipe(e);
   slide_transition($(this));
 })
@@ -56,15 +102,46 @@ function adjust_fluid(page){
     var grid = $("#grid").outerHeight(true);
     var footer = $("#footer").outerHeight(true);
     if (page == 1) {
-      $("#prompt-row").outerHeight(total - header - img_text_row - img_row - grid - footer - prompt_row_margin);
+      $("#footer").height(total - header - img_text_row - img_row - prompt_row - grid);
     } else if (page == 2) {
+        $("#real-or-fake").css({"opacity":1});
+        $("#ps-logo").hide();
+        $("#spin").hide();
+        $("#prompt-row").hide();
+        $("#upper-left-adobe").show();
+        $("#upper-right-ps-logo").show();
+        $("#terms").show();
+        $("#bottom-right-adobe").show();
+        $("#img-text-row").css("background-image", "url(assets/img/REALor_fake.png)");
         $("#img-text-row").css({"height":"auto"});
-        $("#img-row").css({"height":"auto"});
         img_text_row = $("#img-text-row").outerHeight(true);
-        img_row = $("#img-row").outerHeight(true);
+        $("#img-row").css({"height":"40%"});
+        $("#img-col").append("<div id='twenty-five-wrapper'><div id='twenty-five-img'><img src='assets/img/25years_together.png'></div><p id='twenty-five-text'>SSS</p></div>");
+        $("#twenty-five-wrapper").show();
+        $("#twenty-five-text").text("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate.");
+        $("#twenty-five-wrapper").append("<img id='begin' src='assets/img/SwipetoBegin.png'>");
+        imagesLoaded("#begin", function(){
+            img_row = $("#img-row").outerHeight(true);
+            while (header + img_text_row + img_row + grid + footer < total) {
+                $("#img-row").css({
+                    "margin-top": (parseInt($("#img-row").css("margin-top").replace("px", "")) + 1).toString() + "px"
+                });
+                img_row = $("#img-row").outerHeight(true);
+            }
+        });
+        $("#img-row").css({"height":"auto"});
+
+        // for taller or longer phones like iPhone 5 & 6
+
+    } else if (page == 3) {
         var condition = header + img_text_row + img_row + grid + footer;
         var margin = "1";
         var adjusted = false;
+        $("#twenty-five-wrapper").hide();
+        $("#main-img").show();
+        $("#img-row").css({"height":"auto"});
+        $("#img-text-row").css("background-image", "url(assets/img/REALor_fake.png)");
+        $("#twenty-five").hide();
         while (condition > total) {
             $("#main-img").css({
                 "margin-left": (parseInt($("#main-img").css("margin-left").replace("px", "")) + parseInt(margin)).toString() + "px",
@@ -80,12 +157,13 @@ function adjust_fluid(page){
             $("img-row").css({"height":adjust});
         }
         //for taller or longer phones like iPhone 5 & 6
-        while (header + img_text_row + img_row + grid + footer < total) {
-            $("#img-text-row").css({
-                "margin-top": (parseInt($("#img-text-row").css("margin-top").replace("px", "")) + 1).toString() + "px"
-            });
-            img_text_row = $("#img-text-row").outerHeight(true);
-        }
+        img_row = $("#img-row").outerHeight(true);
+        // while (header + img_text_row + img_row + grid + footer < total) {
+        //     $("#img-row").css({
+        //         "margin-top": (parseInt($("#img-row").css("margin-top").replace("px", "")) + 1).toString() + "px"
+        //     });
+        //     img_row = $("#img-row").outerHeight(true);
+        // }
 
     } else {
         $("#grid").css({"height":"auto"});
@@ -262,7 +340,7 @@ function animate(img, delta, last){
         }
         imagesLoaded("#grid", function(){
           $(".incorrect").addClass("cross");
-          page = 3;
+          page = 4;
           adjust_fluid(page);
         });
         $("#grid-text").text(sum + "/25 answers correct!");
