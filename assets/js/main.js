@@ -128,7 +128,8 @@ function adjust_fluid(page){
             var adjusted = false;
             var condition = header + img_text_row + img_row + grid + footer;
             if (condition > total) {
-                $("#twenty-five-wrapper").hide();
+                $("#twenty-five-text").hide();
+                $("#twenty-five-img").hide();
             }
 
             // for taller or longer phones like iPhone 5 & 6
