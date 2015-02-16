@@ -128,11 +128,16 @@ function adjust_fluid(page){
             var adjusted = false;
             var condition = header + img_text_row + img_row + grid + footer;
             while (condition > total) {
-                $("#twenty-five-wrapper").css({
-                    "margin-left": (parseInt($("#twenty-five-wrapper").css("margin-left").replace("px", "")) + 1).toString() + "px",
-                    "margin-right": (parseInt($("#twenty-five-wrapper").css("margin-right").replace("px", "")) + 1).toString() + "px",
-                    "height": ($("#twenty-five-wrapper").css("height").replace("px", "") - 2).toString() + "px"
+                $("#begin").css({
+                    "height": ($("#begin").css("height").replace("px", "") - 2).toString() + "px"
+                    "margin-left": (parseInt($("#begin").css("margin-left").replace("px", "")) + 1).toString() + "px",
+                    "margin-right": (parseInt($("#begin").css("margin-right").replace("px", "")) + 1).toString() + "px",
                 });
+                // $("#twenty-five-wrapper").css({
+                //     "margin-left": (parseInt($("#twenty-five-wrapper").css("margin-left").replace("px", "")) + 1).toString() + "px",
+                //     "margin-right": (parseInt($("#twenty-five-wrapper").css("margin-right").replace("px", "")) + 1).toString() + "px",
+                //     "height": ($("#twenty-five-wrapper").css("height").replace("px", "") - 2).toString() + "px"
+                // });
                 img_row = $("#img-row").outerHeight(true);
                 condition = header + img_text_row + img_row + grid + footer;
                 adjusted = true;
