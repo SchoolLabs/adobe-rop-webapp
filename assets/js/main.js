@@ -136,6 +136,15 @@ function adjust_fluid(page){
                 $("#twenty-five-text").hide();
                 $("#twenty-five-img").hide();
             }
+            while (condition < total) {
+                $("#twenty-five-wrapper").css({
+                    "margin-top": (parseInt($("#twenty-five-wrapper").css("margin-top").replace("px", "")) + 1).toString() + "px",
+                    "margin-bottom": (parseInt($("#twenty-five-wrapper").css("margin-bottom").replace("px", "")) + 1).toString() + "px"
+                });
+                img_row = $("#img-row").outerHeight(true);
+                condition = header + img_text_row + img_row + grid + footer;
+            }
+
 
             // for taller or longer phones like iPhone 5 & 6
             img_row = $("#img-row").outerHeight(true);
@@ -150,7 +159,6 @@ function adjust_fluid(page){
     } else if (page == 3) {
         $("#twenty-five-wrapper").hide();
         $("#main-img").show();
-
         img_text_row = $("#img-text-row").outerHeight(true);
         img_row = $("#img-row").outerHeight(true);
         grid = $("#grid").outerHeight(true);
