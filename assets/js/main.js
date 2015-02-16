@@ -64,10 +64,14 @@ function splash_screen_transition(e) {
     adjust_fluid(page);
 }
 
+var once = false;
 $("#img-row").on("swipeleft swiperight", function(e) {
-    console.log("Swipe");
-    page = 3;
-    adjust_fluid(page);
+    if (once == false) {
+        console.log("Swipe");
+        page = 3;
+        adjust_fluid(page);
+    }
+    once = true;
 });
 
 /* indicates whether image is real or fake */
@@ -83,6 +87,7 @@ var image_number = 1;
 var scores = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 $("#main-img").on("swipeleft swiperight", function(e) {
+  console.log("hi");
   delta = score_swipe(e);
   slide_transition($(this));
 })
