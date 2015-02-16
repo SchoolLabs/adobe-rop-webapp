@@ -107,7 +107,7 @@ function adjust_fluid(page){
     var grid = $("#grid").outerHeight(true);
     var footer = $("#footer").outerHeight(true);
     if (page == 1) {
-      $("#footer").height(total - header - img_text_row - img_row - prompt_row - grid);
+      // $("#footer").height(total - header - img_text_row - img_row - prompt_row - grid);
     } else if (page == 2) {
         $("#real-or-fake").css({"opacity":1});
         $("#ps-logo").hide();
@@ -140,7 +140,7 @@ function adjust_fluid(page){
             img_row = $("#img-row").outerHeight(true);
             while (header + img_text_row + img_row + grid + footer < total) {
                 $("#img-row").css({
-                    "margin-top": (parseInt($("#img-row").css("margin-top").replace("px", "")) + 1).toString() + "px"
+                    "margin-bottom": (parseInt($("#img-row").css("margin-bottom").replace("px", "")) + 1).toString() + "px"
                 });
                 img_row = $("#img-row").outerHeight(true);
             }
