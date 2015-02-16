@@ -150,8 +150,6 @@ function adjust_fluid(page){
         $("#twenty-five-wrapper").hide();
         $("#main-img").show();
         $("#img-row").css({"height":"auto"});
-        $("#img-text-row").css("background-image", "url(assets/img/REALor_fake.png)");
-        $("#twenty-five").hide();
         while (condition > total) {
             $("#main-img").css({
                 "margin-left": (parseInt($("#main-img").css("margin-left").replace("px", "")) + parseInt(margin)).toString() + "px",
