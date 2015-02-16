@@ -121,6 +121,23 @@ function adjust_fluid(page){
         $("#twenty-five-text").text("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate.");
         $("#twenty-five-wrapper").append("<img id='begin' src='assets/img/SwipetoBegin.png'>");
         imagesLoaded("#begin", function(){
+            var condition = header + img_text_row + img_row + grid + footer;
+            while (condition > total) {
+                $("#twenty-five-wrapper").css({
+                    "margin-left": (parseInt($("#twenty-five-wrapper").css("margin-left").replace("px", "")) + 1).toString() + "px",
+                    "margin-right": (parseInt($("#twenty-five-wrapper").css("margin-right").replace("px", "")) + 1).toString() + "px",
+                    "height": ($("#twenty-five-wrapper").css("height").replace("px", "") - 2).toString() + "px"
+                });
+                img_row = $("#img-row").outerHeight(true);
+                condition = header + img_text_row + img_row + grid + footer;
+                adjusted = true;
+            }
+            if (adjusted) {
+                var adjust = total - header - img_text_row - grid - footer;
+                $("img-row").css({"height":adjust});
+            }
+
+            // for taller or longer phones like iPhone 5 & 6
             img_row = $("#img-row").outerHeight(true);
             while (header + img_text_row + img_row + grid + footer < total) {
                 $("#img-row").css({
@@ -130,8 +147,6 @@ function adjust_fluid(page){
             }
         });
         $("#img-row").css({"height":"auto"});
-
-        // for taller or longer phones like iPhone 5 & 6
 
     } else if (page == 3) {
         var condition = header + img_text_row + img_row + grid + footer;
@@ -158,12 +173,12 @@ function adjust_fluid(page){
         }
         //for taller or longer phones like iPhone 5 & 6
         img_row = $("#img-row").outerHeight(true);
-        // while (header + img_text_row + img_row + grid + footer < total) {
-        //     $("#img-row").css({
-        //         "margin-top": (parseInt($("#img-row").css("margin-top").replace("px", "")) + 1).toString() + "px"
-        //     });
-        //     img_row = $("#img-row").outerHeight(true);
-        // }
+        while (header + img_text_row + img_row + grid + footer < total) {
+            $("#img-row").css({
+                "margin-top": (parseInt($("#img-row").css("margin-top").replace("px", "")) + 1).toString() + "px"
+            });
+            img_row = $("#img-row").outerHeight(true);
+        }
 
     } else {
         $("#grid").css({"height":"auto"});
