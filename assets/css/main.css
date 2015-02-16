@@ -135,6 +135,37 @@ html, body {
     max-height: 100%;
     height: auto;
 }
+
+#above-footer-row {
+    margin: 0;
+    height: 5%;
+    background-color: #474747;
+}
+
+#above-footer-col {
+    height: 100%;
+}
+
+#left-for-fake {
+    float: left;
+    color: white;
+    margin-top: 4%;
+    height: 50%;
+    width: auto;
+}
+
+#right-for-real {
+    float: right;
+    color: white;
+    margin-top: 4%;
+    height: 50%;
+    width: auto;
+}
+
+#brag-about-it {
+    max-height: 100%;
+}
+
 #footer {
     margin: 0%;
     background-color: #474747;
@@ -245,7 +276,7 @@ html, body {
     }*/
 }
 
-@media (orientation: landscape) and (max-width:768px) {
+@media (orientation: landscape) {
   body {
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);

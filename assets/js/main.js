@@ -153,10 +153,14 @@ function adjust_fluid(page){
         img_row = $("#img-row").outerHeight(true);
         grid = $("#grid").outerHeight(true);
         footer = $("#footer").outerHeight(true);
+        $("<div class='row' id='above-footer-row'><div class='col-xs-12' id='above-footer-col'></div></div>").insertBefore("#footer");
+        $("#above-footer-col").append("<img id='left-for-fake' src='assets/img/lforFake.png'></img>");
+        $("#above-footer-col").append("<img id='right-for-real' src='assets/img/rforReal.png'></img>");
+        var above_footer = $("#above-footer-row").outerHeight(true);
         $("#twenty-five-wrapper").hide();
         $("#main-img").show();
-        $("#main-img").height(total - header - img_text_row - img_row_margin - grid - footer);
-        var condition = header + img_text_row + img_row + grid + footer;
+        $("#main-img").height(total - header - img_text_row - img_row_margin - grid - above_footer - footer);
+        var condition = header + img_text_row + img_row + grid + above_footer + footer;
         var margin = "1";
         var adjusted = false;
         while (condition > total) {
@@ -166,16 +170,16 @@ function adjust_fluid(page){
                 "height": ($("#main-img").css("height").replace("px", "") - (2 * parseInt(margin))).toString() + "px"
             });
             img_row = $("#img-row").outerHeight(true);
-            condition = header + img_text_row + img_row + grid + footer;
+            condition = header + img_text_row + img_row + grid + above_footer + footer;
             adjusted = true;
         }
         if (adjusted) {
-            var adjust = total - header - img_text_row - grid - footer;
+            var adjust = total - header - img_text_row - grid - above_footer - footer;
             $("img-row").css({"height":adjust});
         }
         //for taller or longer phones like iPhone 5 & 6
         img_row = $("#img-row").outerHeight(true);
-        while (header + img_text_row + img_row + grid + footer < total) {
+        while (header + img_text_row + img_row + grid + above_footer + footer < total) {
             $("#img-row").css({
                 "margin-top": (parseInt($("#img-row").css("margin-top").replace("px", "")) + 1).toString() + "px"
             });
@@ -187,8 +191,13 @@ function adjust_fluid(page){
         grid = $("#grid").outerHeight(true);
         img_text_row = $("#img-text-row").outerHeight(true);
         img_row = $("#img-row").outerHeight(true);
+        above_footer = $("#above-footer-row").outerHeight(true);
         footer = $("#footer").outerHeight(true);
-        var condition = header + img_text_row + grid + footer;
+        $("#above-footer-col").append("<img id='brag-about-it' src='assets/img/BragAboutIt_Button.png'></img>");
+        $("#above-footer-col").css({"text-align":"center"});
+        $("#left-for-fake").hide();
+        $("#right-for-real").hide();
+        var condition = header + img_text_row + grid + above_footer + footer;
         var adjusted = false;
         while (condition > total) {
             $(".grid-img img").css({
@@ -196,11 +205,11 @@ function adjust_fluid(page){
                 "width": (parseInt($(".grid-img img").css("width").replace("px", "")) - 1).toString() + "px",
             });
             grid = $("#grid").outerHeight(true);
-            condition = header + img_text_row + grid + footer;
+            condition = header + img_text_row + grid + above_footer + footer;
             adjusted = true;
         }
         if (adjusted) {
-            var adjust = total - header - img_text_row - footer;
+            var adjust = total - header - img_text_row - above_footer - footer;
             $("#grid").css({"height":adjust});
         }
     }
@@ -320,8 +329,8 @@ function animate(img, delta, last){
 
   //move left or right based on delta calculated above and reduce opacity
   img.animate({marginLeft: delta + "px",opacity: 0}, SWIPE_SPEED, "linear", function(){
-    // if (1 == false) {
-    if (last == false) {
+    if (1 == false) {
+    // if (last == false) {
         if (real){
             $("#img-text-row").css("background-image", "url(assets/img/REALor_fake.png)");
         } else {
