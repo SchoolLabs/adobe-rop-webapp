@@ -47,6 +47,7 @@
 		 oElement.onclick = clickHandler;
 
 		 function clickHandler() {
+		 	console.log("clicked");
 
 	 		FB.ui({
 	 		  method: 'share',
