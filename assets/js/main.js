@@ -13,14 +13,12 @@ var once = false;
 $("#img-row").on("swipeleft swiperight", function(e) {
     if (once == false) {
         twenty_five_transition();
+    } else {
+        delta = score_swipe(e);
+        slide_transition($("#main-img"));
     }
     once = true;
 });
-
-$("#main-img").on("swipeleft swiperight", function(e) {
-    delta = score_swipe(e);
-    slide_transition($(this));
-})
 
 setMobileOperatingSystemLinks();
 
