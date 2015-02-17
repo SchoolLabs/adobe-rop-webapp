@@ -10,7 +10,7 @@
 		<meta property="og:title" content="I got <?php echo $score; ?>/25 right. REAL or FAKE? Test your perception">
 		<meta property="og:description" content="Lorem Ipsum sit dolor amet">
 		<meta property="og:image" content="http://s3-static-ak.buzzfed.com/static/2015-02/13/17/campaign_images/webdr01/5-valentines-from-tina-belcher-that-are-better-th-2-14484-1423868071-22_dblbig.jpg">
-		<meta property="og:url" content="http://allegorithm.com/fbshare/">
+		<meta property="og:url" content="http://www.dev.seanhelvey.com/school-adobe/share.php">
 		<!-- // END FACEBOOK META -->
 
 		<!-- // BEGIN TWITTER META -->
@@ -50,7 +50,7 @@
 
 	 		FB.ui({
 	 		  method: 'share',
-	 		  href: 'http://www.allegorithm.com/fbshare/index.php?score='+varScore,
+	 		  href: 'http://www.dev.seanhelvey.com/school-adobe/share.php?score='+varScore,
 	 		}, function(response){});
 		 }
       </script>
