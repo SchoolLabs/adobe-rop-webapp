@@ -120,6 +120,7 @@ function results_grid_transition() {
     above_footer = $("#above-footer-row").outerHeight(true);
     footer = $("#footer").outerHeight(true);
     $("#above-footer-col").append("<img id='brag-about-it' src='assets/img/BragAboutIt_Button.png'></img>");
+    $("#brag-about-it").on("click tap", share_page_transition);
     $("#above-footer-col").css({
         "text-align": "center"
     });
@@ -142,4 +143,11 @@ function results_grid_transition() {
             "height": adjust
         });
     }
+}
+
+
+function share_page_transition() {
+    $("#grid").hide();
+    $("#real-or-fake").attr("src","assets/img/BragLine.png");
+    $("<div class='row' id='share-row'><div class='col-xs-12' id='share-col'>SHARE</div></div>").insertBefore("#footer");
 }

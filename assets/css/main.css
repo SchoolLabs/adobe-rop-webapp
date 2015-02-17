@@ -167,6 +167,11 @@ html, body {
     max-height: 100%;
 }
 
+#share-col {
+    height: 40%;
+    background-color: lightgreen;
+}
+
 #footer {
     margin: 0%;
     background-color: #474747;
