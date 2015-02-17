@@ -70,8 +70,8 @@ function twenty_five_transition() {
     grid = $("#grid").outerHeight(true);
     footer = $("#footer").outerHeight(true);
     $("<div class='row' id='above-footer-row'><div class='col-xs-12' id='above-footer-col'></div></div>").insertBefore("#footer");
-    $("#above-footer-col").append("<img id='left-for-fake' src='assets/img/lforFake.png'></img>");
-    $("#above-footer-col").append("<img id='right-for-real' src='assets/img/rforReal.png'></img>");
+    $("#above-footer-col").append("<img id='left-for-fake' src='assets/img/LforFAKE.png'></img>");
+    $("#above-footer-col").append("<img id='right-for-real' src='assets/img/RforREAL.png'></img>");
     above_footer = $("#above-footer-row").outerHeight(true);
     $("#twenty-five-wrapper").hide();
     $("#main-img").show();
