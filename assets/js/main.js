@@ -22,6 +22,8 @@ $("#main-img").on("swipeleft swiperight", function(e) {
     slide_transition($(this));
 })
 
+setMobileOperatingSystemLinks();
+
 /* Calculate and return delta, which is the direction and distance the image will move.
 This method also sets "scores" each time the user swipes */
 function score_swipe(event) {
@@ -107,4 +109,17 @@ function build_grid() {
         results_grid_transition();
     });
     $("#grid-text").text(sum + "/25 answers correct!");
+}
+
+function setMobileOperatingSystemLinks() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) ){
+    $("#upper-left-link").attr("href","http://www.apple.com");
+    $("#upper-right-link").attr("href","http://www.apple.com");
+
+  }
+  else if( userAgent.match( /Android/i ) ){
+    $("#upper-left-link").attr("href","http://www.android.com");
+    $("#upper-right-link").attr("href","http://www.android.com");
+  }
 }
