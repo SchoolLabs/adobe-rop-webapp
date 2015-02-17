@@ -3,9 +3,6 @@
 ?>
 <html>
     <head>
-		<script src="//use.typekit.net/bmc0kph.js"></script>
-		<script>try{Typekit.load();}catch(e){}</script>
-		<link rel="stylesheet" href="http://fonts.adobe.com/k/c/whd3raw-d.css">
 
 		<!-- must use absolute urls -->
 		<!-- // BEGIN FACEBOOK META -->
