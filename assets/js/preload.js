@@ -1,28 +1,12 @@
+var preloaded_images = new Array();
+var preloaded_background_images = new Array();
+var preloaded_grid_images = new Array();
+
 $("#prompt-col").append("<div id='spin'></div>");
 $("#spin").css({
     "padding-top": "50%"
 });
-var preloaded_images = new Array();
 
-function preload() {
-    $("#spin").spin();
-    for (i = 0; i < preload.arguments.length; i++) {
-        preloaded_images.push(new Image());
-        preloaded_images[preloaded_images.length - 1].src = preload.arguments[i];
-    }
-}
-var preloaded_grid_images = new Array();
-
-function preload_grid() {
-    for (i = 0; i < preload_grid.arguments.length; i++) {
-        preloaded_grid_images.push(new Image());
-        preloaded_grid_images[preloaded_grid_images.length - 1].src = preload_grid.arguments[i];
-    }
-    $(window).load(function() {
-        $("#spin").spin(false);
-        splash_screen_transition();
-    });
-}
 preload(
     "assets/img/Swipe1.jpg",
     "assets/img/Swipe2.jpg",
@@ -37,11 +21,30 @@ preload_grid(
     "assets/img/Grid4.png",
     "assets/img/Grid5.png"
 );
-var preloaded_background_images = new Array();
+
 preloaded_background_images.push(new Image());
 preloaded_grid_images[preloaded_grid_images.length - 1].src = "assets/img/real_orFAKE.png";
 preloaded_background_images.push(new Image());
 preloaded_grid_images[preloaded_grid_images.length - 1].src = "assets/img/REALor_fake.png";
+
+function preload() {
+    $("#spin").spin();
+    for (i = 0; i < preload.arguments.length; i++) {
+        preloaded_images.push(new Image());
+        preloaded_images[preloaded_images.length - 1].src = preload.arguments[i];
+    }
+}
+
+function preload_grid() {
+    for (i = 0; i < preload_grid.arguments.length; i++) {
+        preloaded_grid_images.push(new Image());
+        preloaded_grid_images[preloaded_grid_images.length - 1].src = preload_grid.arguments[i];
+    }
+    $(window).load(function() {
+        $("#spin").spin(false);
+        splash_screen_transition();
+    });
+}
 
 function incremental_preload() {
     if (image_number == 1) {
