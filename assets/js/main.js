@@ -38,7 +38,7 @@ setMobileOperatingSystemLinks();
 /* Calculate and return delta, which is the direction and distance the image will move.
 This method also sets "scores" each time the user swipes */
 function score_swipe(event) {
-    if (event.type === "swiperight click") {
+    if (event.type === "swiperight") {
         delta = BEG_DELTA;
         if (IMAGES[image_number - 1] == 1) {
             correct_number++;
