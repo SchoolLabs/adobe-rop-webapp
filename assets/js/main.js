@@ -13,6 +13,7 @@ var once = false;
 
 if (Modernizr.touch) {
     $("#img-row").on("swipeleft swiperight", function(e) {
+        e.stopImmediatePropagation();
         if (once == false) {
             twenty_five_transition();
         } else {
@@ -23,6 +24,7 @@ if (Modernizr.touch) {
     });
 } else {
     $("#img-row").on("click", function(e) {
+        e.stopImmediatePropagation();
         if (once == false) {
             twenty_five_transition();
         } else {
