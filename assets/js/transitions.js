@@ -133,6 +133,10 @@ function results_grid_transition() {
     condition = header + img_text_row + grid + above_footer + footer;
     adjusted = false;
     while (condition > total) {
+        // $(".grid-img").css({
+        //     "height": (parseInt($(".grid-img").css("height").replace("px", "")) - 1).toString() + "px",
+        //     "width": (parseInt($(".grid-img").css("width").replace("px", "")) - 1).toString() + "px",
+        // });
         $(".grid-img img").css({
             "height": (parseInt($(".grid-img img").css("height").replace("px", "")) - 1).toString() + "px",
             "width": (parseInt($(".grid-img img").css("width").replace("px", "")) - 1).toString() + "px",

@@ -239,6 +239,11 @@ html, body {
     padding-left: 5px;
 }
 
+/*.grid-img img {
+    width: 100%;
+    height: auto;
+}*/
+
 #grid-text {
     color: white;
 }
@@ -246,28 +251,6 @@ html, body {
 .col-xs-15 {
     width: 20%;
     float: left;
-}
-
-.cross {
-    position: relative;
-    display: inline-block;
-}
-.cross::before, .cross::after {
-    content: '';
-    width: 90%;
-    position: absolute;
-    right: 0;
-    top: 50%;
-}
-.cross::before {
-    border-bottom: 2px solid red;
-    -webkit-transform: skewY(-45deg);
-    transform: skewY(-45deg);
-}
-.cross::after {
-    border-bottom: 2px solid red;
-    -webkit-transform: skewY(45deg);
-    transform: skewY(45deg);
 }
 
 #footer .col-xs-15 {

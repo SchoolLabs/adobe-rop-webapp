@@ -33,10 +33,6 @@ if (Modernizr.touch) {
     });
 }
 
-function xxx(){
-
-}
-
 setMobileOperatingSystemLinks();
 
 /* Calculate and return delta, which is the direction and distance the image will move.
@@ -114,13 +110,14 @@ function build_grid() {
             $("<div class='row grid-row'></div>").insertBefore($("#grid #grid-text"));
         }
         if (scores[i] == 1) {
-            $(".grid-row:last").append("<div class='col-xs-15 grid-img'><img class='img' src='assets/img/Grid" + (i + 1) + ".png'></div>");
+            $(".grid-row:last").append("<div class='col-xs-15 grid-img'></div>");
+            $(".grid-row:last .grid-img:last .img").css({'background-image':'url("assets/img/Grid' + (i + 1) + '.png")'});
         } else {
-            $(".grid-row:last").append("<div class='col-xs-15 grid-img incorrect'><img class='img' src='assets/img/Grid" + (i + 1) + ".png'></div>");
+            $(".grid-row:last").append("<div class='col-xs-15 grid-img'><img class='img' src='assets/img/Adobe_RedX_v1_12.19.15.png'></div>");
+            $(".grid-row:last .grid-img:last .img").css({'background-image':'url("assets/img/Grid' + (i + 1) + '.png")'});
         }
     }
     imagesLoaded("#grid", function() {
-        $(".incorrect").addClass("cross");
         results_grid_transition();
     });
     $("#grid-text").text(sum + "/25 answers correct!");
