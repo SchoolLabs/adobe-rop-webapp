@@ -11,8 +11,6 @@ var scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 /* Event handlers */
 var once = false;
 
-swipeleft swiperight
-
 if (Modernizr.touch) {
     $("#img-row").on("swipeleft swiperight", function(e) {
         if (once == false) {
