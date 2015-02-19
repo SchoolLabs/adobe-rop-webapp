@@ -33,21 +33,22 @@ function splash_screen_transition() {
     $("#img-col").append("<div id='twenty-five-wrapper'><div id='twenty-five-img'><img src='assets/img/25years_together.png'></div><p id='twenty-five-text'>SSS</p></div>");
     $("#twenty-five-wrapper").show();
     $("#twenty-five-text").text("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate.");
-    $("#twenty-five-wrapper").append("<img id='begin' src='assets/img/SwipetoBegin.png'>");
+    $("#twenty-five-wrapper").append("<img class='center-block' id='begin' src='assets/img/SwipetoBegin.png'>");
     imagesLoaded("#begin", function() {
+        total = $(window).outerHeight(true);
+        header = $("#header").outerHeight(true);
         img_text_row = $("#img-text-row").outerHeight(true);
         img_row = $("#img-row").outerHeight(true);
-        grid = $("#grid").outerHeight(true);
         footer = $("#footer").outerHeight(true);
         adjusted = false;
-        condition = header + img_text_row + img_row + grid + footer;
+        condition = header + img_text_row + img_row + footer;
         if (condition > total) {
             $("#twenty-five-text").hide();
             $("#twenty-five-img").hide();
         }
         // for taller or longer phones like iPhone 5 & 6
         img_row = $("#img-row").outerHeight(true);
-        while (header + img_text_row + img_row + grid + footer < total) {
+        while (header + img_text_row + img_row + footer < total) {
             $("#img-row").css({
                 "margin-bottom": (parseInt($("#img-row").css("margin-bottom").replace("px", "")) + 1).toString() + "px"
             });
