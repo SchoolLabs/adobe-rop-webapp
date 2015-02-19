@@ -58,7 +58,7 @@ function score_swipe(event) {
 /* Slide transition will either show next image or redirect to final page via anmate */
 function slide_transition(img) {
     incremental_preload();
-    image_number = 25;
+    // image_number = 25;
     if (image_number < IMAGES.length) {
         animate(img, delta);
     } else {
@@ -110,7 +110,7 @@ function build_grid() {
             $("<div class='row grid-row'></div>").insertBefore($("#grid #grid-text"));
         }
         if (scores[i] == 1) {
-            $(".grid-row:last").append("<div class='col-xs-15 grid-img'><img class='img' src=''></div>");
+            $(".grid-row:last").append("<div class='col-xs-15 grid-img'><img class='img' src='assets/img/Adobe_ClearX_v1_12.19.15.png'></div>");
             $(".grid-row:last .grid-img:last .img").css({'background-image':'url("assets/img/Grid' + (i + 1) + '.png")'});
         } else {
             $(".grid-row:last").append("<div class='col-xs-15 grid-img'><img class='img' src='assets/img/Adobe_RedX_v1_12.19.15.png'></div>");

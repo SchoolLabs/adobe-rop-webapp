@@ -269,17 +269,6 @@ html, body {
     }
 }
 
-/* large retine phones */
-@media (orientation: landscape) and (max-width: 1920px) and (min-resolution: 1.5dppx){
-  body {
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-  }
-}
-
 /* all other phones */
 @media (orientation: landscape) and (max-width: 767px) {
   body {
