@@ -163,7 +163,13 @@ html, body {
     max-width: 45%;
 }
 
-#brag-about-it {
+#share-div {
+    height: 100%;
+    padding: 2%;
+}
+
+#brag-about-it, #fb-share, #twitter-share {
+    margin: 2%;
     max-height: 100%;
 }
 

@@ -10,7 +10,7 @@ var scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 
 /* Event handlers */
 var once = false;
-$("#img-row").on("swipeleft swiperight", function(e) {
+$("#img-row").on("swipeleft swiperight click", function(e) {
     if (once == false) {
         twenty_five_transition();
     } else {
@@ -25,7 +25,7 @@ setMobileOperatingSystemLinks();
 /* Calculate and return delta, which is the direction and distance the image will move.
 This method also sets "scores" each time the user swipes */
 function score_swipe(event) {
-    if (event.type === "swiperight") {
+    if (event.type === "swiperight click") {
         delta = BEG_DELTA;
         if (IMAGES[image_number - 1] == 1) {
             correct_number++;
@@ -44,7 +44,7 @@ function score_swipe(event) {
 /* Slide transition will either show next image or redirect to final page via anmate */
 function slide_transition(img) {
     incremental_preload();
-    // image_number = 25;
+    image_number = 25;
     if (image_number < IMAGES.length) {
         animate(img, delta);
     } else {
