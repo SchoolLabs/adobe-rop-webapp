@@ -42,7 +42,7 @@ function preload_grid() {
     }
     $(window).load(function() {
         $("#spin").spin(false);
-        splash_screen_transition();
+        // splash_screen_transition();
     });
 }
 
