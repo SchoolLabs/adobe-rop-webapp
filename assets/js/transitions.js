@@ -77,6 +77,7 @@ function twenty_five_transition() {
     $("#twenty-five-wrapper").hide();
     $("#main-img").show();
     $("#main-img").height(total - header - img_text_row - img_row_margin - grid - above_footer - footer);
+    img_row = $("#img-row").outerHeight(true);
     condition = header + img_text_row + img_row + grid + above_footer + footer;
     adjusted = false;
     while (condition > total) {

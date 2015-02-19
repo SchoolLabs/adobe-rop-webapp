@@ -7,13 +7,13 @@ var delta = 0;
 var correct_number = 0;
 var image_number = 1;
 var scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var old_margin = $("real-or-fake").css("marginLeft");
 
 /* Event handlers */
 var once = false;
 
 if (Modernizr.touch) {
     $("#img-row").on("swipeleft swiperight", function(e) {
-        e.stopImmediatePropagation();
         if (once == false) {
             twenty_five_transition();
         } else {
@@ -24,7 +24,6 @@ if (Modernizr.touch) {
     });
 } else {
     $("#img-row").on("click", function(e) {
-        e.stopImmediatePropagation();
         if (once == false) {
             twenty_five_transition();
         } else {
@@ -69,7 +68,6 @@ function slide_transition(img) {
 
 /* Call highlight, move the swiped image, either show next image or final page */
 function animate(img, delta, last) {
-    var old_margin = img.css("marginLeft");
     var real = IMAGES[image_number - 1];
     image_number++;
 
@@ -93,7 +91,7 @@ function animate(img, delta, last) {
         img.attr("src", preloaded_images[image_number - 1].src).load(function() {
             //restore prior margin and opacity
             img.css({
-                "margin-left": old_margin,
+                "margin-left": "1px",
                 opacity: 1,
             });
         });
