@@ -11,24 +11,32 @@ var scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 /* Event handlers */
 var once = false;
 
+swipeleft swiperight
+
 if (Modernizr.touch) {
     $("#img-row").on("swipeleft swiperight", function(e) {
-        xxx();
+        if (once == false) {
+            twenty_five_transition();
+        } else {
+            delta = score_swipe(e);
+            slide_transition($("#main-img"));
+        }
+        once = true;
     });
 } else {
     $("#img-row").on("click", function(e) {
-        xxx();
+        if (once == false) {
+            twenty_five_transition();
+        } else {
+            delta = score_swipe(e);
+            slide_transition($("#main-img"));
+        }
+        once = true;
     });
 }
 
 function xxx(){
-    if (once == false) {
-        twenty_five_transition();
-    } else {
-        delta = score_swipe(e);
-        slide_transition($("#main-img"));
-    }
-    once = true;
+
 }
 
 setMobileOperatingSystemLinks();
