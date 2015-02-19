@@ -10,7 +10,18 @@ var scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 
 /* Event handlers */
 var once = false;
-$("#img-row").on("swipeleft swiperight click", function(e) {
+
+if (Modernizr.touch) {
+    $("#img-row").on("swipeleft swiperight", function(e) {
+        xxx();
+    });
+} else {
+    $("#img-row").on("click", function(e) {
+        xxx();
+    });
+}
+
+function xxx(){
     if (once == false) {
         twenty_five_transition();
     } else {
@@ -18,7 +29,7 @@ $("#img-row").on("swipeleft swiperight click", function(e) {
         slide_transition($("#main-img"));
     }
     once = true;
-});
+}
 
 setMobileOperatingSystemLinks();
 
