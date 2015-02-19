@@ -4,7 +4,7 @@ var preloaded_grid_images = new Array();
 
 $("#prompt-col").append("<div id='spin'></div>");
 $("#spin").css({
-    "padding-top": "50%"
+    // "padding-top": "5%"
 });
 
 preload(
@@ -42,7 +42,7 @@ function preload_grid() {
     }
     $(window).load(function() {
         $("#spin").spin(false);
-        // splash_screen_transition();
+        splash_screen_transition();
     });
 }
 

@@ -40,6 +40,11 @@ html, body {
 #prompt-row {
     color: white;
     padding: 10%;
+    height: 10%;
+}
+
+#prompt-col {
+    height: auto;
 }
 
 #header-col {
