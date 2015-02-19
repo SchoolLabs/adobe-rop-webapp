@@ -244,10 +244,9 @@ html, body {
     padding-left: 5px;
 }
 
-/*.grid-img img {
-    width: 100%;
-    height: auto;
-}*/
+.grid-img img {
+    background-repeat: none;
+}
 
 #grid-text {
     color: white;

@@ -10,6 +10,7 @@ var above_footer = 0;
 var footer = $("#footer").outerHeight(true);
 var adjusted = false;
 var condition = 0;
+var background_size = "";
 
 function splash_screen_transition() {
     $("#real-or-fake").css({
@@ -133,14 +134,18 @@ function results_grid_transition() {
     $("#right-for-real").hide();
     condition = header + img_text_row + grid + above_footer + footer;
     adjusted = false;
+
     while (condition > total) {
         // $(".grid-img").css({
         //     "height": (parseInt($(".grid-img").css("height").replace("px", "")) - 1).toString() + "px",
         //     "width": (parseInt($(".grid-img").css("width").replace("px", "")) - 1).toString() + "px",
         // });
+        background_height = (parseInt($(".grid-img img").css("height").replace("px", "")) - 1).toString() + "px";
+        background_width = (parseInt($(".grid-img img").css("width").replace("px", "")) - 1).toString() + "px";
         $(".grid-img img").css({
             "height": (parseInt($(".grid-img img").css("height").replace("px", "")) - 1).toString() + "px",
             "width": (parseInt($(".grid-img img").css("width").replace("px", "")) - 1).toString() + "px",
+            "background-size": background_height + " " + background_width
         });
         grid = $("#grid").outerHeight(true);
         condition = header + img_text_row + grid + above_footer + footer;
