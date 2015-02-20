@@ -157,7 +157,7 @@ html, body {
     color: white;
     margin-top: 2%;
     max-height: 100%;
-    max-width: 45%;
+    max-width: 40%;
 }
 
 #right-for-real {
@@ -165,7 +165,7 @@ html, body {
     color: white;
     margin-top: 2%;
     max-height: 100%;
-    max-width: 45%;
+    max-width: 40%;
 }
 
 #share-div {
@@ -173,7 +173,7 @@ html, body {
     padding: 2%;
 }
 
-#brag-about-it, #fb-share, #twitter-share {
+#brag-about-it, #fb_button, #twitter_button {
     margin: 2%;
     max-height: 100%;
 }

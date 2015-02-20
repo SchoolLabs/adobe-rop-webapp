@@ -124,9 +124,9 @@ function results_grid_transition() {
     above_footer = $("#above-footer-row").outerHeight(true);
     footer = $("#footer").outerHeight(true);
     $("#above-footer-col").append("<div id='share-div'></div>");
-    $("#share-div").append("<img id='fb-share' src='assets/img/FB_icon.png'></img>");
+    $("#share-div").append("<img id='fb_button' src='assets/img/FB_icon.png'></img>");
     $("#share-div").append("<img id='brag-about-it' src='assets/img/BragAboutIt_Button.png'></img>");
-    $("#share-div").append("<img id='twitter-share' src='assets/img/Twitter_icon.png'></img>");
+    $("#share-div").append("<img id='twitter_button' src='assets/img/Twitter_icon.png'></img>");
     // $("#brag-about-it").on("click tap", share_page_transition);
     $("#above-footer-col").css({
         "text-align": "center"
