@@ -127,6 +127,16 @@ function results_grid_transition() {
     $("#share-div").append("<img id='fb_button' src='assets/img/FB_icon.png'></img>");
     $("#share-div").append("<img id='brag-about-it' src='assets/img/BragAboutIt_Button.png'></img>");
     $("#share-div").append("<img id='twitter_button' src='assets/img/Twitter_icon.png'></img>");
+
+     var oFBElement = $('#fb_button');
+     oFBElement.onclick = fbClickHandler;
+
+     var oTwitterElement = $('#twitter_button');
+     oTwitterElement.onclick = twitterClickHandler;
+
+     var oFBElement2 = $('#fb_button_2');
+     oFBElement2.onclick = onFBClick;
+
     // $("#brag-about-it").on("click tap", share_page_transition);
     $("#above-footer-col").css({
         "text-align": "center"

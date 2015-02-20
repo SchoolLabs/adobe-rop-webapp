@@ -124,17 +124,6 @@ if( isset($_GET['score'])){
         </div>
       </div>
     </div>
-      <script>
-     var oFBElement = document.getElementById('fb_button');
-     oFBElement.onclick = fbClickHandler;
-
-     var oTwitterElement = document.getElementById('twitter_button');
-     oTwitterElement.onclick = twitterClickHandler;
-
-     var oFBElement2 = document.getElementById('fb_button_2');
-     oFBElement2.onclick = onFBClick;
-
-       </script>
     <script src="assets/js/preload.js"></script>
     <script src="assets/js/transitions.js"></script>
     <script src="assets/js/main.js"></script>
