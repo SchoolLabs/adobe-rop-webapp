@@ -134,8 +134,8 @@ function results_grid_transition() {
      var oTwitterElement = $('#twitter_button');
      oTwitterElement.onclick = twitterClickHandler;
 
-     var oFBElement2 = $('#fb_button_2');
-     oFBElement2.onclick = onFBClick;
+     // var oFBElement2 = $('#fb_button_2');
+     // oFBElement2.onclick = onFBClick;
 
     // $("#brag-about-it").on("click tap", share_page_transition);
     $("#above-footer-col").css({
