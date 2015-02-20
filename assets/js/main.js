@@ -135,27 +135,3 @@ function setMobileOperatingSystemLinks() {
     $("#upper-right-link").attr("href","http://www.android.com");
   }
 }
-
-// SET THE SCORE FROM THE QUIZ HERE
-var varScore = "19";
-var shareText="I got "+varScore+"/25 right. REAL or FAKE? Test your perception"; // used by twitter share
-var shareDesc="Share description copy goes here";
-var shareURL = "http://dev.seanhelvey.com/school_adobe/index.php?score="+varScore;
-var shareImage = "http://dev.seanhelvey.com/school_adobe/assets/img/fb_shareimage_1120x500.jpg";
-FB.init({
-      appId:'1595538550682763', cookie:true,
-      status:true, xfbml:true
-   });
-
-function fbClickHandler() {
-FB.ui({
-  method: 'feed',
-  link: shareURL,
-  picture:shareImage,
-  description:shareDesc,
-  caption: shareText,
-}, function(response){});
-}
-
-function twitterClickHandler() {
-window.open("https://twitter.com/share?url="+encodeURIComponent(shareURL)+"&text="+encodeURIComponent(shareText), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false; }
