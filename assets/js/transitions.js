@@ -29,7 +29,7 @@ function splash_screen_transition() {
     });
     img_text_row = $("#img-text-row").outerHeight(true);
     $("#img-row").css({
-        "height": "40%"
+        "height": "50%"
     });
     $("#img-col").append("<div id='twenty-five-wrapper'><div id='twenty-five-img'><img src='assets/img/25years_together.png'></div><p id='twenty-five-text'>SSS</p></div>");
     $("#twenty-five-wrapper").show();
@@ -43,6 +43,14 @@ function splash_screen_transition() {
         footer = $("#footer").outerHeight(true);
         adjusted = false;
         condition = header + img_text_row + img_row + footer;
+        //try reducing margin
+        if (condition > total) {
+            $("#twenty-five-wrapper").css({"margin":"2%"});
+            $("#begin").css({"margin-top":"5%"});
+        }
+        img_row = $("#img-row").outerHeight(true);
+        condition = header + img_text_row + img_row + footer;
+        //hide
         if (condition > total) {
             $("#twenty-five-text").hide();
             $("#twenty-five-img").hide();
@@ -56,12 +64,12 @@ function splash_screen_transition() {
             img_row = $("#img-row").outerHeight(true);
         }
     });
-}
-
-function twenty_five_transition() {
     $("#img-row").css({
         "height": "auto"
     });
+}
+
+function twenty_five_transition() {
     img_text_row = $("#img-text-row").outerHeight(true);
     $("#img-row").css({
         "margin-top": 0,
