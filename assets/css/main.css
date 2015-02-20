@@ -263,8 +263,8 @@ html, body {
 
 @media only screen and (min-width : 768px) {
     #img-row {
-        margin: 0% 35% 0% 35%;
-        width: 30%;
+        margin: 0% 25% 0% 25%;
+        width: 50%;
     }
 }
 
