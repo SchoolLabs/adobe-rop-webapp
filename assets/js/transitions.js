@@ -125,21 +125,6 @@ FB.init({
       status:true, xfbml:true
    });
 
-function fbClickHandler() {
-FB.ui({
-  method: 'feed',
-  link: shareURL,
-  picture:shareImage,
-  description:shareDesc,
-  caption: shareText,
-}, function(response){});
-}
-
-function twitterClickHandler() {
-    console.log("twitter clicked");
-window.open("https://twitter.com/share?url="+encodeURIComponent(shareURL)+"&text="+encodeURIComponent(shareText), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false; }
-
-
 function results_grid_transition() {
     $("#grid").css({
         "height": "auto"
@@ -154,11 +139,20 @@ function results_grid_transition() {
     $("#share-div").append("<img id='brag-about-it' src='assets/img/BragAboutIt_Button.png'></img>");
     $("#share-div").append("<img id='twitter_button' src='assets/img/Twitter_icon.png'></img>");
 
-     var oFBElement = $('#fb_button');
-     oFBElement.onclick = fbClickHandler;
+     $('#fb_button').on("click", function(){
+        FB.ui({
+          method: 'feed',
+          link: shareURL,
+          picture:shareImage,
+          description:shareDesc,
+          caption: shareText,
+        }, function(response){});
+     });
 
-     var oTwitterElement = $('#twitter_button');
-     oTwitterElement.onclick = twitterClickHandler;
+     $('#twitter_button').on("click", function() {
+        console.log("twitter clicked");
+        window.open("https://twitter.com/share?url="+encodeURIComponent(shareURL)+"&text="+encodeURIComponent(shareText), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;
+     });
 
      // var oFBElement2 = $('#fb_button_2');
      // oFBElement2.onclick = onFBClick;
