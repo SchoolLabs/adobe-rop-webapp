@@ -56,12 +56,12 @@ function splash_screen_transition() {
             img_row = $("#img-row").outerHeight(true);
         }
     });
-    $("#img-row").css({
-        "height": "auto"
-    });
 }
 
 function twenty_five_transition() {
+    $("#img-row").css({
+        "height": "auto"
+    });
     img_text_row = $("#img-text-row").outerHeight(true);
     $("#img-row").css({
         "margin-top": 0,
