@@ -7,7 +7,7 @@ var delta = 0;
 var correct_number = 0;
 var image_number = 1;
 var scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-var old_margin = $("real-or-fake").css("marginLeft");
+var old_margin = 0;
 
 /* Event handlers */
 var once = false;
@@ -16,6 +16,7 @@ if (Modernizr.touch) {
     $("#img-row").on("swipeleft swiperight", function(e) {
         if (once == false) {
             twenty_five_transition();
+            old_margin = $("#main-img").css("marginLeft");
         } else {
             delta = score_swipe(e);
             slide_transition($("#main-img"));
@@ -26,6 +27,7 @@ if (Modernizr.touch) {
     $("#img-row").on("click", function(e) {
         if (once == false) {
             twenty_five_transition();
+            old_margin = $("#main-img").css("marginLeft");
         } else {
             delta = score_swipe(e);
             slide_transition($("#main-img"));
@@ -91,7 +93,7 @@ function animate(img, delta, last) {
         img.attr("src", preloaded_images[image_number - 1].src).load(function() {
             //restore prior margin and opacity
             img.css({
-                "margin-left": "1px",
+                "margin-left": old_margin,
                 opacity: 1,
             });
         });
