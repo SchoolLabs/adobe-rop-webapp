@@ -122,18 +122,17 @@ function twenty_five_transition() {
     }
 }
 
-// SET THE SCORE FROM THE QUIZ HERE
-var varScore = "19";
-var shareText="I got "+varScore+"/25 right. REAL or FAKE? Test your perception"; // used by twitter share
-var shareDesc="Share description copy goes here";
-var shareURL = "http://dev.seanhelvey.com/school_adobe/index.php?score="+varScore;
-var shareImage = "http://dev.seanhelvey.com/school_adobe/assets/img/fb_shareimage_1120x500.jpg";
-FB.init({
-      appId:'1595538550682763', cookie:true,
-      status:true, xfbml:true
-   });
-
-function results_grid_transition() {
+function results_grid_transition(sum) {
+    // SET THE SCORE FROM THE QUIZ HERE
+    var varScore = sum.toString();
+    var shareText="I got "+ varScore +"/25 right. REAL or FAKE? Test your perception"; // used by twitter share
+    var shareDesc="Share description copy goes here";
+    var shareURL = "http://dev.seanhelvey.com/school_adobe/index.php?score="+varScore;
+    var shareImage = "http://dev.seanhelvey.com/school_adobe/assets/img/fb_shareimage_1120x500.jpg";
+    FB.init({
+          appId:'1595538550682763', cookie:true,
+          status:true, xfbml:true
+       });
     $("#grid").css({
         "height": "auto"
     });

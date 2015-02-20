@@ -118,7 +118,7 @@ function build_grid() {
         }
     }
     imagesLoaded("#grid", function() {
-        results_grid_transition();
+        results_grid_transition(sum);
     });
     $("#grid-text").text(sum + "/25 answers correct!");
 }
