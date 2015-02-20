@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 if( isset($_GET['score'])){
@@ -15,27 +15,27 @@ if( isset($_GET['score'])){
     <head>
 		<script src="//use.typekit.net/bmc0kph.js"></script>
 		<script>try{Typekit.load();}catch(e){}</script>
-		
+
 		<!-- must use absolute urls -->
 		<!-- NEED TO CHANGE THE URLS TO ALL MATCH THE DEV DOMAIN -->
-		
-		
+
+
 		<!-- // BEGIN FACEBOOK META -->
 		<meta property="og:title" content="FB: <?php echo $title; ?>">
 		<meta property="og:description" content="Lorem Ipsum sit dolor amet">
-		<meta property="og:image" content="http://dev.schooldoes.com/rofpoc/images/fb_shareimage_1120x500.jpg"> 
-		<meta property="og:url" content="http://dev.schooldoes.com/rofpoc/index.php?score=<?php echo $score; ?>">
+		<meta property="og:image" content="http://dev.seanhelvey.com/assets/img/fb_shareimage_1120x500.jpg">
+		<meta property="og:url" content="http://dev.seanhelvey.com/share.php?score=<?php echo $score; ?>">
 		<!-- // END FACEBOOK META -->
-				
+
 		<!-- // BEGIN TWITTER META -->
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@adobe">
 		<meta name="twitter:creator" content="@adobe">
 		<meta name="twitter:title" content="FB: <?php echo $title; ?>">
 		<meta name="twitter:description" content="Lorem Ipsum sit dolor amet">
-		<meta name="twitter:image:src" content="http://dev.schooldoes.com/rofpoc/images/fb_shareimage_1120x500.jpg?1">
+		<meta name="twitter:image:src" content="http://dev.seanhelvey.com/assets/img/fb_shareimage_1120x500.jpg?1">
 		<!-- // END TWITTER META -->
-		
+
 	<title><?php echo $title; ?></title>
 	<style>
 	#buttonwrapper {
@@ -66,7 +66,7 @@ if( isset($_GET['score'])){
 	}
 	#twitter_button, #fb_button {
 		/* background-color:#4099ff; */
-		
+
 	}
 	#fb_button {
 		/* background-color:#3b5998; */
@@ -87,13 +87,13 @@ if( isset($_GET['score'])){
 			var varScore = "19";
 			var shareText="I got "+varScore+"/25 right. REAL or FAKE? Test your perception"; // used by twitter share
 			var shareDesc="Share description copy goes here";
-			var shareURL = "http://dev.schooldoes.com/rofpoc/index.php?score="+varScore;
-			var shareImage = "http://dev.schooldoes.com/rofpoc/images/fb_shareimage_1120x500.jpg";
-			FB.init({ 
-	            appId:'1595538550682763', cookie:true, 
-	            status:true, xfbml:true 
+			var shareURL = "http://dev.seanhelvey.com/share.php?score="+varScore;
+			var shareImage = "http://dev.seanhelvey.com/assets/img/fb_shareimage_1120x500.jpg";
+			FB.init({
+	            appId:'1595538550682763', cookie:true,
+	            status:true, xfbml:true
 	         });
-			 
+
 			 function fbClickHandler() {
 				FB.ui({
 				  method: 'feed',
@@ -103,13 +103,13 @@ if( isset($_GET['score'])){
 				  caption: shareText,
 				}, function(response){});
 			 }
-		 
-			 function twitterClickHandler() { 
+
+			 function twitterClickHandler() {
 				window.open("https://twitter.com/share?url="+encodeURIComponent(shareURL)+"&text="+encodeURIComponent(shareText), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false; }
-				 
-			
+
+
 			</script>
-				 
+
 </head>
 <body>
 	<br />
@@ -123,18 +123,18 @@ if( isset($_GET['score'])){
 	</div>
 
 			<script>
-		 var oFBElement = document.getElementById('fb_button');   
-		 oFBElement.onclick = fbClickHandler; 
-	 
-		 var oTwitterElement = document.getElementById('twitter_button');   
-		 oTwitterElement.onclick = twitterClickHandler; 
-	 
-		 var oFBElement2 = document.getElementById('fb_button_2');   
-		 oFBElement2.onclick = onFBClick; 
-		 
+		 var oFBElement = document.getElementById('fb_button');
+		 oFBElement.onclick = fbClickHandler;
+
+		 var oTwitterElement = document.getElementById('twitter_button');
+		 oTwitterElement.onclick = twitterClickHandler;
+
+		 var oFBElement2 = document.getElementById('fb_button_2');
+		 oFBElement2.onclick = onFBClick;
+
 			 </script>
 
 
 
-</body> 
+</body>
 </html>
