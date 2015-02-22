@@ -23,9 +23,9 @@ html, body {
 
 #header {
     margin-bottom: 0%;
-    background-color: #333333;
+/*    background-color: #333333;*/
 /*    color: #333333; /* CHANGE */
-/*    background-color: salmon;*/
+    background-color: salmon;
     margin: 0%;
     height: 10%;
     width: 100%;
@@ -82,12 +82,14 @@ html, body {
 #img-text-col {
     padding: 0%;
     margin: 0%;
+    max-height: 100%;
 }
 
 #real-or-fake {
     padding: 0% 20% 0% 20%;
     background-color: #333333;
-    opacity: 0;
+    height: 100%;
+    width: auto;
 /*    background-color: yellow;*/
 }
 
@@ -111,11 +113,12 @@ html, body {
 }
 
 #twenty-five-wrapper {
-    margin: 10%;
+    padding-top: 20%;
     display: none;
     height: auto;
     overflow: auto;
-    background-color: #333333;
+/*    background-color: #333333;*/
+    background-color: purple;
 }
 
 #twenty-five-text {
@@ -189,9 +192,9 @@ html, body {
 
 #footer {
     margin: 0%;
-    background-color: #333333;
+/*    background-color: #333333;*/
 /*    color: #333333; /* CHANGE */
-/*    background-color: teal;*/
+    background-color: teal;
     height: 10%;
     width: 100%;
 }
