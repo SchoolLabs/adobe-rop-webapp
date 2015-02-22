@@ -18,55 +18,16 @@ function splash_screen_transition() {
     });
     $("#ps-logo").hide();
     $("#spin").hide();
-    $("#prompt-row").hide();
+    $("#prompt").hide();
     $("#upper-left-adobe").show();
     $("#upper-right-ps-logo").show();
     $("#terms").show();
     $("#bottom-right-adobe").show();
     $("#img-text-row").css("background-image", "url(assets/img/REALor_fake.png)");
-    $("#img-text-row").css({
-        "height": "auto"
-    });
-    img_text_row = $("#img-text-row").outerHeight(true);
-    $("#img-row").css({
-        "height": "50%"
-    });
     $("#img-col").append("<div id='twenty-five-wrapper'><div id='twenty-five-img'><img src='assets/img/25years_together.png'></div><p id='twenty-five-text'>SSS</p></div>");
     $("#twenty-five-wrapper").show();
     $("#twenty-five-text").text("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate.");
     $("#twenty-five-wrapper").append("<img class='center-block' id='begin' src='assets/img/SwipetoBegin.png'>");
-    imagesLoaded("#begin", function() {
-        total = $(window).outerHeight(true);
-        header = $("#header").outerHeight(true);
-        img_text_row = $("#img-text-row").outerHeight(true);
-        img_row = $("#img-row").outerHeight(true);
-        footer = $("#footer").outerHeight(true);
-        adjusted = false;
-        condition = header + img_text_row + img_row + footer;
-        //try reducing margin
-        if (condition > total) {
-            $("#twenty-five-wrapper").css({"margin":"2%"});
-            $("#begin").css({"margin-top":"5%"});
-        }
-        img_row = $("#img-row").outerHeight(true);
-        condition = header + img_text_row + img_row + footer;
-        //hide
-        if (condition > total) {
-            $("#twenty-five-text").hide();
-            $("#twenty-five-img").hide();
-        }
-        // for taller or longer phones like iPhone 5 & 6
-        img_row = $("#img-row").outerHeight(true);
-        while (header + img_text_row + img_row + footer < total) {
-            $("#img-row").css({
-                "margin-bottom": (parseInt($("#img-row").css("margin-bottom").replace("px", "")) + 1).toString() + "px"
-            });
-            img_row = $("#img-row").outerHeight(true);
-        }
-    });
-    $("#img-row").css({
-        "height": "auto"
-    });
 }
 
 function twenty_five_transition() {

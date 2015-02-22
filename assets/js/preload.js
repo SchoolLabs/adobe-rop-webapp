@@ -2,10 +2,12 @@ var preloaded_images = new Array();
 var preloaded_background_images = new Array();
 var preloaded_grid_images = new Array();
 
-$("#prompt-col").append("<div id='spin'></div>");
-$("#spin").css({
+$("#img-col").append("<div id='spin'></div>");
+$("#img-col").css({
     // "padding-top": "5%"
 });
+
+$("#img-col").append("<div id='prompt'>25 Years!</div>");
 
 preload(
     "assets/img/Swipe1.jpg",
