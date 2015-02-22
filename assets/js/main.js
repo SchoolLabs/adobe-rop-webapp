@@ -25,6 +25,7 @@ if (Modernizr.touch) {
     });
 } else {
     $("#img-row").on("click", function(e) {
+        console.log("click");
         if (once == false) {
             twenty_five_transition();
             old_margin = $("#main-img").css("marginLeft");
@@ -60,7 +61,7 @@ function score_swipe(event) {
 /* Slide transition will either show next image or redirect to final page via anmate */
 function slide_transition(img) {
     incremental_preload(image_number);
-    // image_number = 25;
+    image_number = 25;
     if (image_number < IMAGES.length) {
         animate(img, delta);
     } else {

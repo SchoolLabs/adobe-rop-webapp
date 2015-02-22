@@ -1,17 +1,3 @@
-var total = $(window).outerHeight(true);
-var header = $("#header").outerHeight(true);
-var img_text_row = $("#img-text-row").outerHeight(true);
-var img_row_margin = 0;
-var img_row = $("#img-row").outerHeight(true);
-var prompt_row = $("#prompt-row").outerHeight(true);
-var prompt_row_margin = $("#prompt-row").outerHeight(true) - $("#prompt-row").height();
-var grid = $("#grid").outerHeight(true);
-var above_footer = 0;
-var footer = $("#footer").outerHeight(true);
-var adjusted = false;
-var condition = 0;
-var background_size = "";
-
 function splash_screen_transition() {
     $("#ps-logo").hide();
     $("#spin").hide();
@@ -55,10 +41,13 @@ function results_grid_transition(sum) {
         appId:'1595538550682763', cookie:true,
         status:true, xfbml:true
     });
-    $("#above-footer-col").append("<div id='share-div'></div>");
-    $("#share-div").append("<img id='fb_button' src='assets/img/FB_icon.png'></img>");
-    $("#share-div").append("<img id='brag-about-it' src='assets/img/BragAboutIt_Button.png'></img>");
-    $("#share-div").append("<img id='twitter_button' src='assets/img/Twitter_icon.png'></img>");
+    $("#img-row").hide()
+    $("#left-for-fake").hide();
+    $("#right-for-real").hide();
+    $("#grid").show();
+    $("#above-footer-col").append("<img id='fb_button' src='assets/img/FB_icon.png'></img>");
+    $("#above-footer-col").append("<img id='brag-about-it' src='assets/img/BragAboutIt_Button.png'></img>");
+    $("#above-footer-col").append("<img id='twitter_button' src='assets/img/Twitter_icon.png'></img>");
     $('#fb_button').on("click", function(){
         FB.ui({
           method: 'feed',
@@ -72,34 +61,4 @@ function results_grid_transition(sum) {
      $('#twitter_button').on("click", function() {
         window.open("https://twitter.com/share?url="+encodeURIComponent(shareURL)+"&text="+encodeURIComponent(shareText), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;
      });
-    $("#above-footer-col").css({
-        "text-align": "center"
-    });
-    $("#left-for-fake").hide();
-    $("#right-for-real").hide();
-    condition = header + img_text_row + grid + above_footer + footer;
-    adjusted = false;
-
-    while (condition > total) {
-        // $(".grid-img").css({
-        //     "height": (parseInt($(".grid-img").css("height").replace("px", "")) - 1).toString() + "px",
-        //     "width": (parseInt($(".grid-img").css("width").replace("px", "")) - 1).toString() + "px",
-        // });
-        background_height = (parseInt($(".grid-img img").css("height").replace("px", "")) - 1).toString() + "px";
-        background_width = (parseInt($(".grid-img img").css("width").replace("px", "")) - 1).toString() + "px";
-        $(".grid-img img").css({
-            "height": (parseInt($(".grid-img img").css("height").replace("px", "")) - 1).toString() + "px",
-            "width": (parseInt($(".grid-img img").css("width").replace("px", "")) - 1).toString() + "px",
-            "background-size": background_height + " " + background_width
-        });
-        grid = $("#grid").outerHeight(true);
-        condition = header + img_text_row + grid + above_footer + footer;
-        adjusted = true;
-    }
-    if (adjusted) {
-        adjust = total - header - img_text_row - above_footer - footer;
-        $("#grid").css({
-            "height": adjust
-        });
-    }
 }
