@@ -49,8 +49,8 @@ function preload_grid() {
 }
 
 function incremental_preload(img_number) {
-    if (image_number >= 5) {
-        preload("assets/img/Swipe" + (img_number+1) + ".jpg")
-        preload_grid("assets/img/Grid" + (img_number+1) + ".png")
+    if (image_number <= 20) {
+        preload("assets/img/Swipe" + (img_number+5) + ".jpg")
+        preload_grid("assets/img/Grid" + (img_number+5) + ".png")
     }
 }
