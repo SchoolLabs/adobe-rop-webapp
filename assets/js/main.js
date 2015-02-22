@@ -59,7 +59,7 @@ function score_swipe(event) {
 
 /* Slide transition will either show next image or redirect to final page via anmate */
 function slide_transition(img) {
-    incremental_preload();
+    incremental_preload(image_number);
     // image_number = 25;
     if (image_number < IMAGES.length) {
         animate(img, delta);
