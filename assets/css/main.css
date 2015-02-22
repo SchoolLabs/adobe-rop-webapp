@@ -110,6 +110,8 @@ html, body {
 
 #main-img {
     display: none;
+    height: 100%;
+    width: auto;
 }
 
 #twenty-five-wrapper {

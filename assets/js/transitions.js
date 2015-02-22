@@ -38,34 +38,27 @@ function twenty_five_transition() {
     $("#above-footer-col").append("<img id='left-for-fake' src='assets/img/LforFAKE.png'></img>");
     $("#above-footer-col").append("<img id='right-for-real' src='assets/img/RforREAL.png'></img>");
     $("#twenty-five-wrapper").hide();
+    $("#img-row").css({
+        "height": "55%"
+    });
     $("#main-img").show();
 }
 
 function results_grid_transition(sum) {
-    // SET THE SCORE FROM THE QUIZ HERE
     var varScore = sum.toString();
     var shareText="I got "+ varScore +"/25 right. REAL or FAKE? Test your perception"; // used by twitter share
     var shareDesc="Share description copy goes here";
     var shareURL = "http://dev.seanhelvey.com/school_adobe/index.php?score="+varScore;
     var shareImage = "http://dev.seanhelvey.com/school_adobe/assets/img/fb_shareimage_1120x500.jpg";
     FB.init({
-          appId:'1595538550682763', cookie:true,
-          status:true, xfbml:true
-       });
-    $("#grid").css({
-        "height": "auto"
+        appId:'1595538550682763', cookie:true,
+        status:true, xfbml:true
     });
-    grid = $("#grid").outerHeight(true);
-    img_text_row = $("#img-text-row").outerHeight(true);
-    img_row = $("#img-row").outerHeight(true);
-    above_footer = $("#above-footer-row").outerHeight(true);
-    footer = $("#footer").outerHeight(true);
     $("#above-footer-col").append("<div id='share-div'></div>");
     $("#share-div").append("<img id='fb_button' src='assets/img/FB_icon.png'></img>");
     $("#share-div").append("<img id='brag-about-it' src='assets/img/BragAboutIt_Button.png'></img>");
     $("#share-div").append("<img id='twitter_button' src='assets/img/Twitter_icon.png'></img>");
-
-     $('#fb_button').on("click", function(){
+    $('#fb_button').on("click", function(){
         FB.ui({
           method: 'feed',
           link: shareURL,
@@ -76,14 +69,8 @@ function results_grid_transition(sum) {
      });
 
      $('#twitter_button').on("click", function() {
-        console.log("twitter clicked");
         window.open("https://twitter.com/share?url="+encodeURIComponent(shareURL)+"&text="+encodeURIComponent(shareText), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;
      });
-
-     // var oFBElement2 = $('#fb_button_2');
-     // oFBElement2.onclick = onFBClick;
-
-    // $("#brag-about-it").on("click tap", share_page_transition);
     $("#above-footer-col").css({
         "text-align": "center"
     });
