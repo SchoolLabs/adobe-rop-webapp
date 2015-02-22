@@ -20,6 +20,7 @@ function splash_screen_transition() {
     $("#upper-right-ps-logo").show();
     $("#terms").show();
     $("#bottom-right-adobe").show();
+    $("#img-text-row").show();
     $("#img-text-row").css("background-image", "url(assets/img/REALor_fake.png)");
     $("#img-col").append("<div id='twenty-five-wrapper'><div id='twenty-five-img'><img src='assets/img/25years_together.png'></div><p id='twenty-five-text'>SSS</p></div>");
     $("#twenty-five-wrapper").show();
