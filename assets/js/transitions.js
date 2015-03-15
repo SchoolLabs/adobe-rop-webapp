@@ -47,7 +47,6 @@ function twenty_five_transition() {
     $("#img-col").addClass("col-md-8");
     $("#img-row").append("<div class='col-md-4' id='desktop-right-section'></div>")
     $("#desktop-right-section").show();
-    // $("<div class='row' id='above-footer-row'><div class='col-xs-12' id='above-footer-col'></div></div>").insertBefore("#footer");
     $("#desktop-right-section").append("<img id='desktop-right-img' src='assets/img/new/Adobe_MobileStates_LoadingScreen_25Logo.png'></img>");
     $("#desktop-right-section").append("<img id='left-for-fake' src='assets/img/LforFAKE.png'></img>");
     $("#desktop-right-section").append("<img id='right-for-real' src='assets/img/RforREAL.png'></img>");
@@ -73,13 +72,17 @@ function results_grid_transition(sum) {
         appId:'1595538550682763', cookie:true,
         status:true, xfbml:true
     });
-    $("#img-row").hide()
+    // $("#img-row").hide()
     $("#left-for-fake").hide();
     $("#right-for-real").hide();
-    $("#grid").show();
-    $("#above-footer-col").append("<img id='fb_button' src='assets/img/FB_icon.png'></img>");
-    $("#above-footer-col").append("<img id='brag-about-it' src='assets/img/BragAboutIt_Button.png'></img>");
-    $("#above-footer-col").append("<img id='twitter_button' src='assets/img/Twitter_icon.png'></img>");
+    $("#desktop-right-img").hide();
+    $("#desktop-right-section").append("<div id='grid-text-mobile'></div>");
+    $("#desktop-right-section").append("<div id='grid-text-desktop'></div>");
+    $("#grid-text-mobile").text(sum + "/25 answers correct!");
+    $("#grid-text-desktop").text(sum + "/25 answers correct!");
+    $("#desktop-right-section").append("<img id='fb_button' src='assets/img/FB_icon.png'></img>");
+    $("#desktop-right-section").append("<img id='brag-about-it' src='assets/img/new/Brag.png'></img>");
+    $("#desktop-right-section").append("<img id='twitter_button' src='assets/img/Twitter_icon.png'></img>");
     $('#fb_button').on("click", function(){
         FB.ui({
           method: 'feed',

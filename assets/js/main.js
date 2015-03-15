@@ -38,6 +38,7 @@ function slide_transition(img) {
         animate(img, delta);
     } else {
         build_grid();
+        $("#img-row").off();
     }
 }
 
@@ -75,14 +76,12 @@ function animate(img, delta, last) {
 
 function build_grid() {
     $("#main-img").hide();
-    $("#grid").css({
-        "opacity": 1
-    });
     var sum = 0;
     for (var i = 0; i < scores.length; i++) {
         sum += parseInt(scores[i]);
         if (i % 5 == 0) {
-            $("<div class='row grid-row'></div>").insertBefore($("#grid #grid-text"));
+            // $("<div class='row grid-row'></div>").insertBefore($("#img-col #grid-text"));
+            $("#img-col").append("<div class='row grid-row'></div>");
         }
         if (scores[i] == 1) {
             $(".grid-row:last").append("<div class='col-xs-15 grid-img'><img class='img' src='assets/img/Adobe_Clearx_v1_12.19.15.png'></div>");
@@ -95,7 +94,6 @@ function build_grid() {
     imagesLoaded("#grid", function() {
         results_grid_transition(sum);
     });
-    $("#grid-text").text(sum + "/25 answers correct!");
 }
 
 function setMobileOperatingSystemLinks() {

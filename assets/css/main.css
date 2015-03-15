@@ -91,16 +91,16 @@ html, body {
 #img-row {
     width: 100%;
     height: 80%;
-    padding: 0%;
+    padding: 2% 0% 0% 0%;
     margin: 0%;
-    background-color: #333333;
-/*    background-color: blue;*/
+/*    background-color: #333333;*/
+    background-color: blue;
 }
 
 #img-col {
     padding: 0%;
     margin: 0%;
-    height: 100%;
+    height: 80%;
 }
 
 #two-five-logo {
@@ -126,6 +126,7 @@ html, body {
 #twenty-five-text {
     color: white;
     text-align: center;
+    padding: 0% 10% 0% 10%;
 }
 
 #twenty-five-img {
@@ -190,7 +191,8 @@ html, body {
 #brag-about-it, #fb_button, #twitter_button {
     margin-left: 1%;
     margin-right: 1%;
-    max-height: 100%;
+    max-height: 10%;
+    max-width: 30%;
 }
 
 #footer {
@@ -264,11 +266,6 @@ html, body {
     background-repeat: none;
 }
 
-#grid-text {
-    height: 5%;
-    color: white;
-}
-
 .col-xs-15 {
     width: 20%;
     float: left;
@@ -281,7 +278,6 @@ html, body {
 #desktop-right-section {
     display: none;
     height: 100%;
-    background-color: green;
 }
 
 #desktop-right-img {
@@ -289,13 +285,13 @@ html, body {
 }
 
 @media (orientation: landscape) and (max-width: 767px) {
-  body {
+    body {
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
-  }
+    }
 }
 
 @media only screen and (min-width : 768px) {
@@ -305,15 +301,42 @@ html, body {
     }
 }
 
+@media (max-width: 1024px) {
+    #grid-text-mobile {
+        display: block;
+        height: 5%;
+        color: white;
+        clear: both;
+        margin: 0% 0% 2% 0%;
+    }
+    #grid-text-desktop {
+        display: none;
+    }
+}
+
 @media only screen and (min-width : 1024px) {
     #left-for-fake, #right-for-real {
         max-width: 100%;
     }
     #desktop-right-section {
         display: block;
+        text-align: center;
     }
     #desktop-right-img {
         display: block;
+    }
+    #grid-text-mobile {
+        display: none;
+    }
+    #grid-text-desktop {
+        color: white;
+        display: block;
+        margin: 10% 0%;
+    }
+    #brag-about-it, #fb_button, #twitter_button {
+        clear: both;
+        display: block;
+        margin: 10% 35% 0% 35%;
     }
 
 }
