@@ -2,12 +2,9 @@ var preloaded_images = new Array();
 var preloaded_background_images = new Array();
 var preloaded_grid_images = new Array();
 
+$("#upper-right-ps-logo").show();
+$("#img-col").append("<img class='center-block' id='two-five-logo' src='assets/img/new/Adobe_MobileStates_LoadingScreen_25Logo.png'></img>");
 $("#img-col").append("<div id='spin'></div>");
-$("#img-col").css({
-    // "padding-top": "5%"
-});
-
-$("#img-col").append("<div id='prompt'>25 Years!</div>");
 
 preload(
     "assets/img/Swipe1.jpg",

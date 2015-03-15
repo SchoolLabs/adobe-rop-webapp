@@ -9,34 +9,6 @@ var image_number = 1;
 var scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var old_margin = 0;
 
-/* Event handlers */
-var once = false;
-
-if (Modernizr.touch) {
-    $("#img-row").on("swipeleft swiperight", function(e) {
-        if (once == false) {
-            twenty_five_transition();
-            old_margin = $("#main-img").css("marginLeft");
-        } else {
-            delta = score_swipe(e);
-            slide_transition($("#main-img"));
-        }
-        once = true;
-    });
-} else {
-    $("#img-row").on("click", function(e) {
-        console.log("click");
-        if (once == false) {
-            twenty_five_transition();
-            old_margin = $("#main-img").css("marginLeft");
-        } else {
-            delta = score_swipe(e);
-            slide_transition($("#main-img"));
-        }
-        once = true;
-    });
-}
-
 setMobileOperatingSystemLinks();
 
 /* Calculate and return delta, which is the direction and distance the image will move.
@@ -61,7 +33,7 @@ function score_swipe(event) {
 /* Slide transition will either show next image or redirect to final page via anmate */
 function slide_transition(img) {
     incremental_preload(image_number);
-    // image_number = 25;
+    image_number = 25;
     if (image_number < IMAGES.length) {
         animate(img, delta);
     } else {

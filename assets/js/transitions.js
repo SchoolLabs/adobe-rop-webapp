@@ -1,32 +1,64 @@
 function splash_screen_transition() {
+    /* Event handlers */
+    var once = false;
+
+    if (Modernizr.touch) {
+        $("#img-row").on("swipeleft swiperight", function(e) {
+            if (once == false) {
+                twenty_five_transition();
+                old_margin = $("#main-img").css("marginLeft");
+            } else {
+                delta = score_swipe(e);
+                slide_transition($("#main-img"));
+            }
+            once = true;
+        });
+    } else {
+        $("#img-row").on("click", function(e) {
+            console.log("click");
+            if (once == false) {
+                twenty_five_transition();
+                old_margin = $("#main-img").css("marginLeft");
+            } else {
+                delta = score_swipe(e);
+                slide_transition($("#main-img"));
+            }
+            once = true;
+        });
+    }
+
     $("#ps-logo").hide();
     $("#spin").hide();
-    $("#prompt").hide();
+    // $("#two-five-logo").hide();
     $("#upper-left-adobe").show();
-    $("#upper-right-ps-logo").show();
     $("#terms").show();
     $("#bottom-right-adobe").show();
-    $("#img-text-row").show();
-    $("#img-text-row").css("background-image", "url(assets/img/REALor_fake.png)");
-    $("#img-col").append("<div id='twenty-five-wrapper'><div id='twenty-five-img'><img src='assets/img/25years_together.png'></div><p id='twenty-five-text'>SSS</p></div>");
+
+    $("#img-col").append("<div id='twenty-five-wrapper'><p id='twenty-five-text' class='text-center'>SSS</p></div>");
     $("#twenty-five-wrapper").show();
     $("#twenty-five-text").text("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate.");
+    // $("#twenty-five-wrapper").append("<img class='center-block' id='begin' src='assets/img/SwipetoBegin.png'>");
+    $("#twenty-five-wrapper").append("<img class='center-block' id='real-or-photoshop' src='assets/img/new/Adobe_MobileStates_SplashScreen_RealOrPhotoshop.png'>");
+    $("#twenty-five-wrapper").append("<img class='center-block' id='start-button' src='assets/img/new/Adobe_MobileStates_SplashScreen_StartButton.png'>");
+}
+
+function twenty_five_transition() {
+    $("#two-five-logo").hide();
+    $("#img-col").addClass("col-md-8");
+    $("#img-row").append("<div class='col-md-4' id='desktop-right-section'></div>")
+    $("#desktop-right-section").show();
+    // $("<div class='row' id='above-footer-row'><div class='col-xs-12' id='above-footer-col'></div></div>").insertBefore("#footer");
+    $("#desktop-right-section").append("<img id='desktop-right-img' src='assets/img/new/Adobe_MobileStates_LoadingScreen_25Logo.png'></img>");
+    $("#desktop-right-section").append("<img id='left-for-fake' src='assets/img/LforFAKE.png'></img>");
+    $("#desktop-right-section").append("<img id='right-for-real' src='assets/img/RforREAL.png'></img>");
+    $("#twenty-five-wrapper").hide();
+    $("#img-text-row").show();
+    $("#img-text-row").css("background-image", "url(assets/img/new/Adobe_MobileStates_SplashScreen_RealOrPhotoshop.png)");
     $("#img-text-row").css({
         "height": "15%"
     });
     $("#img-row").css({
         "height": "65%"
-    });
-    $("#twenty-five-wrapper").append("<img class='center-block' id='begin' src='assets/img/SwipetoBegin.png'>");
-}
-
-function twenty_five_transition() {
-    $("<div class='row' id='above-footer-row'><div class='col-xs-12' id='above-footer-col'></div></div>").insertBefore("#footer");
-    $("#above-footer-col").append("<img id='left-for-fake' src='assets/img/LforFAKE.png'></img>");
-    $("#above-footer-col").append("<img id='right-for-real' src='assets/img/RforREAL.png'></img>");
-    $("#twenty-five-wrapper").hide();
-    $("#img-row").css({
-        "height": "55%"
     });
     $("#main-img").show();
 }

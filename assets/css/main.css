@@ -47,10 +47,6 @@ html, body {
     color: white;
 }
 
-#prompt {
-    color: white;
-}
-
 #header-col {
     height:100%;
 }
@@ -71,7 +67,7 @@ html, body {
 
 #img-text-row {
     display: none;
-    width: 100%;
+    height: 100%;
     margin: 0%;
     background-size: auto 100%;
     background-repeat: no-repeat;
@@ -107,6 +103,10 @@ html, body {
     height: 100%;
 }
 
+#two-five-logo {
+    padding: 5% 30% 0% 30%;
+}
+
 #main-img {
     display: none;
     max-height: 100%;
@@ -115,7 +115,7 @@ html, body {
 
 #twenty-five-wrapper {
     max-height: 100%;
-    padding-top: 10%;
+    padding-top: 5%;
     display: none;
     height: auto;
     overflow: auto;
@@ -125,7 +125,7 @@ html, body {
 
 #twenty-five-text {
     color: white;
-    text-align: left;
+    text-align: center;
 }
 
 #twenty-five-img {
@@ -143,11 +143,20 @@ html, body {
     padding: 5px;
 }
 
-#begin {
+/*#begin {
     margin-top: 10%;
     width: 100%;
     max-height: 100%;
     height: auto;
+}*/
+
+#real-or-photoshop {
+    padding: 5% 30% 0% 30%;
+    max-height: 100%;
+}
+
+#start-button {
+    padding: 5% 30% 0% 30%;
 }
 
 #above-footer-row {
@@ -269,14 +278,16 @@ html, body {
     color: white;
 }
 
-@media only screen and (min-width : 768px) {
-    #img-row {
-        margin: 0% 25% 0% 25%;
-        width: 50%;
-    }
+#desktop-right-section {
+    display: none;
+    height: 100%;
+    background-color: green;
 }
 
-/* all other phones */
+#desktop-right-img {
+    display: none;
+}
+
 @media (orientation: landscape) and (max-width: 767px) {
   body {
     -webkit-transform: rotate(-90deg);
@@ -285,4 +296,24 @@ html, body {
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
   }
+}
+
+@media only screen and (min-width : 768px) {
+    #img-row {
+        margin: 0% 25% 0% 25%;
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width : 1024px) {
+    #left-for-fake, #right-for-real {
+        max-width: 100%;
+    }
+    #desktop-right-section {
+        display: block;
+    }
+    #desktop-right-img {
+        display: block;
+    }
+
 }
