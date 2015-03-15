@@ -47,30 +47,34 @@ function splash_screen_transition() {
 
 function twenty_five_transition() {
     $("#two-five-logo").hide();
-    $("#img-col").addClass("col-md-8");
-    $("#img-row").append("<div class='col-md-4' id='desktop-right-section'></div>")
+    $("#img-col").addClass("col-lg-8");
+    $("#img-row").append("<div class='col-lg-4' id='desktop-right-section'></div>")
     $("#desktop-right-section").show();
     $("#desktop-right-section").append("<img id='desktop-right-img' src='assets/img/new/Adobe_MobileStates_LoadingScreen_25Logo.png'></img>");
-    $("#desktop-right-section").append("<img id='left-for-fake' src='assets/img/LforFAKE.png'></img>");
-    $("#desktop-right-section").append("<img id='right-for-real' src='assets/img/RforREAL.png'></img>");
     $("#twenty-five-wrapper").hide();
-    $("#img-text-row").show();
-    $("#img-text-col").append("<img class='center-block' id='real' src='assets/img/new/Adobe_RealOrPhotoshop_Real_White.png'>");
-    $("#img-text-col").append("<img class='center-block' id='or' src='assets/img/new/Adobe_RealOrPhotoshop_Or_White.png'>");
-    $("#img-text-col").append("<img class='center-block' id='photoshop' src='assets/img/new/Adobe_RealOrPhotoshop_Photoshop_White.png'>");
-    // $("#img-text-row").css("background-image", "url(assets/img/new/Adobe_MobileStates_SplashScreen_RealOrPhotoshop.png)");
-    $("#real, #photoshop").css({
-        "height": "25%"
-    })
-    $("#or").css({
-        "height": "20%"
-    })
-    $("#img-text-row").css({
-        "height": "15%"
-    });
-    $("#img-row").css({
-        "height": "65%"
-    });
+    if (Modernizr.touch) {
+        $("#img-text-row").show();
+        $("#img-text-col").append("<img class='center-block' id='real' src='assets/img/new/Adobe_RealOrPhotoshop_Real_White.png'>");
+        $("#img-text-col").append("<img class='center-block' id='or' src='assets/img/new/Adobe_RealOrPhotoshop_Or_White.png'>");
+        $("#img-text-col").append("<img class='center-block' id='photoshop' src='assets/img/new/Adobe_RealOrPhotoshop_Photoshop_White.png'>");
+        // $("#img-text-row").css("background-image", "url(assets/img/new/Adobe_MobileStates_SplashScreen_RealOrPhotoshop.png)");
+        $("#real, #photoshop").css({
+            "height": "25%"
+        })
+        $("#or").css({
+            "height": "20%"
+        })
+        $("#img-text-row").css({
+            "height": "15%"
+        });
+        $("#img-row").css({
+            "height": "65%"
+        });
+    } else {
+        $("#desktop-right-section").append("<img class='center-block' id='real' src='assets/img/new/Adobe_RealOrPhotoshop_Real_White.png'>");
+        $("#desktop-right-section").append("<img class='center-block' id='or' src='assets/img/new/Adobe_RealOrPhotoshop_Or_White.png'>");
+        $("#desktop-right-section").append("<img class='center-block' id='photoshop' src='assets/img/new/Adobe_RealOrPhotoshop_Photoshop_White.png'>");
+    }
     $("#main-img").show();
 }
 

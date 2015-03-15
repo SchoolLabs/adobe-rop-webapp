@@ -33,7 +33,7 @@ function score_swipe(event) {
 /* Slide transition will either show next image or redirect to final page via anmate */
 function slide_transition(img) {
     incremental_preload(image_number);
-    // image_number = 25;
+    image_number = 25;
     if (image_number < IMAGES.length) {
         animate(img, delta);
     } else {
@@ -63,8 +63,13 @@ function animate(img, delta, last) {
             src1 = "Adobe_RealOrPhotoshop_Photoshop_White";
             src2 = "Adobe_RealOrPhotoshop_Photoshop_Green";
         }
-        image = $("#" + selector);
+        if (Modernizr.touch) {
+            image = $("#img-text-col #" + selector);
+        } else {
+            image = $("#desktop-right-section #" + selector);
+        }
         image.fadeOut('fast', function () {
+            console.log("fade out");
             image.attr('src', "assets/img/new/" + src2 + ".png");
             image.fadeIn('slow', function () {
                 image.attr('src', "assets/img/new/" + src1 + ".png");

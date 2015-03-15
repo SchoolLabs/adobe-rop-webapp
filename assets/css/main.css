@@ -97,14 +97,6 @@ html, body {
     background-size: 100%;
 }
 
-#real {
-    background-image: url(assets/img/new/Adobe_RealOrPhotoshop_Real_Red.png)
-}
-
-#photoshop {
-    background-image: url(assets/img/Adobe_RealOrPhotoshop_Photoshop_Green.png)
-}
-
 #or {
     height: 4%;
     margin-top: 1%;
@@ -336,7 +328,7 @@ html, body {
     }
 }
 
-@media only screen and (min-width : 1024px) {
+@media only screen and (min-width : 1025px) {
     #left-for-fake, #right-for-real {
         max-width: 100%;
     }
