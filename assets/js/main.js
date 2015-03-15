@@ -33,7 +33,7 @@ function score_swipe(event) {
 /* Slide transition will either show next image or redirect to final page via anmate */
 function slide_transition(img) {
     incremental_preload(image_number);
-    image_number = 25;
+    // image_number = 25;
     if (image_number < IMAGES.length) {
         animate(img, delta);
     } else {
@@ -46,23 +46,29 @@ function slide_transition(img) {
 function animate(img, delta, last) {
     var real = IMAGES[image_number - 1];
     image_number++;
-
     //move left or right based on delta calculated above and reduce opacity
     img.animate({
         marginLeft: delta + "px",
         opacity: 0
     }, SWIPE_SPEED, "linear", function() {
+        var selector = "";
+        var src1 = "";
+        var src2 = "";
         if (real) {
-            $("#img-text-row").css("background-image", "url(assets/img/REALor_fake.png)");
+            selector = "real";
+            src1 = "Adobe_RealOrPhotoshop_Real_White";
+            src2 = "Adobe_RealOrPhotoshop_Real_Red";
         } else {
-            $("#img-text-row").css("background-image", "url(assets/img/real_orFAKE.png)");
+            selector = "photoshop";
+            src1 = "Adobe_RealOrPhotoshop_Photoshop_White";
+            src2 = "Adobe_RealOrPhotoshop_Photoshop_Green";
         }
-        $("#real-or-fake").animate({
-            opacity: 0
-        }, 500, "linear", function() {
-            $(this).animate({
-                opacity: 1
-            }, 500, "linear");
+        image = $("#" + selector);
+        image.fadeOut('fast', function () {
+            image.attr('src', "assets/img/new/" + src2 + ".png");
+            image.fadeIn('slow', function () {
+                image.attr('src', "assets/img/new/" + src1 + ".png");
+            });
         });
         img.attr("src", preloaded_images[image_number - 1].src).load(function() {
             //restore prior margin and opacity
