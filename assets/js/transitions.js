@@ -47,8 +47,8 @@ function splash_screen_transition() {
 
 function twenty_five_transition() {
     $("#two-five-logo").hide();
-    $("#img-col").addClass("col-md-8");
-    $("#img-row").append("<div class='col-md-4' id='desktop-right-section'></div>")
+    $("#img-col").addClass("col-lg-8");
+    $("#img-row").append("<div class='col-lg-4' id='desktop-right-section'></div>")
     $("#desktop-right-section").show();
     $("#desktop-right-section").append("<img id='desktop-right-img' src='assets/img/new/Adobe_MobileStates_LoadingScreen_25Logo.png'></img>");
     $("#twenty-five-wrapper").hide();
@@ -68,7 +68,7 @@ function twenty_five_transition() {
             "height": "15%"
         });
         $("#img-row").css({
-            "height": "65%"
+            "height": "75%"
         });
     } else {
         $("#desktop-right-section").append("<img class='center-block' id='real' src='assets/img/new/Adobe_RealOrPhotoshop_Real_White.png'>");
