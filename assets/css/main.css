@@ -96,18 +96,46 @@ html, body {
 /*    background-color: yellow;*/
 }
 
-#real, #photoshop {
-    height: 6%;
+#two-five-real, #two-five-photoshop {
+    height: 5%;
+    margin-top: 2%;
+    background-size: 100%;
+    max-width: 80%
+}
+
+#two-five-or {
+    height: 3%;
+    margin-top: 2%;
+    max-width: 80%
+}
+
+#mobile-real, #mobile-photoshop {
+    height: 20%;
     margin-top: 1%;
     background-size: 100%;
     max-width: 80%
 }
 
-#or {
-    height: 4%;
+#mobile-or {
+    height: 15%;
     margin-top: 1%;
     max-width: 80%
 }
+
+#desktop-real, #desktop-photoshop {
+    height: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-size: 100%;
+    max-width: 80%
+}
+
+#desktop-or {
+    height: 6%;
+    margin-top: 3%;
+    max-width: 80%
+}
+
 #img-row {
     width: 100%;
     height: 90%;
@@ -124,7 +152,7 @@ html, body {
 }
 
 #two-five-logo {
-    padding: 2% 35% 0% 35%;
+    padding: 20% 30% 0% 30%;
 }
 
 #main-img {
@@ -321,8 +349,8 @@ html, body {
 
 @media only screen and (min-width : 768px) {
     #img-row {
-        margin: 0% 20% 0% 20%;
-        width: 60%;
+        margin: 0% 15% 0% 15%;
+        width: 70%;
     }
 }
 
@@ -336,6 +364,23 @@ html, body {
     }
     #grid-text-desktop {
         display: none;
+    }
+    #twenty-five-text {
+        color: white;
+        text-align: center;
+        margin-top: 2%;
+    }
+    #two-five-real {
+        margin-top: 4%;
+    }
+
+    #two-five-photoshop {
+        margin-bottom: 4%;
+    }
+
+    #two-five-or {
+        margin-top: 2%;
+        margin-bottom: 2%;
     }
 }
 
