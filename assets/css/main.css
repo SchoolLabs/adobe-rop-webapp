@@ -143,7 +143,7 @@ html, body {
 #img-row {
     width: 100%;
     height: 90%;
-    padding: 2% 0% 0% 0%;
+    padding: 10% 0% 0% 0%;
     margin: 0%;
 /*    background-color: #333333;*/
 }
@@ -155,7 +155,7 @@ html, body {
 }
 
 #two-five-logo {
-    padding: 20% 30% 0% 30%;
+    padding: 0% 30% 0% 30%;
 }
 
 #main-img {
@@ -435,7 +435,7 @@ html, body {
 }
 
 @media screen and (min-aspect-ratio: 3/2) {
-    #two-five-logo {
-        padding-top: 0%;
+    #img-row {
+        padding-top: 2%;
     }
 }
