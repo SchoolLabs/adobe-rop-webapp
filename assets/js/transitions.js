@@ -15,15 +15,17 @@ function splash_screen_transition() {
         });
     } else {
         $("#img-row").on("click", function(e) {
-            console.log("click");
-            if (once == false) {
+            if (e.target.id == "start-button") {
                 twenty_five_transition();
                 old_margin = $("#main-img").css("marginLeft");
-            } else {
+                once = true;
+            } else if (e.target.id == "desktop-real") {
+                delta = score_swipe(e);
+                slide_transition($("#main-img"));
+            } else if (e.target.id == "desktop-photoshop") {
                 delta = score_swipe(e);
                 slide_transition($("#main-img"));
             }
-            once = true;
         });
     }
 

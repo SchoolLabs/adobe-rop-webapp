@@ -347,6 +347,12 @@ html, body {
     }
 }
 
+@media only screen and (max-width : 768px) {
+    #start-button {
+        padding: 2% 20% 0% 20%;
+    }
+}
+
 @media only screen and (min-width : 768px) {
     #img-row {
         margin: 0% 15% 0% 15%;
