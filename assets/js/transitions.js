@@ -60,18 +60,19 @@ function twenty_five_transition() {
         $("#img-text-col").append("<img class='center-block' id='mobile-or' src='assets/img/new/Adobe_RealOrPhotoshop_Or_White.png'>");
         $("#img-text-col").append("<img class='center-block' id='mobile-photoshop' src='assets/img/new/Adobe_RealOrPhotoshop_Photoshop_White.png'>");
         // $("#img-text-row").css("background-image", "url(assets/img/new/Adobe_MobileStates_SplashScreen_RealOrPhotoshop.png)");
-        $("#real, #photoshop").css({
-            "height": "25%"
-        })
-        $("#or").css({
-            "height": "20%"
-        })
         $("#img-text-row").css({
             "height": "15%"
         });
         $("#img-row").css({
             "height": "75%"
         });
+        $("#img-col").append("<div id='below-main-mobile' class='row'></div>");
+        // $("#below-main-mobile").append("<img id='left-real-mobile' class='col-xs-offset-1 col-xs-2' src='assets/img/new/Adobe_MobileStates_LeftForReal.png'></img>");
+        // $("#below-main-mobile").append("<img id='swipe-mobile' class='col-xs-offset-2 col-xs-2' src='assets/img/new/Adobe_MobileStates_Swipe.png'></img>");
+        // $("#below-main-mobile").append("<img id='right-photoshop-mobile' class='col-xs-offset-2 col-xs-2' src='assets/img/new/Adobe_Mobile-States_RightForPhotoshop.png'></img>");
+        $("#below-main-mobile").append("<div id='left-real-mobile' class='col-xs-4'>left for <br><span class='bold'>REAL</div>");
+        $("#below-main-mobile").append("<div id='swipe-mobile' class='col-xs-4'>Swipe</div>");
+        $("#below-main-mobile").append("<div id='right-photoshop-mobile' class='col-xs-4'>right for <br><span class='bold'>PHOTOSHOP</span>");
     } else {
         $("#desktop-right-section").append("<img class='center-block' id='desktop-real' src='assets/img/new/Adobe_Desktop_RealButton.png'>");
         $("#desktop-right-section").append("<img class='center-block' id='dekstop-or' src='assets/img/new/Adobe_RealOrPhotoshop_Or_White.png'>");

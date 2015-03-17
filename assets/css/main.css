@@ -161,6 +161,16 @@ html, body {
     width: auto;
 }
 
+#below-main-mobile {
+    background-color: lightgreen;
+    height: 10%;
+}
+
+#left-real-mobile, #swipe-mobile, #right-photoshop-mobile {
+    max-height: 100%;
+    color: white;
+}
+
 #twenty-five-wrapper {
     max-height: 100%;
     display: none;
