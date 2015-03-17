@@ -48,6 +48,10 @@ function splash_screen_transition() {
 }
 
 function twenty_five_transition() {
+    $("html, body").css({
+            "background": "none",
+            "background-color": "#11162f"
+    });
     $("#two-five-logo").hide();
     $("#img-col").addClass("col-lg-7");
     $("#img-row").append("<div class='col-lg-5' id='desktop-right-section'></div>")
@@ -74,6 +78,9 @@ function twenty_five_transition() {
         $("#below-main-mobile").append("<div id='swipe-mobile' class='col-xs-4'>Swipe</div>");
         $("#below-main-mobile").append("<div id='right-photoshop-mobile' class='col-xs-4'>right for <br><span class='bold'>PHOTOSHOP</span>");
     } else {
+        $("#img-row").css({
+            "padding-top": "10%"
+        });
         $("#desktop-right-section").append("<img class='center-block' id='desktop-real' src='assets/img/new/Adobe_Desktop_RealButton.png'>");
         $("#desktop-right-section").append("<img class='center-block' id='dekstop-or' src='assets/img/new/Adobe_RealOrPhotoshop_Or_White.png'>");
         $("#desktop-right-section").append("<img class='center-block' id='desktop-photoshop' src='assets/img/new/Adobe_Desktop_PhotoshopButton.png'>");
@@ -87,17 +94,20 @@ function results_grid_transition(sum) {
     var shareDesc="Share description copy goes here";
     var shareURL = "http://dev.seanhelvey.com/school_adobe/index.php?score="+varScore;
     var shareImage = "http://dev.seanhelvey.com/school_adobe/assets/img/fb_shareimage_1120x500.jpg";
-    FB.init({
-        appId:'1595538550682763', cookie:true,
-        status:true, xfbml:true
-    });
-    // $("#img-row").hide()
+
+    $("#below-main-mobile").hide();
     $("#left-for-fake").hide();
     $("#right-for-real").hide();
     $("#desktop-right-img").hide();
     $("#desktop-real").hide();
     $("#dekstop-or").hide();
     $("#desktop-photoshop").hide();
+
+    FB.init({
+        appId:'1595538550682763', cookie:true,
+        status:true, xfbml:true
+    });
+    // $("#img-row").hide()
 
     //on desktop display real or photoshop above grid
     if (!Modernizr.touch) {
@@ -124,9 +134,17 @@ function results_grid_transition(sum) {
     $("#desktop-right-section").append("<div id='grid-text-desktop'></div>");
     $("#grid-text-mobile").text(sum + "/25 answers correct!");
     $("#grid-text-desktop").text(sum + "/25 answers correct!");
-    $("#desktop-right-section").append("<img id='fb_button' src='assets/img/FB_icon.png'></img>");
-    $("#desktop-right-section").append("<img id='brag-about-it' src='assets/img/new/Brag.png'></img>");
-    $("#desktop-right-section").append("<img id='twitter_button' src='assets/img/Twitter_icon.png'></img>");
+
+    if (!Modernizr.touch) {
+        $("#desktop-right-section").append("<img id='fb_button' src='assets/img/FB_icon.png'></img>");
+        $("#desktop-right-section").append("<img id='brag-about-it' src='assets/img/new/Brag.png'></img>");
+        $("#desktop-right-section").append("<img id='twitter_button' src='assets/img/Twitter_icon.png'></img>");
+    } else {
+        $("#desktop-right-section").append("<img id='fb_button' src='assets/img/FB_icon.png'></img>");
+        $("#desktop-right-section").append("<img id='brag-about-it' src='assets/img/new/Brag.png'></img>");
+        $("#desktop-right-section").append("<img id='twitter_button' src='assets/img/Twitter_icon.png'></img>");
+    }
+
     $('#fb_button').on("click", function(){
         FB.ui({
           method: 'feed',

@@ -16,13 +16,13 @@ This method also sets "scores" each time the user swipes */
 function score_swipe(event) {
     if (event.type === "swiperight" || event.target.id == "desktop-photoshop") {
         delta = BEG_DELTA;
-        if (IMAGES[image_number - 1] == 1) {
+        if (IMAGES[image_number - 1] == 0) {
             correct_number++;
             scores[image_number - 1] = 1;
         }
     } else {
         delta = -1 * BEG_DELTA;
-        if (IMAGES[image_number - 1] == 0) {
+        if (IMAGES[image_number - 1] == 1) {
             correct_number++;
             scores[image_number - 1] = 1;
         }
@@ -33,7 +33,7 @@ function score_swipe(event) {
 /* Slide transition will either show next image or redirect to final page via anmate */
 function slide_transition(img) {
     incremental_preload(image_number);
-    // image_number = 25;
+    image_number = 25;
     if (image_number < IMAGES.length) {
         animate(img, delta);
     } else {

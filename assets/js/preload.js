@@ -1,6 +1,21 @@
 var preloaded_images = new Array();
 var preloaded_background_images = new Array();
 var preloaded_grid_images = new Array();
+var background = "";
+
+// if (Modernizr.touch) {
+//     background = "Adobe_Mobile States_031115_BackgroundImage.jpg";
+// } else {
+//     background = "Adobe25_Desktop_BabyLilyPad.jpg";
+// }
+
+$("html, body").css({
+        "background": "url(assets/img/new/Adobe25_Desktop_BabyLilyPad.jpg) no-repeat center center fixed",
+        "-webkit-background-size": "cover",
+        "-moz-background-size": "cover",
+        "-o-background-size": "cover",
+        "background-size": "cover*"
+});
 
 $("#upper-right-ps-logo").show();
 $("#img-col").append("<img class='center-block' id='two-five-logo' src='assets/img/new/Adobe_MobileStates_LoadingScreen_25Logo.png'></img>");
