@@ -433,3 +433,9 @@ html, body {
         margin-bottom: 10%;
     }
 }
+
+@media screen and (min-aspect-ratio: 3/2) {
+    #two-five-logo {
+        padding-top: 0%;
+    }
+}
