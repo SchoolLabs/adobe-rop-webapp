@@ -356,6 +356,15 @@ html, body {
     }
 }
 
+@media only screen and (max-height : 500px) {
+    #img-row {
+        padding-top: 2%;
+    }
+    #two-five-logo {
+        padding: 0% 35% 0% 35%;
+    }
+}
+
 @media only screen and (max-width : 768px) {
     #start-button {
         padding: 2% 20% 0% 20%;
