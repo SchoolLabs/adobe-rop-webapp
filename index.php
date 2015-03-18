@@ -17,7 +17,7 @@ if( isset($_GET['score'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
     <meta name="description" content="Yes No">
     <link href="assets/css/vendor/reset.css" rel="stylesheet">
-    <link href="assets/css/vendor/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/vendor/bootstrap-theme.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
 
