@@ -132,18 +132,12 @@ function results_grid_transition(sum) {
 
     $("#desktop-right-section").append("<div id='grid-text-mobile'></div>");
     $("#desktop-right-section").append("<div id='grid-text-desktop'></div>");
-    $("#grid-text-mobile").text(sum + "/25 answers correct!");
-    $("#grid-text-desktop").text(sum + "/25 answers correct!");
+    $("#grid-text-mobile").html(sum + "/25 answers correct!");
+    $("#grid-text-desktop").html(sum + "/25<br/> answers correct!");
 
-    if (!Modernizr.touch) {
-        $("#desktop-right-section").append("<img id='fb_button' src='assets/img/FB_icon.png'></img>");
-        $("#desktop-right-section").append("<img id='brag-about-it' src='assets/img/new/Brag.png'></img>");
-        $("#desktop-right-section").append("<img id='twitter_button' src='assets/img/Twitter_icon.png'></img>");
-    } else {
-        $("#desktop-right-section").append("<img id='fb_button' src='assets/img/FB_icon.png'></img>");
-        $("#desktop-right-section").append("<img id='brag-about-it' src='assets/img/new/Brag.png'></img>");
-        $("#desktop-right-section").append("<img id='twitter_button' src='assets/img/Twitter_icon.png'></img>");
-    }
+    $("#desktop-right-section").append("<img id='fb_button' src='assets/img/FB icon.png'></img>");
+    $("#desktop-right-section").append("<img id='brag-about-it' src='assets/img/new/Brag.png'></img>");
+    $("#desktop-right-section").append("<img id='twitter_button' src='assets/img/Twitter icon.png'></img>");
 
     $('#fb_button').on("click", function(){
         FB.ui({

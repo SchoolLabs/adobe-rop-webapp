@@ -254,8 +254,8 @@ html, body {
 }
 
 #brag-about-it, #fb_button, #twitter_button {
-    margin-left: 1%;
-    margin-right: 1%;
+    margin-left: 5%;
+    margin-right: 5%;
     max-height: 10%;
     max-width: 30%;
 }
@@ -348,7 +348,7 @@ html, body {
 }
 
 #desktop-right-img {
-    padding: 15%;
+    padding: 0% 15%;
     display: none;
 }
 
@@ -386,6 +386,7 @@ html, body {
 
 @media (max-width: 1024px) {
     #grid-text-mobile {
+        font-size: 18px;
         display: block;
         height: 5%;
         color: white;
@@ -438,7 +439,8 @@ html, body {
     #grid-text-desktop {
         color: white;
         display: block;
-        margin: 10% 0%;
+        margin: 0% 0%;
+        font-size: 24px;
     }
     #brag-about-it, #fb_button, #twitter_button {
         clear: both;
