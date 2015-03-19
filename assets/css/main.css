@@ -88,7 +88,7 @@ html, body {
 /*    background-color: #333333;*/
 }
 
-#main-test {
+#main-test, #desktop-test {
     color: white;
     font-size: 18px;
     padding-top: 3%;
@@ -176,10 +176,14 @@ html, body {
     margin: 0%;
 }
 
-#attribution {
+#mobile-attribution, #desktop-attribution {
     height: 5%;
     padding-top: 1%;
     color: transparent;
+}
+
+#desktop-attribution {
+    font-size: 18px;
 }
 
 #left-real-mobile, #swipe-mobile, #right-photoshop-mobile {
@@ -384,6 +388,9 @@ html, body {
     #main-test {
         font-size: 14px;
         padding-top: 1%;
+    }
+    #footer {
+        height: 6%;
     }
 }
 

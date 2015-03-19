@@ -75,8 +75,8 @@ function twenty_five_transition() {
         $("#img-row").css({
             "height": "75%"
         });
-        $("#img-col").append("<div id='attribution' class='row'></div>");
-        $("#attribution").append("<p id='att-text'>Jane Doe &copy; 2014</p>");
+        $("#img-col").append("<div id='mobile-attribution' class='row'></div>");
+        $("#mobile-attribution").append("<p id='att-text'>Jane Doe &copy; 2014</p>");
         $("#img-col").append("<div id='below-main-mobile' class='row'></div>");
         // $("#below-main-mobile").append("<img id='left-real-mobile' class='col-xs-offset-1 col-xs-2' src='assets/img/new/Adobe_MobileStates_LeftForReal.png'></img>");
         // $("#below-main-mobile").append("<img id='swipe-mobile' class='col-xs-offset-2 col-xs-2' src='assets/img/new/Adobe_MobileStates_Swipe.png'></img>");
@@ -88,9 +88,12 @@ function twenty_five_transition() {
         $("#img-row").css({
             "padding-top": "10%"
         });
+        $("#desktop-right-section").append("<p id='desktop-test'>Test your powers of observation.</p>");
         $("#desktop-right-section").append("<img class='center-block' id='desktop-real' src='assets/img/new/Adobe_Desktop_RealButton.png'>");
         $("#desktop-right-section").append("<img class='center-block' id='dekstop-or' src='assets/img/new/Adobe_RealOrPhotoshop_Or_White.png'>");
         $("#desktop-right-section").append("<img class='center-block' id='desktop-photoshop' src='assets/img/new/Adobe_Desktop_PhotoshopButton.png'>");
+        $("#desktop-right-section").append("<div id='desktop-attribution' class='row'></div>");
+        $("#desktop-attribution").append("<p id='att-text'>Jane Doe &copy; 2014</p>");
     }
     $("#main-img").show();
 }
@@ -142,9 +145,9 @@ function results_grid_transition(sum) {
     $("#grid-text-mobile").html(sum + "/25 answers correct!");
     $("#grid-text-desktop").html(sum + "/25<br/> answers correct!");
 
-    $("#desktop-right-section").append("<img id='fb_button' src='assets/img/FB icon.png'></img>");
+    $("#desktop-right-section").append("<img id='fb_button' src='assets/img/new/FB icon.png'></img>");
     $("#desktop-right-section").append("<img id='brag-about-it' src='assets/img/new/Brag.png'></img>");
-    $("#desktop-right-section").append("<img id='twitter_button' src='assets/img/Twitter icon.png'></img>");
+    $("#desktop-right-section").append("<img id='twitter_button' src='assets/img/new/Twitter icon.png'></img>");
 
     $('#fb_button').on("click", function(){
         FB.ui({
