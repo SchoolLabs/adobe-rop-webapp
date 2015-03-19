@@ -93,10 +93,15 @@ function animate(img, delta, last) {
                 src2 = "Adobe_Desktop_PhotoshopButton_Selected";
             }
         }
-        image.fadeOut(400, function () {
-            console.log("fade out");
+        $("#att-text").animate({
+            color: "white",
+        }, 2400, function() {
+            $("#att-text").css({"color": "transparent"})
+        });
+
+        image.fadeOut(200, function () {
             image.attr('src', "assets/img/new/" + src2 + ".png");
-            image.fadeIn(400, function () {
+            image.fadeIn(2200, function () {
                 image.attr('src', "assets/img/new/" + src1 + ".png");
             });
         });

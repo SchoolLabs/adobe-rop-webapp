@@ -38,7 +38,11 @@ function splash_screen_transition() {
 
     $("#img-col").append("<div id='twenty-five-wrapper'><p id='twenty-five-text' class='text-center'>SSS</p></div>");
     $("#twenty-five-wrapper").show();
-    $("#twenty-five-text").html("Photoshop users make the impossible possible, and for that, we thank them for taking creativity to places we never could have dreamed. Some things are so amazing, we're not sure if they're Real or Photoshop. Can you tell?<br/><br/>Test your powers of observation.");
+    if (window.innerHeight < 500) {
+        $("#twenty-five-text").html("Some things are so amazing, we're not sure if they're Real or Photoshop. Can you tell?<br/><br/>Test your powers of observation.");
+    } else {
+        $("#twenty-five-text").html("Photoshop users make the impossible possible, and for that, we thank them for taking creativity to places we never could have dreamed. Some things are so amazing, we're not sure if they're Real or Photoshop. Can you tell?<br/><br/>Test your powers of observation.");
+    }
     // $("#twenty-five-wrapper").append("<img class='center-block' id='begin' src='assets/img/SwipetoBegin.png'>");
     // $("#twenty-five-wrapper").append("<img class='center-block' id='real-or-photoshop' src='assets/img/new/Adobe_MobileStates_SplashScreen_RealOrPhotoshop.png'>");
     $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-real' src='assets/img/new/Adobe_RealOrPhotoshop_Real_White.png'>");
@@ -63,6 +67,7 @@ function twenty_five_transition() {
         $("#img-text-col").append("<img class='center-block' id='mobile-real' src='assets/img/new/Adobe_RealOrPhotoshop_Real_White.png'>");
         $("#img-text-col").append("<img class='center-block' id='mobile-or' src='assets/img/new/Adobe_RealOrPhotoshop_Or_White.png'>");
         $("#img-text-col").append("<img class='center-block' id='mobile-photoshop' src='assets/img/new/Adobe_RealOrPhotoshop_Photoshop_White.png'>");
+        $("#img-text-col").append("<p id='main-test'>Test your powers of observation.</p>");
         // $("#img-text-row").css("background-image", "url(assets/img/new/Adobe_MobileStates_SplashScreen_RealOrPhotoshop.png)");
         $("#img-text-row").css({
             "height": "15%"
@@ -70,6 +75,8 @@ function twenty_five_transition() {
         $("#img-row").css({
             "height": "75%"
         });
+        $("#img-col").append("<div id='attribution' class='row'></div>");
+        $("#attribution").append("<p id='att-text'>Jane Doe &copy; 2014</p>");
         $("#img-col").append("<div id='below-main-mobile' class='row'></div>");
         // $("#below-main-mobile").append("<img id='left-real-mobile' class='col-xs-offset-1 col-xs-2' src='assets/img/new/Adobe_MobileStates_LeftForReal.png'></img>");
         // $("#below-main-mobile").append("<img id='swipe-mobile' class='col-xs-offset-2 col-xs-2' src='assets/img/new/Adobe_MobileStates_Swipe.png'></img>");
