@@ -38,7 +38,7 @@ function splash_screen_transition() {
 
     $("#img-col").append("<div id='twenty-five-wrapper'><p id='twenty-five-text' class='text-center'>SSS</p></div>");
     $("#twenty-five-wrapper").show();
-    if (window.innerHeight < 500) {
+    if (window.innerHeight < 600) {
         $("#twenty-five-text").html("Some things are so amazing, we're not sure if they're Real or Photoshop. Can you tell?<br/><br/>Test your powers of observation.");
     } else {
         $("#twenty-five-text").html("Photoshop users make the impossible possible, and for that, we thank them for taking creativity to places we never could have dreamed. Some things are so amazing, we're not sure if they're Real or Photoshop. Can you tell?<br/><br/>Test your powers of observation.");
