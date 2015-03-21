@@ -31,8 +31,8 @@ if( isset($_GET['score'])){
     <!-- // BEGIN FACEBOOK META -->
     <meta property="og:title" content="FB: <?php echo $title; ?>">
     <meta property="og:description" content="Lorem Ipsum sit dolor amet">
-    <meta property="og:image" content="http://dev.seanhelvey.com/school-adobe-v5/assets/img/fb_shareimage_1120x500.jpg">
-    <meta property="og:url" content="http://dev.seanhelvey.com/school-adobe-v5/index.php?score=<?php echo $score; ?>">
+    <meta property="og:image" content="http://dev.seanhelvey.com/school-adobe-v6/assets/img/fb_shareimage_1120x500.jpg">
+    <meta property="og:url" content="http://dev.seanhelvey.com/school-adobe-v6/index.php?score=<?php echo $score; ?>">
     <!-- // END FACEBOOK META -->
 
     <!-- // BEGIN TWITTER META -->
@@ -41,7 +41,7 @@ if( isset($_GET['score'])){
     <meta name="twitter:creator" content="@adobe">
     <meta name="twitter:title" content="FB: <?php echo $title; ?>">
     <meta name="twitter:description" content="Lorem Ipsum sit dolor amet">
-    <meta name="twitter:image:src" content="http://dev.seanhelvey.com/school-adobe-v5/assets/img/fb_shareimage_1120x500.jpg?1">
+    <meta name="twitter:image:src" content="http://dev.seanhelvey.com/school-adobe-v6/assets/img/fb_shareimage_1120x500.jpg?1">
     <!-- // END TWITTER META -->
   <style>
   *  {
