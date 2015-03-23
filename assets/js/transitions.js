@@ -3,30 +3,9 @@ function splash_screen_transition() {
     var once = false;
 
     if (Modernizr.touch) {
-        $("#img-row").on("swipeleft swiperight", function(e) {
-            if (once == false) {
-                twenty_five_transition();
-                old_margin = $("#main-img").css("marginLeft");
-            } else {
-                delta = score_swipe(e);
-                slide_transition($("#main-img"));
-            }
-            once = true;
-        });
+        $("#img-row").on("swipeleft swiperight", mobile_touch);
     } else {
-        $("#img-row").on("click", function(e) {
-            if (e.target.id == "start-button") {
-                twenty_five_transition();
-                old_margin = $("#main-img").css("marginLeft");
-                once = true;
-            } else if (e.target.id == "desktop-real") {
-                delta = score_swipe(e);
-                slide_transition($("#main-img"));
-            } else if (e.target.id == "desktop-photoshop") {
-                delta = score_swipe(e);
-                slide_transition($("#main-img"));
-            }
-        });
+        $("#img-row").on("click", desktop_click);
     }
 
     $("#ps-logo").hide();
@@ -51,6 +30,36 @@ function splash_screen_transition() {
     $("#twenty-five-wrapper").append("<img class='center-block' id='start-button' src='assets/img/new/Adobe_MobileStates_SplashScreen_StartButton.png'>");
 }
 
+function mobile_touch (){
+    if (once == false) {
+        twenty_five_transition();
+        old_margin = $("#main-img").css("marginLeft");
+    } else {
+        delta = score_swipe(e);
+        slide_transition($("#main-img"));
+    }
+    once = true;
+}
+
+function desktop_click (){
+    if (event.target.id == "start-button") {
+        twenty_five_transition();
+        old_margin = $("#main-img").css("marginLeft");
+        once = true;
+    } else if (event.target.id == "desktop-real") {
+        if (lock === false) {
+            lock = true;
+            delta = score_swipe(event);
+            slide_transition($("#main-img"));
+        }
+    } else if (event.target.id == "desktop-photoshop") {
+        if (lock === false) {
+            lock = true;
+            delta = score_swipe(event);
+            slide_transition($("#main-img"));
+        }
+    }
+}
 function twenty_five_transition() {
     $("html, body").css({
             "background": "none",

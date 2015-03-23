@@ -9,6 +9,7 @@ var image_number = 1;
 var scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var old_margin = 0;
 var first = true;
+var lock = false;
 
 setMobileOperatingSystemLinks();
 
@@ -103,6 +104,7 @@ function animate(img, delta, last) {
             image.attr('src', "assets/img/new/" + src2 + ".png");
             image.fadeIn(2200, function () {
                 image.attr('src', "assets/img/new/" + src1 + ".png");
+                lock = false;
             });
         });
         if (preloaded_images[image_number - 1] === undefined) {
@@ -122,7 +124,6 @@ function animate(img, delta, last) {
             });
         });
         }
-
     });
 }
 
