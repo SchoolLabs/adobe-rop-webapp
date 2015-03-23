@@ -1,7 +1,5 @@
 function splash_screen_transition() {
     /* Event handlers */
-    var once = false;
-
     if (Modernizr.touch) {
         $("#img-row").on("swipeleft swiperight", mobile_touch);
     } else {
@@ -35,7 +33,7 @@ function mobile_touch (){
         twenty_five_transition();
         old_margin = $("#main-img").css("marginLeft");
     } else {
-        delta = score_swipe(e);
+        delta = score_swipe(event);
         slide_transition($("#main-img"));
     }
     once = true;

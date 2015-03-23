@@ -10,6 +10,7 @@ var scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 var old_margin = 0;
 var first = true;
 var lock = false;
+var once = false;
 
 setMobileOperatingSystemLinks();
 
