@@ -70,8 +70,8 @@ if( isset($_GET['score'])){
     <div class="container" id="main-container">
       <div class="row" id="header">
         <div class="col-xs-12" id="header-col">
-            <a href="http://www.adobe.com" id="upper-left-link"><img class="img" id="upper-left-adobe" src="assets/img/new/Adobe_MobileStates_PSIconTypeLockup.png" target="_blank"></a>
-            <a href="http://www.adobe.com" id="upper-right-link" target="_blank"><img class="img" id="upper-right-ps-logo" src="assets/img/new/Adobe_MobileStates_AdobeLogo.png"></a>
+            <a href="http://www.adobe.com" id="upper-left-link" target="_blank"><img class="img" id="upper-left-adobe" src="assets/img/new/Adobe_MobileStates_PSIconTypeLockup.png" alt="ps icon"></a>
+            <a href="http://www.adobe.com" id="upper-right-link" target="_blank"><img class="img" id="upper-right-ps-logo" src="assets/img/new/Adobe_MobileStates_AdobeLogo.png" alt="ps logo"></a>
         </div>
       </div>
       <div class="row" id="img-text-row">
@@ -80,7 +80,7 @@ if( isset($_GET['score'])){
       </div>
       <div class="row text-center" id="img-row">
         <div class="col-xs-12" id="img-col">
-          <img class="img" id="main-img" src="assets/img/Swipe1.jpg">
+          <img class="img" id="main-img" src="assets/img/Swipe1.jpg" alt="swipe">
         </div>
       </div>
       <div class="row" id="footer">
