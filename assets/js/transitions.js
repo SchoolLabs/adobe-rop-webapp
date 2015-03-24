@@ -28,7 +28,7 @@ function splash_screen_transition() {
     $("#twenty-five-wrapper").append("<img class='center-block' id='start-button' src='assets/img/new/Adobe_MobileStates_SplashScreen_StartButton.png'>");
 }
 
-function mobile_touch (){
+function mobile_touch (event){
     if (once == false) {
         twenty_five_transition();
         old_margin = $("#main-img").css("marginLeft");
@@ -39,7 +39,7 @@ function mobile_touch (){
     once = true;
 }
 
-function desktop_click (){
+function desktop_click (event){
     if (event.target.id == "start-button") {
         twenty_five_transition();
         old_margin = $("#main-img").css("marginLeft");

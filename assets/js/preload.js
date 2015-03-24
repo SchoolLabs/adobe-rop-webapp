@@ -14,7 +14,7 @@ $("html, body").css({
         "-webkit-background-size": "cover",
         "-moz-background-size": "cover",
         "-o-background-size": "cover",
-        "background-size": "cover*"
+        "background-size": "cover"
 });
 
 $("#upper-right-ps-logo").show();
