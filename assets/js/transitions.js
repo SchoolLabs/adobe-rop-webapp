@@ -109,8 +109,8 @@ function results_grid_transition(sum) {
     var varScore = sum.toString();
     var shareText="I got "+ varScore +"/25 right. REAL or FAKE? Test your perception"; // used by twitter share
     var shareDesc="Share description copy goes here";
-    var shareURL = "http://dev.seanhelvey.com/school_adobe/index.php?score="+varScore;
-    var shareImage = "http://dev.seanhelvey.com/school_adobe/assets/img/new/fb_shareimage_1411x630.png";
+    var shareURL = "http://dev.seanhelvey.com/school-adobe/index.php?score="+varScore;
+    var shareImage = "http://dev.seanhelvey.com/school-adobe/assets/img/new/fb_shareimage_1411x630.png";
 
     $("#below-main-mobile").hide();
     $("#left-for-fake").hide();
