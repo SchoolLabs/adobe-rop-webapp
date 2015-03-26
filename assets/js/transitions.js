@@ -33,8 +33,11 @@ function mobile_touch (event){
         twenty_five_transition();
         old_margin = $("#main-img").css("marginLeft");
     } else {
-        delta = score_swipe(event);
-        slide_transition($("#main-img"));
+        if (lock === false) {
+            lock = true;
+            delta = score_swipe(event);
+            slide_transition($("#main-img"));
+        }
     }
     once = true;
 }
