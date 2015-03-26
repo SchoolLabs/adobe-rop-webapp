@@ -1,4 +1,4 @@
-<!--
+
 <?php
 
 
@@ -12,7 +12,7 @@ if( isset($_GET['score'])){
 
 
 ?>
--->
+
 <head>
     <meta charset="utf-8">
     <title><?php echo $title; ?></title>
@@ -89,6 +89,6 @@ if( isset($_GET['score'])){
       </div>
     </div>
     <script src="assets/js/preload.js"></script>
-    <script src="assets/js/transitions.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/transitions.js"></script>
 </body>
