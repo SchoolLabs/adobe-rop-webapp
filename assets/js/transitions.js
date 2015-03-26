@@ -119,6 +119,8 @@ function results_grid_transition(sum) {
     $("#desktop-real").hide();
     $("#dekstop-or").hide();
     $("#desktop-photoshop").hide();
+    $("#desktop-attribution").hide();
+    $("#mobile-attribution").hide();
 
     FB.init({
         appId:'1595538550682763', cookie:true,
