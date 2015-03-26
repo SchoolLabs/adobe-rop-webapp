@@ -106,7 +106,7 @@ function twenty_five_transition() {
         });
         $("#desktop-right-section").append("<p id='desktop-test'>Test your powers of observation.</p>");
         $("#desktop-right-section").append("<img class='center-block' id='desktop-real' src='assets/img/new/Adobe_Desktop_RealButton.png'>");
-        $("#desktop-right-section").append("<img class='center-block' id='dekstop-or' src='assets/img/new/Adobe_RealOrPhotoshop_Or_White.png'>");
+        $("#desktop-right-section").append("<img class='center-block' id='desktop-or' src='assets/img/new/Adobe_RealOrPhotoshop_Or_White.png'>");
         $("#desktop-right-section").append("<img class='center-block' id='desktop-photoshop' src='assets/img/new/Adobe_Desktop_PhotoshopButton.png'>");
         $("#desktop-right-section").append("<div id='desktop-attribution' class='row'></div>");
         $("#desktop-attribution").append("<p id='att-text'>Jane Doe &copy; 2014</p>");
@@ -126,7 +126,7 @@ function results_grid_transition(sum) {
     $("#right-for-real").hide();
     $("#desktop-right-img").hide();
     $("#desktop-real").hide();
-    $("#dekstop-or").hide();
+    $("#desktop-or").hide();
     $("#desktop-photoshop").hide();
     $("#desktop-attribution").hide();
     $("#mobile-attribution").hide();

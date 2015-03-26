@@ -94,8 +94,8 @@ html, body {
 
 #main-test, #desktop-test {
     color: white;
-    font-size: 18px;
-    padding-top: 3%;
+    font-size: 16px;
+    padding-top: 1%;
 }
 
 #img-text-col {
@@ -111,28 +111,30 @@ html, body {
 }
 
 #two-five-real, #two-five-photoshop {
-    height: 5%;
-    margin-top: 2%;
+    height: 8%;
     background-size: 100%;
     max-width: 80%
 }
 
 #two-five-or {
-    height: 3%;
-    margin-top: 2%;
+    height: 2%;
     max-width: 80%
 }
 
 #mobile-real, #mobile-photoshop {
-    height: 20%;
+    height: 30%;
     margin-top: 1%;
     background-size: 100%;
     max-width: 80%
 }
 
+#mobile-photoshop {
+    margin-top: 0%;
+}
+
 #mobile-or {
-    height: 15%;
-    margin-top: 1%;
+    height: 8%;
+    margin-top: 0%;
     max-width: 80%
 }
 
@@ -145,7 +147,7 @@ html, body {
 }
 
 #desktop-or {
-    height: 6%;
+    height: 2%;
     margin-top: 3%;
     max-width: 80%
 }
@@ -382,25 +384,15 @@ html, body {
     }
 }
 
-@media only screen and (max-height : 500px) {
-    #img-row {
-        padding-top: 2%;
-    }
-    #two-five-logo {
-        padding: 0% 35% 0% 35%;
-    }
-    #main-test {
-        font-size: 14px;
-        padding-top: 1%;
-    }
-    #footer {
-        height: 6%;
-    }
-}
-
 @media only screen and (max-width : 768px) {
     #start-button {
         padding: 2% 20% 0% 20%;
+    }
+    #main-test {
+        font-size: 12px;
+    }
+    #grid-text-mobile {
+        font-size: 12px;
     }
 }
 
@@ -409,11 +401,14 @@ html, body {
         margin: 0% 15% 0% 15%;
         width: 70%;
     }
+    #mobile-real, #mobile-photoshop {
+        height: 40%;
+    }
 }
 
 @media (max-width: 1024px) {
     #grid-text-mobile {
-        font-size: 18px;
+        font-size: 14px;
         display: block;
         height: 5%;
         color: white;
@@ -433,11 +428,6 @@ html, body {
     }
 
     #two-five-photoshop {
-        margin-bottom: 2%;
-    }
-
-    #two-five-or {
-        margin-top: 2%;
         margin-bottom: 2%;
     }
 }
@@ -473,8 +463,36 @@ html, body {
         clear: both;
         display: block;
         margin: 0 auto;
-        margin-top: 10%;
-        margin-bottom: 10%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    #mobile-real, #mobile-photoshop {
+        height: 50%;
+        margin-top: 3%;
+        background-size: 100%;
+        max-width: 80%
+    }
+    #mobile-photoshop {
+        margin-top: 0%;
+    }
+}
+
+@media only screen and (max-height : 500px) {
+    #img-row {
+        padding-top: 2%;
+    }
+    #two-five-logo {
+        padding: 0% 35% 0% 35%;
+    }
+    #main-test {
+        font-size: 8px;
+        padding-top: 1%;
+    }
+    #grid-text-mobile {
+        font-size: 8px;
+    }
+    #footer {
+        height: 6%;
     }
 }
 

@@ -69,45 +69,76 @@ function animate(img, delta, last) {
         opacity: 0
     }, SWIPE_SPEED, "linear", function() {
         var selector = "";
+        var or_selector = "";
+        var or_height = 0;
+        var or_margin = 0;
         var src1 = "";
         var src2 = "";
         if (real) {
             selector = "real";
+            not_selector = "photoshop";
         } else {
             selector = "photoshop";
+            not_selector = "real";
         }
         if (Modernizr.touch) {
+            or_selector = "mobile-or";
             image = $("#img-text-col #mobile-" + selector);
+            not_image = $("#img-text-col #mobile-" + not_selector);
             if (selector == "real") {
                 src1 = "Adobe_RealOrPhotoshop_Real_White";
                 src2 = "Adobe_RealOrPhotoshop_Real_Red";
+                not_src1 = "Adobe_RealOrPhotoshop_Photoshop_White";
+                not_src2 = "Adobe_Mobile_R_ImageSwap_032615";
             } else {
                 src1 = "Adobe_RealOrPhotoshop_Photoshop_White";
                 src2 = "Adobe_RealOrPhotoshop_Photoshop_Green";
+                not_src1 = "Adobe_RealOrPhotoshop_Real_White";
+                not_src2 = "Adobe_Mobile_PS_ImageSwap_032615";
             }
         } else {
+            or_selector = "desktop-or";
             image = $("#desktop-right-section #desktop-" + selector);
+            not_image = $("#desktop-right-section #desktop-" + not_selector);
             if (selector == "real") {
                 src1 = "Adobe_Desktop_RealButton";
                 src2 = "Adobe_Desktop_RealButton_Selected";
+                not_src1 = "Adobe_Desktop_PhotoshopButton";
+                not_src2 = "Adobe_Mobile_R_ImageSwap_032615";
             } else {
                 src1 = "Adobe_Desktop_PhotoshopButton";
                 src2 = "Adobe_Desktop_PhotoshopButton_Selected";
+                not_src1 = "Adobe_Desktop_RealButton";
+                not_src2 = "Adobe_Mobile_PS_ImageSwap_032615";
             }
         }
+
+        $("#" + or_selector).css({"opacity":0});
+        image.attr('src', "assets/img/new/" + src2 + ".png");
+        not_image.attr('src', "assets/img/new/" + not_src2 + ".png");
         $("#att-text").animate({
             color: "white",
         }, 2400, function() {
             $("#att-text").css({"color": "transparent"})
         });
 
-        image.fadeOut(200, function () {
-            image.attr('src', "assets/img/new/" + src2 + ".png");
-            image.fadeIn(2200, function () {
-                image.attr('src', "assets/img/new/" + src1 + ".png");
-                lock = false;
-            });
-        });
+        // var or_height = parseInt($("#" + or_selector).height());
+        // var or_margin = parseInt($("#" + or_selector).css('margin-top'));
+        // var not_image_old_height = parseInt(not_image.height());
+        // var not_image_old_margin = parseInt(not_image.css('margin-top'));
+        // var not_image_new_height = (not_image_old_height + or_height).toString() + "px";
+        // var not_image_new_margin = (not_image_old_margin + or_margin).toString() + "px";
+
+        // not_image.css({"height": not_image_new_height, "margin-top": not_image_new_margin});
+
+        setTimeout( function() {
+            image.attr('src', "assets/img/new/" + src1 + ".png");
+            // not_image.css({"height": not_image_old_height, "margin-top": not_image_old_margin});
+            not_image.attr('src', "assets/img/new/" + not_src1 + ".png");
+            $("#" + or_selector).css({"opacity":1});
+            lock = false;
+        }, 2400);
+
         if (preloaded_images[image_number - 1] === undefined) {
         img.attr("src", "assets/img/Swipe" + image_number + ".jpg").load(function() {
             //restore prior margin and opacity
