@@ -29,11 +29,11 @@ preload(
     "assets/img/new/Swipe5.jpg"
 );
 preload_grid(
-    "assets/img/Grid1.png",
-    "assets/img/Grid2.png",
-    "assets/img/Grid3.png",
-    "assets/img/Grid4.png",
-    "assets/img/Grid5.png"
+    "assets/img/new/Grid1.jpg",
+    "assets/img/new/Grid2.jpg",
+    "assets/img/new/Grid3.jpg",
+    "assets/img/new/Grid4.jpg",
+    "assets/img/new/Grid5.jpg"
 );
 
 preloaded_background_images.push(new Image());
@@ -63,6 +63,6 @@ function preload_grid() {
 function incremental_preload(img_number) {
     if (image_number <= 20) {
         preload("assets/img/new/Swipe" + (img_number+5) + ".jpg")
-        preload_grid("assets/img/Grid" + (img_number+5) + ".png")
+        preload_grid("assets/img/new/Grid" + (img_number+5) + ".png")
     }
 }

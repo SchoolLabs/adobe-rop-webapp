@@ -1,5 +1,5 @@
 /* indicates whether image is real or fake */
-var IMAGES = [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var IMAGES = [1, 0, 0, 1, 1, 0, 0, 8, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1];
 var BEG_DELTA = 120;
 var SWIPE_SPEED = 250;
 var HIGHLIGHT_SPEED = 250;
@@ -173,10 +173,10 @@ function build_grid() {
         }
         if (scores[i] == 1) {
             $(".grid-row:last").append("<div class='col-xs-15 grid-img'><img class='img' src='assets/img/Adobe_Clearx_v1_12.19.15.png'></div>");
-            $(".grid-row:last .grid-img:last .img").css({'background-image':'url("assets/img/Grid' + (i + 1) + '.png")'});
+            $(".grid-row:last .grid-img:last .img").css({'background-image':'url("assets/img/new/Grid' + (i + 1) + '.jpg")'});
         } else {
             $(".grid-row:last").append("<div class='col-xs-15 grid-img'><img class='img' src='assets/img/Adobe_RedX_v1_12.19.15.png'></div>");
-            $(".grid-row:last .grid-img:last .img").css({'background-image':'url("assets/img/Grid' + (i + 1) + '.png")'});
+            $(".grid-row:last .grid-img:last .img").css({'background-image':'url("assets/img/new/Grid' + (i + 1) + '.jpg")'});
         }
     }
     imagesLoaded("#grid", function() {
