@@ -432,6 +432,13 @@ html, body {
     }
 }
 
+@media (orientation: landscape) and (max-width: 1024px) {
+    #main-test {
+        margin-top: 0%;
+/*        padding-top: 0%;*/
+    }
+}
+
 @media only screen and (min-width : 1025px) {
 /*    html {
       background: url(../img/new/Adobe25_Desktop_BabyLilyPad.jpg) no-repeat center center fixed;
