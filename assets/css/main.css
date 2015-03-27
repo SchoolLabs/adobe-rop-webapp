@@ -501,6 +501,9 @@ html, body {
         margin-top: 0%;
 /*        padding-top: 0%;*/
     }
+    #mobile-real {
+        margin-top: 0%;
+    }
 }
 
 @media screen and (min-aspect-ratio: 3/2) {
