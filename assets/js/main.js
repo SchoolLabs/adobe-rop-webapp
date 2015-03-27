@@ -133,6 +133,7 @@ function animate(img, delta, last) {
             // not_image.css({"height": not_image_old_height, "margin-top": not_image_old_margin});
             not_image.attr('src', "assets/img/new/" + not_src1 + ".png");
             $("#" + or_selector).css({"opacity":1});
+            $("#att-text").html("<p id='att-text'>Jane Doe " + image_number + " &copy; 2014</p>")
             $("#att-text").animate({
                 color: "white",
             }, 2400, function() {
@@ -142,7 +143,7 @@ function animate(img, delta, last) {
         }, 2400);
 
         if (preloaded_images[image_number - 1] === undefined) {
-        img.attr("src", "assets/img/Swipe" + image_number + ".jpg").load(function() {
+        img.attr("src", "assets/img/new/Swipe" + image_number + ".jpg").load(function() {
             //restore prior margin and opacity
             img.css({
                 "margin-left": old_margin,

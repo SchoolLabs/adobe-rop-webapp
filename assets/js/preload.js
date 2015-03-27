@@ -22,11 +22,11 @@ $("#img-col").append("<img class='center-block' id='two-five-logo' src='assets/i
 $("#img-col").append("<div id='spin'></div>");
 
 preload(
-    "assets/img/Swipe1.jpg",
-    "assets/img/Swipe2.jpg",
-    "assets/img/Swipe3.jpg",
-    "assets/img/Swipe4.jpg",
-    "assets/img/Swipe5.jpg"
+    "assets/img/new/Swipe1.jpg",
+    "assets/img/new/Swipe2.jpg",
+    "assets/img/new/Swipe3.jpg",
+    "assets/img/new/Swipe4.jpg",
+    "assets/img/new/Swipe5.jpg"
 );
 preload_grid(
     "assets/img/Grid1.png",
@@ -62,7 +62,7 @@ function preload_grid() {
 
 function incremental_preload(img_number) {
     if (image_number <= 20) {
-        preload("assets/img/Swipe" + (img_number+5) + ".jpg")
+        preload("assets/img/new/Swipe" + (img_number+5) + ".jpg")
         preload_grid("assets/img/Grid" + (img_number+5) + ".png")
     }
 }
