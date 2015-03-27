@@ -36,6 +36,7 @@ function splash_screen_transition() {
 
 function mobile_touch (event){
     if (once == false) {
+        lock = true;
         twenty_five_transition();
         old_margin = $("#main-img").css("marginLeft");
     } else {
@@ -50,6 +51,7 @@ function mobile_touch (event){
 
 function desktop_click (event){
     if (event.target.id == "start-button") {
+        lock = true;
         twenty_five_transition();
         old_margin = $("#main-img").css("marginLeft");
         once = true;
@@ -116,6 +118,7 @@ function twenty_five_transition() {
         color: "white",
     }, 2400, function() {
         $("#att-text").css({"color": "transparent"})
+        lock = false;
     });
 }
 

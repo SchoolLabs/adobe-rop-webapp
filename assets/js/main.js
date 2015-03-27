@@ -89,12 +89,12 @@ function animate(img, delta, last) {
                 src1 = "Adobe_RealOrPhotoshop_Real_White";
                 src2 = "Adobe_RealOrPhotoshop_Real_Red";
                 not_src1 = "Adobe_RealOrPhotoshop_Photoshop_White";
-                not_src2 = "Adobe_Mobile_R_ImageSwap_032615";
+                not_src2 = getRandomImage(0); //randomize
             } else {
                 src1 = "Adobe_RealOrPhotoshop_Photoshop_White";
                 src2 = "Adobe_RealOrPhotoshop_Photoshop_Green";
                 not_src1 = "Adobe_RealOrPhotoshop_Real_White";
-                not_src2 = "Adobe_Mobile_PS_ImageSwap_032615";
+                not_src2 = getRandomImage(1); //randomize
             }
         } else {
             or_selector = "desktop-or";
@@ -104,12 +104,12 @@ function animate(img, delta, last) {
                 src1 = "Adobe_Desktop_RealButton";
                 src2 = "Adobe_Desktop_RealButton_Selected";
                 not_src1 = "Adobe_Desktop_PhotoshopButton";
-                not_src2 = "Adobe_Mobile_R_ImageSwap_032615";
+                not_src2 = getRandomImage(0); //randomize
             } else {
                 src1 = "Adobe_Desktop_PhotoshopButton";
                 src2 = "Adobe_Desktop_PhotoshopButton_Selected";
                 not_src1 = "Adobe_Desktop_RealButton";
-                not_src2 = "Adobe_Mobile_PS_ImageSwap_032615";
+                not_src2 = getRandomImage(1); //randomize
             }
         }
 
@@ -194,4 +194,21 @@ function setMobileOperatingSystemLinks() {
     $("#upper-left-link").attr("href","http://www.android.com");
     $("#upper-right-link").attr("href","http://www.android.com");
   }
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+var real_images = ["Adobe_Mobile_R_ImageSwap_032615", "Adobe_Mobile_R_ImageSwap2_032615", "Adobe_Mobile_R_ImageSwap3_032615"];
+var pshop_images = ["Adobe_Mobile_PS_ImageSwap_032615", "Adobe_Mobile_PS_ImageSwap2_032615", "Adobe_Mobile_PS_ImageSwap3_032615"];
+
+function getRandomImage(pshop) {
+    var image_index = getRandomInt(0,2);
+    console.log(image_index);
+    if (pshop) {
+        return pshop_images[image_index];
+    } else {
+        return real_images[image_index];
+    }
 }
