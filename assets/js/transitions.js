@@ -112,14 +112,19 @@ function twenty_five_transition() {
         $("#desktop-attribution").append("<p id='att-text'>Jane Doe &copy; 2014</p>");
     }
     $("#main-img").show();
+    $("#att-text").animate({
+        color: "white",
+    }, 2400, function() {
+        $("#att-text").css({"color": "transparent"})
+    });
 }
 
 function results_grid_transition(sum) {
     var varScore = sum.toString();
     var shareText="I got "+ varScore +"/25 right. REAL or FAKE? Test your perception"; // used by twitter share
     var shareDesc="Share description copy goes here";
-    var shareURL = "http://dev.seanhelvey.com/school-adobe/index.php?score="+varScore;
-    var shareImage = "http://dev.seanhelvey.com/school-adobe/assets/img/new/fb_shareimage_1411x630.png";
+    var shareURL = "http://dev.seanhelvey.com/school-adobe-v7";
+    var shareImage = "http://dev.seanhelvey.com/school-adobe-v7/assets/img/new/fb_shareimage_1411x630.png";
 
     $("#below-main-mobile").hide();
     $("#left-for-fake").hide();

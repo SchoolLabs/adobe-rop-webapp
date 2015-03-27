@@ -116,11 +116,8 @@ function animate(img, delta, last) {
         $("#" + or_selector).css({"opacity":0});
         image.attr('src', "assets/img/new/" + src2 + ".png");
         not_image.attr('src', "assets/img/new/" + not_src2 + ".png");
-        $("#att-text").animate({
-            color: "white",
-        }, 2400, function() {
-            $("#att-text").css({"color": "transparent"})
-        });
+
+        //note copyright animation has been moved!
 
         // var or_height = parseInt($("#" + or_selector).height());
         // var or_margin = parseInt($("#" + or_selector).css('margin-top'));
@@ -136,7 +133,12 @@ function animate(img, delta, last) {
             // not_image.css({"height": not_image_old_height, "margin-top": not_image_old_margin});
             not_image.attr('src', "assets/img/new/" + not_src1 + ".png");
             $("#" + or_selector).css({"opacity":1});
-            lock = false;
+            $("#att-text").animate({
+                color: "white",
+            }, 2400, function() {
+                $("#att-text").css({"color": "transparent"})
+                lock = false;
+            });
         }, 2400);
 
         if (preloaded_images[image_number - 1] === undefined) {
