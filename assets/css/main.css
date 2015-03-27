@@ -375,6 +375,10 @@ html, body {
     display: none;
 }
 
+#footer {
+    height: 6%;
+}
+
 @media (orientation: landscape) and (max-width: 767px) {
     body {
     -webkit-transform: rotate(-90deg);
@@ -491,9 +495,6 @@ html, body {
     }
     #grid-text-mobile {
         font-size: 8px;
-    }
-    #footer {
-        height: 6%;
     }
 }
 
