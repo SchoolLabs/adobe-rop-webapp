@@ -110,16 +110,18 @@ function twenty_five_transition() {
         $("#desktop-right-section").append("<img class='center-block' id='desktop-real' src='assets/img/new/Adobe_Desktop_RealButton.png'>");
         $("#desktop-right-section").append("<img class='center-block' id='desktop-or' src='assets/img/new/Adobe_RealOrPhotoshop_Or_White.png'>");
         $("#desktop-right-section").append("<img class='center-block' id='desktop-photoshop' src='assets/img/new/Adobe_Desktop_PhotoshopButton.png'>");
-        $("#desktop-right-section").append("<div id='desktop-attribution' class='row'></div>");
+        $("#img-col").append("<div id='desktop-attribution' class='row'></div>");
         $("#desktop-attribution").append("<p id='att-text'>Jane Doe 1 &copy; 2014</p>");
     }
     $("#main-img").show();
-    $("#att-text").animate({
+    $("#att-text").css({
         color: "white",
-    }, 2400, function() {
+    });
+
+    setTimeout( function() {
         $("#att-text").css({"color": "transparent"})
         lock = false;
-    });
+    }, 2400);
 }
 
 function results_grid_transition(sum) {

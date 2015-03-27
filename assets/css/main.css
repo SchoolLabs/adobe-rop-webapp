@@ -189,7 +189,8 @@ html, body {
 }
 
 #desktop-attribution {
-    font-size: 18px;
+    padding-top: 2%;
+    font-size: 12px;
 }
 
 #left-real-mobile, #swipe-mobile, #right-photoshop-mobile {
