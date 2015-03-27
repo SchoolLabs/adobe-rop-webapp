@@ -122,7 +122,7 @@ function results_grid_transition(sum) {
     var shareText="I got "+ varScore +"/25 right. REAL or FAKE? Test your perception"; // used by twitter share
     var shareDesc="Share description copy goes here";
     var shareURL = "http://dev.seanhelvey.com/school-adobe-v7";
-    var shareImage = "http://dev.seanhelvey.com/school-adobe-v7/assets/img/new/fb_shareimage_1411x630.png";
+    var shareImage = "http://dev.seanhelvey.com/school-adobe-v7/assets/img/new/Adobe_SocialShare_FB_1200x630.jpg";
 
     $("#below-main-mobile").hide();
     $("#left-for-fake").hide();
