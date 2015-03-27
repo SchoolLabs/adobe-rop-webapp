@@ -129,16 +129,12 @@ function animate(img, delta, last) {
         // not_image.css({"height": not_image_new_height, "margin-top": not_image_new_margin});
 
         $("#att-text").html("<p id='att-text'>Jane Doe " + image_number + " &copy; 2014</p>")
-        $("#att-text").css({
-            color: "white",
-        });
 
         setTimeout( function() {
             image.attr('src', "assets/img/new/" + src1 + ".png");
             // not_image.css({"height": not_image_old_height, "margin-top": not_image_old_margin});
             not_image.attr('src', "assets/img/new/" + not_src1 + ".png");
             $("#" + or_selector).css({"opacity":1});
-            $("#att-text").css({"color": "transparent"})
             lock = false;
         }, 2400);
 
@@ -189,7 +185,6 @@ function setMobileOperatingSystemLinks() {
   if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) ){
     // $("#upper-left-link").attr("href","http://www.apple.com");
     // $("#upper-right-link").attr("href","http://www.apple.com");
-
   }
   else if( userAgent.match( /Android/i ) ){
     // $("#upper-left-link").attr("href","http://www.android.com");

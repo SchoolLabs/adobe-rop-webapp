@@ -36,7 +36,6 @@ function splash_screen_transition() {
 
 function mobile_touch (event){
     if (once == false) {
-        lock = true;
         twenty_five_transition();
         old_margin = $("#main-img").css("marginLeft");
     } else {
@@ -51,7 +50,6 @@ function mobile_touch (event){
 
 function desktop_click (event){
     if (event.target.id == "start-button") {
-        lock = true;
         twenty_five_transition();
         old_margin = $("#main-img").css("marginLeft");
         once = true;
@@ -88,10 +86,10 @@ function twenty_five_transition() {
         $("#img-text-col").append("<p id='main-test'>Test your powers of observation.</p>");
         // $("#img-text-row").css("background-image", "url(assets/img/new/Adobe_MobileStates_SplashScreen_RealOrPhotoshop.png)");
         $("#img-text-row").css({
-            "height": "15%"
+            "height": "20%"
         });
         $("#img-row").css({
-            "height": "75%"
+            "height": "70%"
         });
         $("#img-col").append("<div id='mobile-attribution' class='row'></div>");
         $("#mobile-attribution").append("<p id='att-text'>Jane Doe 1 &copy; 2014</p>");
@@ -117,11 +115,6 @@ function twenty_five_transition() {
     $("#att-text").css({
         color: "white",
     });
-
-    setTimeout( function() {
-        $("#att-text").css({"color": "transparent"})
-        lock = false;
-    }, 2400);
 }
 
 function results_grid_transition(sum) {

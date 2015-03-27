@@ -497,6 +497,20 @@ html, body {
     }
 }
 
+@media only screen and (max-height : 700px) {
+    #left-real-mobile, #swipe-mobile, #right-photoshop-mobile {
+        font-size: 10px;
+    }
+    #mobile-attribution {
+        padding-top: 2%;
+        font-size: 10px;
+    }
+    #img-row {
+        padding-top: 0%;
+    }
+
+}
+
 @media (orientation: landscape) and (max-width: 1024px) {
     #main-test {
         margin-top: 0%;
