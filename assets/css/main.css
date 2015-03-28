@@ -3,6 +3,8 @@ html, body {
 /*    background-color: turquoise;*/
     height: 100%;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 #share_img {
@@ -383,13 +385,13 @@ html, body {
 }
 
 @media (orientation: landscape) and (max-width: 767px) {
-    body {
+/*    body {
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
-    }
+    }*/
 }
 
 @media only screen and (max-width : 768px) {
