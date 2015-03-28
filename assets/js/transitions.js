@@ -121,6 +121,7 @@ function results_grid_transition(sum) {
     var varScore = sum.toString();
     var shareText="I got "+ varScore +"/25 right. Real or Photoshop Quiz, Test Your Perception."; // used by twitter share
     var shareDesc="Photoshop users make the impossible possible, for that we thank them for taking creativity to places we never could've dreamed. Some things are so amazing, we're not sure if they're Real or Photoshop.";
+    var twitterShareDesc="Some things are so amazing, we're not sure if they're Real or Photoshop.";
     var shareURL = "http://dev.seanhelvey.com/school-adobe-v7";
     var shareImage = "http://dev.seanhelvey.com/school-adobe-v7/assets/img/new/Adobe_SocialShare_FB_1200x630.jpg";
 
@@ -181,6 +182,6 @@ function results_grid_transition(sum) {
      });
 
      $('#twitter_button').on("click", function() {
-        window.open("https://twitter.com/share?url="+encodeURIComponent(shareURL)+"&text="+encodeURIComponent(shareText), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;
+        window.open("https://twitter.com/share?url="+encodeURIComponent(shareURL)+"&text="+encodeURIComponent(twitterShareText), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;
      });
 }
