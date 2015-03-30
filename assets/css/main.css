@@ -1,3 +1,7 @@
+html * {
+    font-family: "adobe-clean",sans-serif;
+}
+
 html, body {
     background-color: #11162f;
 /*    background-color: turquoise;*/
