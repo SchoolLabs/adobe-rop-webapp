@@ -68,6 +68,13 @@ function desktop_click (event){
     }
 }
 function twenty_five_transition() {
+    // fix bug of retina.js
+    // it will set height = 0 and width = 0 to img
+    // which are in a container that is initially not
+    // visible
+    $img = $('#main-img');
+    $img.removeAttr('height');
+    $img.removeAttr('width');
     $("html, body").css({
             "background": "none",
             "background-color": "#11162f"
