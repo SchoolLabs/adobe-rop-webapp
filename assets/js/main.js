@@ -1,5 +1,5 @@
 /* indicates whether image is real or fake */
-var IMAGES = [1, 0, 0, 1, 1, 0, 0, 8, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1];
+var IMAGES = [0,0,1,1,0,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,1,0,0,1,1];
 var BEG_DELTA = 120;
 var SWIPE_SPEED = 250;
 var HIGHLIGHT_SPEED = 250;
@@ -11,6 +11,31 @@ var old_margin = 0;
 var first = true;
 var lock = false;
 var once = false;
+var att_arr = ["Alter",
+               "Dariusz Klimczak",
+               "Alexander Remnev",
+               "Aman Agrawal",
+               "Ibrahim Oubahmane",
+               "Andreas Tauber",
+               "Benhamin Von Wong",
+               "Corey Rich",
+               "Lonut Caras",
+               "Lonut Caras",
+               "Lonut Caras",
+               "Joel Robison Trevillion Images",
+               "Dimitris Vavylis",
+               "John Wilhelm",
+               "Eco Suparman",
+               "Lauri Tammik",
+               "Martin Le May",
+               "Richard Silvera",
+               "Rudi Young",
+               "Natalie Fletcher",
+               "Olga Gladysheva",
+               "Stefane Gautier",
+               "Tawan Chaisom",
+               "Peter McBride",
+               "Yaroslav Segeda"];
 
 setMobileOperatingSystemLinks();
 
@@ -128,7 +153,7 @@ function animate(img, delta, last) {
 
         // not_image.css({"height": not_image_new_height, "margin-top": not_image_new_margin});
 
-        $("#att-text").html("<p id='att-text'>Jane Doe " + image_number + " &copy; 2014</p>")
+        $("#att-text").html("<p id='att-text'>" + att_arr[image_number - 1] + " &copy; 2015</p>")
 
         setTimeout( function() {
             image.attr('src', "assets/img/new/" + src1 + ".png");
