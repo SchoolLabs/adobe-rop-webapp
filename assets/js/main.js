@@ -35,7 +35,7 @@ var att_arr = ["Alter &copy; 2011",
                "Olga Gladysheva &copy; 2015",
                "Stefane Gautier &copy; 2015",
                "Tawan Chaisom &copy; 2015",
-               "Peter McBride &copy; 2015",
+               "Pete McBride &copy; 2015",
                "Yaroslav Segeda &copy; 2015"];
 
 setMobileOperatingSystemLinks();
