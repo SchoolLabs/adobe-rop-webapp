@@ -11,6 +11,7 @@ var old_margin = 0;
 var first = true;
 var lock = false;
 var once = false;
+var check_or_x = "Adobe_Desktop_X_V1";
 var att_arr = ["Alter",
                "Dariusz Klimczak",
                "Alexander Remnev",
@@ -46,12 +47,14 @@ function score_swipe(event) {
         delta = BEG_DELTA;
         if (IMAGES[image_number - 1] == 0) {
             correct_number++;
+            check_or_x = "Adobe_Desktop_CHECK_V1";
             scores[image_number - 1] = 1;
         }
     } else {
         delta = -1 * BEG_DELTA;
         if (IMAGES[image_number - 1] == 1) {
             correct_number++;
+            check_or_x = "Adobe_Desktop_CHECK_V1";
             scores[image_number - 1] = 1;
         }
     }
@@ -163,23 +166,35 @@ function animate(img, delta, last) {
             lock = false;
         }, 2400);
 
+
+
         if (preloaded_images[image_number - 1] === undefined) {
-        img.attr("src", "assets/img/new/Swipe" + image_number + ".jpg").load(function() {
-            //restore prior margin and opacity
-            img.css({
-                "margin-left": old_margin,
-                opacity: 1,
+            img.attr("src", "assets/img/new/Swipe" + image_number + ".jpg").load(function() {
+                //restore prior margin and opacity
+                img.css({
+                    "margin-left": old_margin,
+                    opacity: 1,
+                });
             });
-        });
         } else {
-        img.attr("src", preloaded_images[image_number - 1].src).load(function() {
-            //restore prior margin and opacity
-            img.css({
-                "margin-left": old_margin,
-                opacity: 1,
+            img.attr("src", "assets/img/new/" + check_or_x + ".png").load(function() {
+                //restore prior margin and opacity
+                img.css({
+                    "margin-left": old_margin,
+                    opacity: 1,
+                });
             });
-        });
+            setTimeout( function() {
+                img.attr("src", preloaded_images[image_number - 1].src).load(function() {
+                    //restore prior margin and opacity
+                    img.css({
+                        "margin-left": old_margin,
+                        opacity: 1,
+                    });
+                });
+            }, 2400);
         }
+        check_or_x = "Adobe_Desktop_X_V1"; //reset
     });
 }
 
