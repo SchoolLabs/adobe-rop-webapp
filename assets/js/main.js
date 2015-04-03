@@ -12,31 +12,31 @@ var first = true;
 var lock = false;
 var once = false;
 var check_or_x = "Adobe_Desktop_X_V1";
-var att_arr = ["Alter",
-               "Dariusz Klimczak",
-               "Alexander Remnev",
-               "Aman Agrawal",
-               "Ibrahim Oubahmane",
-               "Andreas Tauber",
-               "Benhamin Von Wong",
-               "Corey Rich",
-               "Lonut Caras",
-               "Lonut Caras",
-               "Lonut Caras",
-               "Joel Robison Trevillion Images",
-               "Dimitris Vavylis",
-               "John Wilhelm",
-               "Eco Suparman",
-               "Lauri Tammik",
-               "Martin Le May",
-               "Richard Silvera",
-               "Rudi Young",
-               "Natalie Fletcher",
-               "Olga Gladysheva",
-               "Stefane Gautier",
-               "Tawan Chaisom",
-               "Peter McBride",
-               "Yaroslav Segeda"];
+var att_arr = ["Alter &copy; 2011",
+               "Dariusz Klimczak &copy; 2015",
+               "Alexander Remnev &copy; 2015",
+               "Aman Agrawal &copy; 2015",
+               "Ibrahim Oubahmane &copy; 2015",
+               "Andreas Tauber &copy; 2015",
+               "Benjamin Von Wong &copy; 2014",
+               "Corey Rich &copy; 2002",
+               "Caras Ionut &copy; 2014",
+               "Caras Ionut &copy; 2014",
+               "Caras Ionut &copy; 2014",
+               "Joel Robison Trevillion Images &copy; 2015",
+               "Dimitris Vavylis / Caters News &copy; 2011",
+               "John Wilhelm &copy; 2015",
+               "Eco Suparman / Caters News &copy; 2012",
+               "Lauri Tammik &copy; 2015",
+               "Martin Le-May &copy; 2015",
+               "Richard Silvera &copy; 2015",
+               "Rudi Young &copy; 2015",
+               "Natalie Fletcher &copy; 2013",
+               "Olga Gladysheva &copy; 2015",
+               "Stefane Gautier &copy; 2015",
+               "Tawan Chaisom &copy; 2015",
+               "Peter McBride &copy; 2015",
+               "Yaroslav Segeda &copy; 2015"];
 
 setMobileOperatingSystemLinks();
 
@@ -156,7 +156,7 @@ function animate(img, delta, last) {
 
         // not_image.css({"height": not_image_new_height, "margin-top": not_image_new_margin});
 
-        $("#att-text").html("<p id='att-text'>" + att_arr[image_number - 1] + " &copy; 2015</p>")
+        $("#att-text").html("<p id='att-text'>" + att_arr[image_number - 1] + "</p>")
 
         setTimeout( function() {
             image.attr('src', "assets/img/new/" + src1 + ".png");
