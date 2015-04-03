@@ -182,6 +182,7 @@ function animate(img, delta, last) {
                 img.css({
                     "margin-left": old_margin,
                     opacity: 1,
+                    "border-width": "0px"
                 });
             });
             setTimeout( function() {
@@ -190,6 +191,7 @@ function animate(img, delta, last) {
                     img.css({
                         "margin-left": old_margin,
                         opacity: 1,
+                        "border-width": "1px"
                     });
                 });
             }, 2400);
