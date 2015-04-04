@@ -23,7 +23,7 @@ var att_arr = ["Alter &copy; 2011",
                "Caras Ionut &copy; 2014",
                "Caras Ionut &copy; 2014",
                "Caras Ionut &copy; 2014",
-               "Joel Robison Trevillion Images &copy; 2015",
+               "Joel Robison / Trevillion Images &copy; 2015",
                "Dimitris Vavylis / Caters News &copy; 2011",
                "John Wilhelm &copy; 2015",
                "Eco Suparman / Caters News &copy; 2012",
@@ -33,7 +33,7 @@ var att_arr = ["Alter &copy; 2011",
                "Rudi Young &copy; 2015",
                "Natalie Fletcher &copy; 2013",
                "Olga Gladysheva &copy; 2015",
-               "Stefane Gautier &copy; 2015",
+               "St<font face='Symbol'>&#233;</font>fane Gautier &copy; 2015",
                "Tawan Chaisom &copy; 2015",
                "Pete McBride &copy; 2015",
                "Yaroslav Segeda &copy; 2015"];
@@ -156,7 +156,8 @@ function animate(img, delta, last) {
 
         // not_image.css({"height": not_image_new_height, "margin-top": not_image_new_margin});
 
-        $("#att-text").html("<p id='att-text'>" + att_arr[image_number - 1] + "</p>")
+        // $("#att-text").html("<p id='att-text'>" + att_arr[image_number - 1] + "</p>");
+        $("#att-text").html("<p id='att-text'>" + att_arr[image_number - 1] + "</p>");
 
         setTimeout( function() {
             image.attr('src', "assets/img/new/" + src1 + ".png");
