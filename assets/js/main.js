@@ -186,6 +186,7 @@ function animate(img, delta, last) {
                     "border-width": "0px"
                 });
             });
+            $("#att-text").css({opacity:0});
             setTimeout( function() {
                 img.attr("src", preloaded_images[image_number - 1].src).load(function() {
                     //restore prior margin and opacity
@@ -195,6 +196,7 @@ function animate(img, delta, last) {
                         "border-width": "1px"
                     });
                 });
+                $("#att-text").css({opacity:1});
             }, 2400);
         }
         check_or_x = "Adobe_Desktop_X_V1"; //reset
