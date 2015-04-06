@@ -209,6 +209,11 @@ html, body {
     vertical-align: middle;
 }
 
+#left-real-mobile, #right-photoshop-mobile {
+    max-height: 100%;
+    vertical-align: middle;
+}
+
 #swipe-mobile {
     padding-top: 1%;
 }

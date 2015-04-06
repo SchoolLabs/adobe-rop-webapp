@@ -106,9 +106,9 @@ function twenty_five_transition() {
         // $("#below-main-mobile").append("<img id='left-real-mobile' class='col-xs-offset-1 col-xs-2' src='assets/img/new/Adobe_MobileStates_LeftForReal.png'></img>");
         // $("#below-main-mobile").append("<img id='swipe-mobile' class='col-xs-offset-2 col-xs-2' src='assets/img/new/Adobe_MobileStates_Swipe.png'></img>");
         // $("#below-main-mobile").append("<img id='right-photoshop-mobile' class='col-xs-offset-2 col-xs-2' src='assets/img/new/Adobe_Mobile-States_RightForPhotoshop.png'></img>");
-        $("#below-main-mobile").append("<div id='left-real-mobile' class='col-xs-4'>left for <br><span class='bold'>REAL</div>");
+        $("#below-main-mobile").append("<div id='left-real-mobile' class='col-xs-4'><img id='left-real-mobile-image' src='assets/img/new/Adobe_SwipeL_040615.png'></img></div>");
         $("#below-main-mobile").append("<div id='swipe-mobile' class='col-xs-4'>Swipe</div>");
-        $("#below-main-mobile").append("<div id='right-photoshop-mobile' class='col-xs-4'>right for <br><span class='bold'>PHOTOSHOP</span>");
+        $("#below-main-mobile").append("<div id='right-photoshop-mobile' class='col-xs-4'><img id='right-photoshop-mobile-image' src='assets/img/new/Adobe_SwipeR_040615.png'></img></div>");
     } else {
         $("#img-row").css({
             "padding-top": "10%"
