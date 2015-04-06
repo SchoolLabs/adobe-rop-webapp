@@ -63,6 +63,6 @@ function preload_grid() {
 function incremental_preload(img_number) {
     if (image_number <= 20) {
         preload("assets/img/new/Swipe" + (img_number+5) + ".jpg")
-        preload_grid("assets/img/new/Grid" + (img_number+5) + ".png")
+        preload_grid("assets/img/new/Grid" + (img_number+5) + ".jpg")
     }
 }

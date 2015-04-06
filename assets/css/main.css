@@ -389,6 +389,18 @@ html, body {
     height: 6%;
 }
 
+#stat-counter {
+    color: white;
+    padding-top: 1%;
+    text-align: right;
+    display: none;
+}
+
+#current-number {
+    color: #2691e3;
+    display: none;
+}
+
 @media (orientation: landscape) and (max-width: 767px) {
 /*    body {
     -webkit-transform: rotate(-90deg);

@@ -80,6 +80,8 @@ function twenty_five_transition() {
             "background-color": "#11162f"
     });
     $("#two-five-logo").hide();
+    $("#stat-counter").show();
+    $("#current-number").show();
     $("#img-col").addClass("col-lg-7");
     $("#img-row").append("<div class='col-lg-5' id='desktop-right-section'></div>")
     $("#desktop-right-section").show();

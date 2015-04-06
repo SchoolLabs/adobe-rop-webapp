@@ -197,6 +197,7 @@ function animate(img, delta, last) {
                     });
                 });
                 $("#att-text").css({opacity:1});
+                    $("#current-number").html(image_number);
             }, 2400);
         }
         check_or_x = "Adobe_Desktop_X_V1"; //reset
@@ -246,7 +247,6 @@ var pshop_images = ["Adobe_Mobile_PS_ImageSwap_032615", "Adobe_Mobile_PS_ImageSw
 
 function getRandomImage(pshop) {
     var image_index = getRandomInt(0,2);
-    console.log(image_index);
     if (pshop) {
         return pshop_images[image_index];
     } else {
