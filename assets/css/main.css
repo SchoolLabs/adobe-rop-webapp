@@ -507,12 +507,14 @@ html, body {
     #mobile-photoshop {
         margin-top: 0%;
     }
+}
+
+@media only screen and (min-width : 1281px) {
     #twenty-five-text {
         color: white;
         text-align: center;
         padding: 2% 30% 0% 30%;
     }
-
 }
 
 @media only screen and (max-height : 500px) {
