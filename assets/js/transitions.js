@@ -23,7 +23,7 @@ function splash_screen_transition() {
     // $("#twenty-five-wrapper").append("<img class='center-block' id='begin' src='assets/img/SwipetoBegin.png'>");
     // $("#twenty-five-wrapper").append("<img class='center-block' id='real-or-photoshop' src='assets/img/new/Adobe_MobileStates_SplashScreen_RealOrPhotoshop.png'>");
     $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-real' src='assets/img/new/Adobe_RealOrPhotoshop_Real_White.png'>");
-    $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-or' src='assets/img/new/Adobe_RealOrPhotoshop_Or_White.png'>");
+    $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-or' src='assets/img/new/Adobe_Desktop_OR_040715.png'>");
     $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-photoshop' src='assets/img/new/Adobe_RealOrPhotoshop_Photoshop_White.png'>");
 
     if (Modernizr.touch) {
@@ -90,7 +90,7 @@ function twenty_five_transition() {
     if (Modernizr.touch) {
         $("#img-text-row").show();
         $("#img-text-col").append("<img class='center-block' id='mobile-real' src='assets/img/new/Adobe_RealOrPhotoshop_Real_White.png'>");
-        $("#img-text-col").append("<img class='center-block' id='mobile-or' src='assets/img/new/Adobe_RealOrPhotoshop_Or_White.png'>");
+        $("#img-text-col").append("<img class='center-block' id='mobile-or' src='assets/img/new/Adobe_Desktop_OR_040715.png'>");
         $("#img-text-col").append("<img class='center-block' id='mobile-photoshop' src='assets/img/new/Adobe_RealOrPhotoshop_Photoshop_White.png'>");
         $("#img-text-col").append("<p id='main-test'>Test your powers of observation.</p>");
         // $("#img-text-row").css("background-image", "url(assets/img/new/Adobe_MobileStates_SplashScreen_RealOrPhotoshop.png)");
@@ -115,7 +115,7 @@ function twenty_five_transition() {
         });
         $("#desktop-right-section").append("<p id='desktop-test'>Test your powers of observation.</p>");
         $("#desktop-right-section").append("<img class='center-block' id='desktop-real' src='assets/img/new/Adobe_Desktop_RealButton.png'>");
-        $("#desktop-right-section").append("<img class='center-block' id='desktop-or' src='assets/img/new/Adobe_RealOrPhotoshop_Or_White.png'>");
+        $("#desktop-right-section").append("<img class='center-block' id='desktop-or' src='assets/img/new/Adobe_Desktop_OR_040715.png'>");
         $("#desktop-right-section").append("<img class='center-block' id='desktop-photoshop' src='assets/img/new/Adobe_Desktop_PhotoshopButton.png'>");
         $("#img-col").append("<div id='desktop-attribution' class='row'></div>");
         $("#desktop-attribution").append("<p id='att-text'>Alter &copy; 2011</p>");
@@ -154,7 +154,7 @@ function results_grid_transition(sum) {
     if (!Modernizr.touch) {
         $("#img-text-row").show();
         $("#img-text-col").append("<img class='center-block' id='mobile-real' src='assets/img/new/Adobe_RealOrPhotoshop_Real_White.png'>");
-        $("#img-text-col").append("<img class='center-block' id='mobile-or' src='assets/img/new/Adobe_RealOrPhotoshop_Or_White.png'>");
+        $("#img-text-col").append("<img class='center-block' id='mobile-or' src='assets/img/new/Adobe_Desktop_OR_040715.png'>");
         $("#img-text-col").append("<img class='center-block' id='mobile-photoshop' src='assets/img/new/Adobe_RealOrPhotoshop_Photoshop_White.png'>");
         // $("#img-text-row").css("background-image", "url(assets/img/new/Adobe_MobileStates_SplashScreen_RealOrPhotoshop.png)");
         $("#real, #photoshop").css({
