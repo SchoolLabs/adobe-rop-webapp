@@ -229,7 +229,7 @@ html, body {
 #twenty-five-text {
     color: white;
     text-align: center;
-    padding: 2% 30% 0% 30%;
+    padding: 2% 10% 0% 10%;
 }
 
 #twenty-five-img {
@@ -507,6 +507,12 @@ html, body {
     #mobile-photoshop {
         margin-top: 0%;
     }
+    #twenty-five-text {
+        color: white;
+        text-align: center;
+        padding: 2% 30% 0% 30%;
+    }
+
 }
 
 @media only screen and (max-height : 500px) {
