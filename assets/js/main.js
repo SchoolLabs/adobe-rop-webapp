@@ -116,12 +116,12 @@ function animate(img, delta, last) {
             not_image = $("#img-text-col #mobile-" + not_selector);
             if (selector == "real") {
                 src1 = "Adobe_RealOrPhotoshop_Real_White";
-                src2 = "Adobe_RealOrPhotoshop_Real_Red";
+                src2 = "Adobe_REAL_PsBlue_040615";
                 not_src1 = "Adobe_RealOrPhotoshop_Photoshop_White";
                 not_src2 = getRandomImage(0, score); //randomize
             } else {
                 src1 = "Adobe_RealOrPhotoshop_Photoshop_White";
-                src2 = "Adobe_RealOrPhotoshop_Photoshop_Green";
+                src2 = "Adobe_PS_PsBlue_040615";
                 not_src1 = "Adobe_RealOrPhotoshop_Real_White";
                 not_src2 = getRandomImage(1, score); //randomize
             }

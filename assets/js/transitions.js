@@ -22,9 +22,9 @@ function splash_screen_transition() {
     }
     // $("#twenty-five-wrapper").append("<img class='center-block' id='begin' src='assets/img/SwipetoBegin.png'>");
     // $("#twenty-five-wrapper").append("<img class='center-block' id='real-or-photoshop' src='assets/img/new/Adobe_MobileStates_SplashScreen_RealOrPhotoshop.png'>");
-    $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-real' src='assets/img/new/Adobe_RealOrPhotoshop_Real_White.png'>");
+    $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-real' src='assets/img/new/Adobe_REAL_PsBlue_040615.png'>");
     $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-or' src='assets/img/new/Adobe_Desktop_OR_040715.png'>");
-    $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-photoshop' src='assets/img/new/Adobe_RealOrPhotoshop_Photoshop_White.png'>");
+    $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-photoshop' src='assets/img/new/Adobe_PS_PsBlue_040615.png'>");
 
     if (Modernizr.touch) {
         $("#twenty-five-wrapper").append("<img class='center-block' id='start-button' src='assets/img/new/Adobe_SwipeStart_040815.png'>");
