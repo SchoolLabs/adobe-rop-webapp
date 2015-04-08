@@ -131,8 +131,8 @@ function results_grid_transition(sum) {
     var shareText="I got "+ varScore +"/25 right. Real or Photoshop Quiz, Test Your Perception."; // used by twitter share
     var shareDesc="Photoshop users make the impossible possible, for that we thank them for taking creativity to places we never could've dreamed. Some things are so amazing, we're not sure if they're Real or Photoshop.";
     var twitterShareDesc="Some things are so amazing, we're not sure if they're Real or Photoshop.";
-    var shareURL = "http://dev.seanhelvey.com/school-adobe-v7";
-    var shareImage = "http://dev.seanhelvey.com/school-adobe-v7/assets/img/new/Adobe_SocialShare_FB_1200x630.jpg";
+    var shareURL = "http://dev.seanhelvey.com/school-adobe-v9";
+    var shareImage = "http://dev.seanhelvey.com/school-adobe-v9/assets/img/new/Adobe_Facebook_1200x630_v1.jpg";
 
     $("#below-main-mobile").hide();
     $("#left-for-fake").hide();
