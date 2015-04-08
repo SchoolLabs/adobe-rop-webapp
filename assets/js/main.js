@@ -130,14 +130,14 @@ function animate(img, delta, last) {
             image = $("#desktop-right-section #desktop-" + selector);
             not_image = $("#desktop-right-section #desktop-" + not_selector);
             if (selector == "real") {
-                src1 = "Adobe_Desktop_RealButton";
+                src1 = "Adobe_Desktop_REALBlue_040615";
                 src2 = "Adobe_Desktop_RealButton_Selected";
-                not_src1 = "Adobe_Desktop_PhotoshopButton";
+                not_src1 = "Adobe_Desktop_PsBlue_040615";
                 not_src2 = getRandomImage(0, score); //randomize
             } else {
-                src1 = "Adobe_Desktop_PhotoshopButton";
+                src1 = "Adobe_Desktop_PsBlue_040615";
                 src2 = "Adobe_Desktop_PhotoshopButton_Selected";
-                not_src1 = "Adobe_Desktop_RealButton";
+                not_src1 = "Adobe_Desktop_REALBlue_040615";
                 not_src2 = getRandomImage(1, score); //randomize
             }
         }

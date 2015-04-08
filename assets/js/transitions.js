@@ -114,9 +114,9 @@ function twenty_five_transition() {
             "padding-top": "10%"
         });
         $("#desktop-right-section").append("<p id='desktop-test'>Test your powers of observation.</p>");
-        $("#desktop-right-section").append("<img class='center-block' id='desktop-real' src='assets/img/new/Adobe_Desktop_RealButton.png'>");
+        $("#desktop-right-section").append("<img class='center-block' id='desktop-real' src='assets/img/new/Adobe_Desktop_REALBlue_040615.png'>");
         $("#desktop-right-section").append("<img class='center-block' id='desktop-or' src='assets/img/new/Adobe_Desktop_OR_040715.png'>");
-        $("#desktop-right-section").append("<img class='center-block' id='desktop-photoshop' src='assets/img/new/Adobe_Desktop_PhotoshopButton.png'>");
+        $("#desktop-right-section").append("<img class='center-block' id='desktop-photoshop' src='assets/img/new/Adobe_Desktop_PsBlue_040615.png'>");
         $("#img-col").append("<div id='desktop-attribution' class='row'></div>");
         $("#desktop-attribution").append("<p id='att-text'>Alter &copy; 2011</p>");
     }
