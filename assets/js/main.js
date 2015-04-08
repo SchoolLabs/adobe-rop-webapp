@@ -90,6 +90,7 @@ function getParameterByName(name) {
 /* Call highlight, move the swiped image, either show next image or final page */
 function animate(img, delta, last) {
     var real = IMAGES[image_number - 1];
+    var score = scores[image_number - 1];
     image_number++;
     //move left or right based on delta calculated above and reduce opacity
     img.animate({
@@ -117,12 +118,12 @@ function animate(img, delta, last) {
                 src1 = "Adobe_RealOrPhotoshop_Real_White";
                 src2 = "Adobe_RealOrPhotoshop_Real_Red";
                 not_src1 = "Adobe_RealOrPhotoshop_Photoshop_White";
-                not_src2 = getRandomImage(0); //randomize
+                not_src2 = getRandomImage(0, score); //randomize
             } else {
                 src1 = "Adobe_RealOrPhotoshop_Photoshop_White";
                 src2 = "Adobe_RealOrPhotoshop_Photoshop_Green";
                 not_src1 = "Adobe_RealOrPhotoshop_Real_White";
-                not_src2 = getRandomImage(1); //randomize
+                not_src2 = getRandomImage(1, score); //randomize
             }
         } else {
             or_selector = "desktop-or";
@@ -132,12 +133,12 @@ function animate(img, delta, last) {
                 src1 = "Adobe_Desktop_RealButton";
                 src2 = "Adobe_Desktop_RealButton_Selected";
                 not_src1 = "Adobe_Desktop_PhotoshopButton";
-                not_src2 = getRandomImage(0); //randomize
+                not_src2 = getRandomImage(0, score); //randomize
             } else {
                 src1 = "Adobe_Desktop_PhotoshopButton";
                 src2 = "Adobe_Desktop_PhotoshopButton_Selected";
                 not_src1 = "Adobe_Desktop_RealButton";
-                not_src2 = getRandomImage(1); //randomize
+                not_src2 = getRandomImage(1, score); //randomize
             }
         }
 
@@ -245,11 +246,23 @@ function getRandomInt(min, max) {
 var real_images = ["Adobe_Mobile_R_ImageSwap_032615", "Adobe_Mobile_R_ImageSwap2_032615", "Adobe_Mobile_R_ImageSwap3_032615"];
 var pshop_images = ["Adobe_Mobile_PS_ImageSwap_032615", "Adobe_Mobile_PS_ImageSwap2_032615", "Adobe_Mobile_PS_ImageSwap3_032615"];
 
-function getRandomImage(pshop) {
-    var image_index = getRandomInt(0,2);
-    if (pshop) {
-        return pshop_images[image_index];
+var ps_correct_images = ["ps_correct_03","ps_correct_06","ps_correct_08","ps_correct_10","ps_correct_13"];
+var ps_wrong_images = ["ps_wrong_03","ps_wrong_06","ps_wrong_08","ps_wrong_10","ps_wrong_13"];
+var real_wrong_images = ["real_wrong_03","real_wrong_06","real_wrong_08","real_wrong_10","real_wrong_13"];
+var real_correct_images = ["real_correct_03","real_correct_06","real_correct_08","real_correct_10","real_correct_13"];
+
+function getRandomImage(pshop,score) {
+    var image_index = getRandomInt(0,4);
+    if (pshop == 1 && score == 1) {
+        return ps_correct_images[image_index];
+    } else if (pshop == 1 && score == 0) {
+        return ps_wrong_images[image_index];
+    } else if (pshop == 0 && score == 0) {
+        return real_wrong_images[image_index];
+    } else if (pshop == 0 && score == 1) {
+        return real_correct_images[image_index];
     } else {
-        return real_images[image_index];
+        return real_correct_images[image_index];
+        console.log("image warning");
     }
 }
