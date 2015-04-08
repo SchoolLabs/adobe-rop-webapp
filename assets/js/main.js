@@ -121,7 +121,7 @@ function animate(img, delta, last) {
                 not_src2 = getRandomImage(0, score); //randomize
             } else {
                 src1 = "Adobe_RealOrPhotoshop_Photoshop_White";
-                src2 = "Adobe_PS_PsBlue_040615";
+                src2 = "Adobe_PT_PsBlue_040615";
                 not_src1 = "Adobe_RealOrPhotoshop_Real_White";
                 not_src2 = getRandomImage(1, score); //randomize
             }
