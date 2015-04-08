@@ -27,7 +27,7 @@ function splash_screen_transition() {
     $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-photoshop' src='assets/img/new/Adobe_RealOrPhotoshop_Photoshop_White.png'>");
 
     if (Modernizr.touch) {
-        $("#twenty-five-wrapper").append("<img class='center-block' id='start-button' src='assets/img/new/Adobe_MobileStates_SplashScreen_SwipetoStart.png'>");
+        $("#twenty-five-wrapper").append("<img class='center-block' id='start-button' src='assets/img/new/Adobe_SwipeStart_040815.png'>");
     }
     else {
         $("#twenty-five-wrapper").append("<img class='center-block' id='start-button' src='assets/img/new/Adobe_MobileStates_SplashScreen_StartButton.png'>");
