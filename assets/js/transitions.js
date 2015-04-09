@@ -30,7 +30,15 @@ function splash_screen_transition() {
         $("#twenty-five-wrapper").append("<img class='center-block' id='start-button' src='assets/img/new/Adobe_SwipeStart_040815.png'>");
     }
     else {
-        $("#twenty-five-wrapper").append("<img class='center-block' id='start-button' src='assets/img/new/Adobe_MobileStates_SplashScreen_StartButton.png'>");
+        $("#twenty-five-wrapper").append("<img class='center-block' id='start-button' src='assets/img/new/start_orig.png'>");
+        $("#start-button").hover(
+            function() {
+                $("#start-button").attr("src","assets/img/new/start_roll.png");
+                $("#start-button").css({ cursor: "pointer", cursor: "hand"});
+            }, function() {
+                $("#start-button").attr("src","assets/img/new/start_orig.png");
+               $("#start-button").css({ cursor: "none"});
+        });
     }
 }
 
@@ -119,6 +127,29 @@ function twenty_five_transition() {
         $("#desktop-right-section").append("<img class='center-block' id='desktop-photoshop' src='assets/img/new/Adobe_Desktop_PsBlue_040615.png'>");
         $("#img-col").append("<div id='desktop-attribution' class='row'></div>");
         $("#desktop-attribution").append("<p id='att-text'>Alter &copy; 2011</p>");
+
+        $("#desktop-real").hover(
+            function() {
+                console.log("hover on");
+                $("#desktop-real").attr("src","assets/img/new/Adobe_Desktop_Rollover_REALBlue_040615.png");
+                $("#desktop-real").css({ cursor: "pointer", cursor: "hand"});
+            }, function() {
+                console.log("hover off");
+                $("#desktop-real").attr("src","assets/img/new/Adobe_Desktop_REALBlue_040615.png");
+               $("#desktop-real").css({ cursor: "none"});
+        });
+
+        $("#desktop-photoshop").hover(
+            function() {
+                console.log("hover on");
+                $("#desktop-photoshop").attr("src","assets/img/new/Adobe_Desktop_Rollover_PSBlue_040615.png");
+                $("#desktop-photoshop").css({ cursor: "pointer", cursor: "hand"});
+            }, function() {
+                console.log("hover off");
+                $("#desktop-photoshop").attr("src","assets/img/new/Adobe_Desktop_PsBlue_040615.png");
+               $("#desktop-photoshop").css({ cursor: "none"});
+        });
+
     }
     $("#main-img").show();
     $("#att-text").css({

@@ -260,7 +260,7 @@ html, body {
 }*/
 
 #start-button {
-    padding: 2% 30% 0% 30%;
+    margin: 0 auto;
     max-width: 80%
 }
 
