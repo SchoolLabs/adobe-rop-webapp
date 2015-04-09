@@ -149,7 +149,15 @@ html, body {
     margin-top: 2%;
     margin-bottom: 2%;
     background-size: 100%;
-    max-width: 80%
+    max-width: 190px;
+    max-height: 69px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    #desktop-real, #desktop-photoshop {
+        max-width: 377px;
+        max-height: 137px;
+    }
 }
 
 #desktop-or {
