@@ -406,6 +406,10 @@ html, body {
     display: none;
 }
 
+#att-text {
+    font-weight: 100;
+}
+
 @media (orientation: landscape) and (max-width: 767px) {
     body {
         -webkit-transform: rotate(-90deg);
