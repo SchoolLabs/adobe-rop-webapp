@@ -130,24 +130,28 @@ function twenty_five_transition() {
 
         $("#desktop-real").hover(
             function() {
-                console.log("hover on");
-                $("#desktop-real").attr("src","assets/img/new/Adobe_Desktop_Rollover_REALBlue_040615.png");
-                $("#desktop-real").css({ cursor: "pointer", cursor: "hand"});
+                if (!hover_lock) {
+                    $("#desktop-real").attr("src","assets/img/new/Adobe_Desktop_Rollover_REALBlue_040615.png");
+                    $("#desktop-real").css({ cursor: "pointer", cursor: "hand"});
+                }
             }, function() {
-                console.log("hover off");
-                $("#desktop-real").attr("src","assets/img/new/Adobe_Desktop_REALBlue_040615.png");
-               $("#desktop-real").css({ cursor: "none"});
+                if (!hover_lock) {
+                    $("#desktop-real").attr("src","assets/img/new/Adobe_Desktop_REALBlue_040615.png");
+                    $("#desktop-real").css({ cursor: "none"});
+                }
         });
 
         $("#desktop-photoshop").hover(
             function() {
-                console.log("hover on");
-                $("#desktop-photoshop").attr("src","assets/img/new/Adobe_Desktop_Rollover_PSBlue_040615.png");
-                $("#desktop-photoshop").css({ cursor: "pointer", cursor: "hand"});
+                if (!hover_lock) {
+                    $("#desktop-photoshop").attr("src","assets/img/new/Adobe_Desktop_Rollover_PSBlue_040615.png");
+                    $("#desktop-photoshop").css({ cursor: "pointer", cursor: "hand"});
+                }
             }, function() {
-                console.log("hover off");
-                $("#desktop-photoshop").attr("src","assets/img/new/Adobe_Desktop_PsBlue_040615.png");
-               $("#desktop-photoshop").css({ cursor: "none"});
+                if (!hover_lock) {
+                    $("#desktop-photoshop").attr("src","assets/img/new/Adobe_Desktop_PsBlue_040615.png");
+                    $("#desktop-photoshop").css({ cursor: "none"});
+                }
         });
 
     }

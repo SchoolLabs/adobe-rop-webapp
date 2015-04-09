@@ -11,6 +11,7 @@ var old_margin = 0;
 var first = true;
 var lock = false;
 var once = false;
+var hover_lock = false;
 var check_or_x = "Adobe_Desktop_X_V1";
 var att_arr = ["Alter &copy; 2011",
                "Dariusz Klimczak &copy; 2015",
@@ -89,6 +90,7 @@ function getParameterByName(name) {
 
 /* Call highlight, move the swiped image, either show next image or final page */
 function animate(img, delta, last) {
+    hover_lock = true;
     var real = IMAGES[image_number - 1];
     var score = scores[image_number - 1];
     image_number++;
@@ -166,6 +168,7 @@ function animate(img, delta, last) {
             not_image.attr('src', "assets/img/new/" + not_src1 + ".png");
             $("#" + or_selector).css({"opacity":1});
             lock = false;
+            hover_lock = false;
         }, 2400);
 
 
@@ -198,7 +201,7 @@ function animate(img, delta, last) {
                     });
                 });
                 $("#att-text").css({opacity:1});
-                    $("#current-number").html(image_number);
+                $("#current-number").html(image_number);
             }, 2400);
         }
         check_or_x = "Adobe_Desktop_X_V1"; //reset
