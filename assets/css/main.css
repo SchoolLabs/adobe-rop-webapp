@@ -11,6 +11,11 @@ html, body {
     overflow: hidden;
 }
 
+/*.desktop {
+    overflow: auto;
+    min-width: 1024px;
+}
+*/
 #share_img {
     display: none;
 }
@@ -387,7 +392,8 @@ html, body {
 }
 
 #desktop-right-section {
-    display: none;
+    display: block;
+    text-align: center;
     height: 100%;
     padding: 0%;
 /*    background-color: green;*/
@@ -395,7 +401,7 @@ html, body {
 
 #desktop-right-img {
     padding: 0% 15%;
-    display: none;
+    display: block;
 }
 
 #footer {
@@ -487,13 +493,13 @@ html, body {
     #left-for-fake, #right-for-real {
         max-width: 100%;
     }
-    #desktop-right-section {
+/*    #desktop-right-section {
         display: block;
         text-align: center;
     }
     #desktop-right-img {
         display: block;
-    }
+    }*/
     #grid-text-mobile {
         display: none;
     }

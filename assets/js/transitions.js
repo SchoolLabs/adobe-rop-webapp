@@ -96,6 +96,8 @@ function twenty_five_transition() {
     $("#desktop-right-section").append("<img id='desktop-right-img' src='assets/img/new/Adobe_MobileStates_LoadingScreen_25Logo.png'></img>");
     $("#twenty-five-wrapper").hide();
     if (Modernizr.touch) {
+        $("#desktop-right-section").hide();
+        $("#desktop-right-img").hide();
         $("#img-text-row").show();
         $("#img-text-col").append("<img class='center-block' id='mobile-real' src='assets/img/new/Adobe_RealOrPhotoshop_Real_White.png'>");
         $("#img-text-col").append("<img class='center-block' id='mobile-or' src='assets/img/new/Adobe_Desktop_Or.png'>");
@@ -118,6 +120,10 @@ function twenty_five_transition() {
         $("#below-main-mobile").append("<div id='swipe-mobile' class='col-xs-4'>SWIPE</div>");
         $("#below-main-mobile").append("<div id='right-photoshop-mobile' class='col-xs-4'><img id='right-photoshop-mobile-image' src='assets/img/new/Adobe_SwipeR_040615.png'></img></div>");
     } else {
+        $("#img-col").removeClass("col-lg-7");
+        $("#desktop-right-section").removeClass("col-lg-5");
+        $("#img-col").addClass("col-xs-7");
+        $("#desktop-right-section").addClass("col-xs-5");
         $("#img-row").css({
             "padding-top": "10%"
         });
@@ -172,6 +178,7 @@ function results_grid_transition(sum) {
     $("#below-main-mobile").hide();
     $("#left-for-fake").hide();
     $("#right-for-real").hide();
+    $("#desktop-right-section").show();
     $("#desktop-right-img").hide();
     $("#desktop-real").hide();
     $("#desktop-or").hide();

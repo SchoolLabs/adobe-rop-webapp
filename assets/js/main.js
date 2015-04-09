@@ -41,6 +41,10 @@ var att_arr = ["Alter &copy; 2011",
 
 setMobileOperatingSystemLinks();
 
+if (!Modernizr.touch) {
+    $(document.body).addClass("desktop");
+}
+
 /* Calculate and return delta, which is the direction and distance the image will move.
 This method also sets "scores" each time the user swipes */
 function score_swipe(event) {
