@@ -43,6 +43,8 @@ setMobileOperatingSystemLinks();
 
 if (!Modernizr.touch) {
     $(document.body).addClass("desktop");
+} else {
+    $(document.body).addClass("mobile");
 }
 
 /* Calculate and return delta, which is the direction and distance the image will move.
