@@ -125,11 +125,12 @@ function animate(img, delta, last) {
             if (selector == "real") {
                 src1 = "Adobe_RealOrPhotoshop_Real_White";
                 src2 = "Adobe_REAL_PsBlue_040615";
+                src2 = (score)? "labels/real_correct_label" : "labels/real_incorrect_label";
                 not_src1 = "Adobe_RealOrPhotoshop_Photoshop_White";
                 not_src2 = getRandomImage(0, score); //randomize
             } else {
                 src1 = "Adobe_RealOrPhotoshop_Photoshop_White";
-                src2 = "Adobe_PT_PsBlue_040615";
+                src2 = (score)? "labels/photoshop_correct_label" : "labels/photoshop_incorrect_label";
                 not_src1 = "Adobe_RealOrPhotoshop_Real_White";
                 not_src2 = getRandomImage(1, score); //randomize
             }
