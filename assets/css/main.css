@@ -9,13 +9,21 @@ html, body {
     text-align: center;
     position: relative;
     overflow: hidden;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cove;
 }
 
-/*.desktop {
-    overflow: auto;
-    min-width: 1024px;
+
+body.mobile {
+    background: url(../img/backgrounds/mobile-bg.jpg) no-repeat center center fixed;
 }
-*/
+
+body.desktop {
+    background: url(../img/backgrounds/desktop-bg.jpg) no-repeat center center fixed;
+}
+
 #share_img {
     display: none;
 }

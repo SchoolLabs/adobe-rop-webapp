@@ -215,7 +215,7 @@ function results_grid_transition(sum) {
 
     $("#desktop-right-section").append("<div id='grid-text-mobile'></div>");
     $("#desktop-right-section").append("<div id='grid-text-desktop'></div>");
-    $("#grid-text-mobile").html(sum + "/25 answers correct!");
+    $("#grid-text-mobile").html(sum + "/25 a    ect!");
     $("#grid-text-desktop").html(sum + "/25<br/> answers correct!");
 
     $("#desktop-right-section").append("<img id='fb_button' src='assets/img/new/FB icon.png'></img>");
