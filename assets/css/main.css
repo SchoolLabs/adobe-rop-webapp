@@ -12,16 +12,22 @@ html, body {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cove;
+    background-size: cover;
 }
 
 
 body.mobile {
-    background: url(../img/backgrounds/mobile-bg.jpg) no-repeat center center fixed;
+    background-image: url(../img/backgrounds/mobile-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 body.desktop {
-    background: url(../img/backgrounds/desktop-bg.jpg) no-repeat center center fixed;
+    background-image: url(../img/backgrounds/desktop-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 #share_img {

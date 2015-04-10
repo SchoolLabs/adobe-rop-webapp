@@ -11,6 +11,8 @@ var old_margin = 0;
 var first = true;
 var lock = false;
 var once = false;
+
+var transitionTime = 1400;
 var hover_lock = false;
 var check_or_x = "Adobe_Desktop_X_V1";
 var att_arr = ["Alter &copy; 2011",
@@ -178,7 +180,7 @@ function animate(img, delta, last) {
             $("#" + or_selector).css({"opacity":1});
             lock = false;
             hover_lock = false;
-        }, 2400);
+        }, transitionTime);
 
 
         if (preloaded_images[image_number - 1] === undefined) {
@@ -210,7 +212,7 @@ function animate(img, delta, last) {
                 });
                 $("#att-text").css({opacity:1});
                 $("#current-number").html(image_number);
-            }, 2400);
+            }, transitionTime);
         }
         check_or_x = "Adobe_Desktop_X_V1"; //reset
     });

@@ -57,7 +57,6 @@ function mobile_touch (event){
 }
 
 function desktop_click (event){
-    console.log("DESKTOP CLICK", event.target.id );
     if (event.target.id == "start-button") {
         twenty_five_transition();
         old_margin = $("#main-img").css("marginLeft");
@@ -170,11 +169,11 @@ function twenty_five_transition() {
 
 function results_grid_transition(sum) {
     var varScore = sum.toString();
-    var shareText="I got "+ varScore +"/25 right. Real or Photoshop Quiz, Test Your Perception."; // used by twitter share
+    var shareURL = "http://dev.seanhelvey.com/school-adobe-v9";
+    var shareText="I got "+varScore+"/25 right. How would you do in the Real or Photoshop quiz? Test to see what you see: " + shareURL + " #Photoshop25 "; // used by twitter share
     var shareDesc="Photoshop users make the impossible possible, for that we thank them for taking creativity to places we never could've dreamed. Some things are so amazing, we're not sure if they're Real or Photoshop.";
     var twitterShareDesc="Some things are so amazing, we're not sure if they're Real or Photoshop.";
-    var shareURL = "http://dev.seanhelvey.com/school-adobe-v9";
-    var shareImage = "http://dev.seanhelvey.com/school-adobe-v9/assets/img/new/Adobe_Facebook_1200x630_v1.jpg";
+    var shareImage = "http://dev.schooldoes.com/adobe/www-v10/assets/img/social_share/Adobe_Facebook_1200x630_v3.jpg";
 
     $("#below-main-mobile").hide();
     $("#left-for-fake").hide();
@@ -234,6 +233,6 @@ function results_grid_transition(sum) {
      });
 
      $('#twitter_button').on("click", function() {
-        window.open("https://twitter.com/share?url="+encodeURIComponent(shareURL)+"&text="+encodeURIComponent(shareText), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;
+        window.open("https://twitter.com/share?text="+encodeURIComponent(shareText), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;
      });
 }
