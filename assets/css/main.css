@@ -28,6 +28,11 @@ body.desktop {
     display: none;
 }
 
+#desktop-photoshop,
+#mobile-photoshop {
+    cursor: pointer;
+}
+
 #wrap {
     min-height: 100%;
     height: auto !important;
