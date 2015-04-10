@@ -139,19 +139,21 @@ function animate(img, delta, last) {
             not_image = $("#desktop-right-section #desktop-" + not_selector);
             if (selector == "real") {
                 src1 = "Adobe_Desktop_REALBlue_040615";
-                src2 = "Adobe_Desktop_RealButton_Selected";
+                src2 = (score)? "buttons/real_correct_btn" : "buttons/real_incorrect_btn";
                 not_src1 = "Adobe_Desktop_PsBlue_040615";
                 not_src2 = getRandomImage(0, score); //randomize
             } else {
                 src1 = "Adobe_Desktop_PsBlue_040615";
-                src2 = "Adobe_Desktop_PhotoshopButton_Selected";
+                src2 = (score)? "buttons/photoshop_correct_btn" : "buttons/photoshop_incorrect_btn";
                 not_src1 = "Adobe_Desktop_REALBlue_040615";
                 not_src2 = getRandomImage(1, score); //randomize
             }
         }
 
+
+
         $("#" + or_selector).css({"opacity":0});
-        image.attr('src', "assets/img/new/" + src2 + ".png");
+        image.attr('src', "assets/img/" + src2 + ".png");
         not_image.attr('src', "assets/img/new/" + not_src2 + ".png");
 
         //note copyright animation has been moved!
@@ -176,7 +178,6 @@ function animate(img, delta, last) {
             lock = false;
             hover_lock = false;
         }, 2400);
-
 
 
         if (preloaded_images[image_number - 1] === undefined) {

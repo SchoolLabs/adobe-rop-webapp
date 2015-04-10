@@ -28,14 +28,6 @@ body.desktop {
     display: none;
 }
 
-/*body {
-      background: url(../img/new/Adobe25_Desktop_BabyLilyPad.jpg) no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-}*/
-
 #wrap {
     min-height: 100%;
     height: auto !important;

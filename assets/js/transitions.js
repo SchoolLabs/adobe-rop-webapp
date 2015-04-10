@@ -57,6 +57,7 @@ function mobile_touch (event){
 }
 
 function desktop_click (event){
+    console.log("DESKTOP CLICK", event.target.id );
     if (event.target.id == "start-button") {
         twenty_five_transition();
         old_margin = $("#main-img").css("marginLeft");

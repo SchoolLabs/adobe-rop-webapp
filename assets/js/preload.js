@@ -9,12 +9,6 @@ var background = "";
 //     background = "Adobe25_Desktop_BabyLilyPad.jpg";
 // }
 
-$("html, body").css({
-        "-webkit-background-size": "cover",
-        "-moz-background-size": "cover",
-        "-o-background-size": "cover",
-        "background-size": "cover"
-});
 
 $("#upper-right-ps-logo").show();
 $("#img-col").append("<img class='center-block' id='two-five-logo' src='assets/img/new/Adobe_MobileStates_LoadingScreen_25Logo.png'></img>");
