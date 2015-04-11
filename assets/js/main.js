@@ -125,15 +125,15 @@ function animate(img, delta, last) {
             image = $("#img-text-col #mobile-" + selector);
             not_image = $("#img-text-col #mobile-" + not_selector);
             if (selector == "real") {
-                src1 = "Adobe_RealOrPhotoshop_Real_White";
-                src2 = "Adobe_REAL_PsBlue_040615";
+                src1 = "new/Adobe_RealOrPhotoshop_Real_White";
+                src2 = "buttons/photoshop_off_btn";
                 src2 = (score)? "labels/real_correct_label" : "labels/real_incorrect_label";
-                not_src1 = "Adobe_RealOrPhotoshop_Photoshop_White";
+                not_src1 = "new/Adobe_RealOrPhotoshop_Photoshop_White";
                 not_src2 = getRandomImage(0, score); //randomize
             } else {
-                src1 = "Adobe_RealOrPhotoshop_Photoshop_White";
+                src1 = "new/Adobe_RealOrPhotoshop_Photoshop_White";
                 src2 = (score)? "labels/photoshop_correct_label" : "labels/photoshop_incorrect_label";
-                not_src1 = "Adobe_RealOrPhotoshop_Real_White";
+                not_src1 = "new/Adobe_RealOrPhotoshop_Real_White";
                 not_src2 = getRandomImage(1, score); //randomize
             }
         } else {
@@ -141,18 +141,17 @@ function animate(img, delta, last) {
             image = $("#desktop-right-section #desktop-" + selector);
             not_image = $("#desktop-right-section #desktop-" + not_selector);
             if (selector == "real") {
-                src1 = "Adobe_Desktop_REALBlue_040615";
+                src1 = "buttons/real_off_btn";
                 src2 = (score)? "buttons/real_correct_btn" : "buttons/real_incorrect_btn";
-                not_src1 = "Adobe_Desktop_PsBlue_040615";
+                not_src1 = "buttons/photoshop_off_btn";
                 not_src2 = getRandomImage(0, score); //randomize
             } else {
-                src1 = "Adobe_Desktop_PsBlue_040615";
+                src1 = "buttons/photoshop_off_btn";
                 src2 = (score)? "buttons/photoshop_correct_btn" : "buttons/photoshop_incorrect_btn";
-                not_src1 = "Adobe_Desktop_REALBlue_040615";
+                not_src1 = "buttons/real_off_btn";
                 not_src2 = getRandomImage(1, score); //randomize
             }
         }
-
 
 
         $("#" + or_selector).css({"opacity":0});
@@ -174,9 +173,9 @@ function animate(img, delta, last) {
         $("#att-text").html("<p id='att-text'>" + att_arr[image_number - 1] + "</p>");
 
         setTimeout( function() {
-            image.attr('src', "assets/img/new/" + src1 + ".png");
+            image.attr('src', "assets/img/" + src1 + ".png");
             // not_image.css({"height": not_image_old_height, "margin-top": not_image_old_margin});
-            not_image.attr('src', "assets/img/new/" + not_src1 + ".png");
+            not_image.attr('src', "assets/img/" + not_src1 + ".png");
             $("#" + or_selector).css({"opacity":1});
             lock = false;
             hover_lock = false;

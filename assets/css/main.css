@@ -35,7 +35,9 @@ body.desktop {
 }
 
 #desktop-photoshop,
-#mobile-photoshop {
+#mobile-photoshop,
+#fb_button,
+#twitter_button {
     cursor: pointer;
 }
 
@@ -339,6 +341,13 @@ body.desktop {
     float: left;
     color: white;
     display: none;
+}
+
+.copy-footer {
+    padding-top: 1%;
+    float: right;
+    color: white;
+    display: block;
 }
 
 /*#bottom-right-adobe {

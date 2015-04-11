@@ -20,8 +20,7 @@ function splash_screen_transition() {
     } else {
         $("#twenty-five-text").html("Photoshop users make the impossible possible, and for that, we thank them for taking creativity to places we never could have dreamed. Some things are so amazing, we're not sure if they're Real or Photoshop. Can you tell?<br/><br/>Test your powers of observation.");
     }
-    // $("#twenty-five-wrapper").append("<img class='center-block' id='begin' src='assets/img/SwipetoBegin.png'>");
-    // $("#twenty-five-wrapper").append("<img class='center-block' id='real-or-photoshop' src='assets/img/new/Adobe_MobileStates_SplashScreen_RealOrPhotoshop.png'>");
+
     $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-real' src='assets/img/new/Adobe_REAL_PsBlue_040615.png'>");
     $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-or' src='assets/img/new/Adobe_Desktop_Or.png'>");
     $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-photoshop' src='assets/img/new/Adobe_PT_PsBlue_040615.png'>");
@@ -45,6 +44,7 @@ function splash_screen_transition() {
 function mobile_touch (event){
     if (once == false) {
         twenty_five_transition();
+        $('#copy-footer').hide();
         old_margin = $("#main-img").css("marginLeft");
     } else {
         if (lock === false) {
@@ -59,6 +59,7 @@ function mobile_touch (event){
 function desktop_click (event){
     if (event.target.id == "start-button") {
         twenty_five_transition();
+        $('#copy-footer').hide();
         old_margin = $("#main-img").css("marginLeft");
         once = true;
     } else if (event.target.id == "desktop-real") {
@@ -128,21 +129,21 @@ function twenty_five_transition() {
             "padding-top": "10%"
         });
         $("#desktop-right-section").append("<p id='desktop-test'>Test your powers of observation.</p>");
-        $("#desktop-right-section").append("<img class='center-block' id='desktop-real' src='assets/img/new/Adobe_Desktop_REALBlue_040615.png'>");
+        $("#desktop-right-section").append("<img class='center-block' id='desktop-real' src='assets/img/buttons/real_off_btn.png'>");
         $("#desktop-right-section").append("<img class='center-block' id='desktop-or' src='assets/img/new/Adobe_Desktop_Or.png'>");
-        $("#desktop-right-section").append("<img class='center-block' id='desktop-photoshop' src='assets/img/new/Adobe_Desktop_PsBlue_040615.png'>");
+        $("#desktop-right-section").append("<img class='center-block' id='desktop-photoshop' src='assets/img/buttons/photoshop_off_btn.png'>");
         $("#img-col").append("<div id='desktop-attribution' class='row'></div>");
         $("#desktop-attribution").append("<p id='att-text'>Alter &copy; 2011</p>");
 
         $("#desktop-real").hover(
             function() {
                 if (!hover_lock) {
-                    $("#desktop-real").attr("src","assets/img/new/Adobe_Desktop_Rollover_REALBlue_040615.png");
+                    $("#desktop-real").attr("src","assets/img/buttons/real_over_btn.png");
                     $("#desktop-real").css({ cursor: "pointer", cursor: "hand"});
                 }
             }, function() {
                 if (!hover_lock) {
-                    $("#desktop-real").attr("src","assets/img/new/Adobe_Desktop_REALBlue_040615.png");
+                    $("#desktop-real").attr("src","assets/img/buttons/real_off_btn.png");
                     $("#desktop-real").css({ cursor: "none"});
                 }
         });
@@ -150,12 +151,12 @@ function twenty_five_transition() {
         $("#desktop-photoshop").hover(
             function() {
                 if (!hover_lock) {
-                    $("#desktop-photoshop").attr("src","assets/img/new/Adobe_Desktop_Rollover_PSBlue_040615.png");
+                    $("#desktop-photoshop").attr("src","assets/img/buttons/photoshop_over_btn.png");
                     $("#desktop-photoshop").css({ cursor: "pointer", cursor: "hand"});
                 }
             }, function() {
                 if (!hover_lock) {
-                    $("#desktop-photoshop").attr("src","assets/img/new/Adobe_Desktop_PsBlue_040615.png");
+                    $("#desktop-photoshop").attr("src","assets/img/buttons/photoshop_off_btn.png");
                     $("#desktop-photoshop").css({ cursor: "none"});
                 }
         });
@@ -169,7 +170,7 @@ function twenty_five_transition() {
 
 function results_grid_transition(sum) {
     var varScore = sum.toString();
-    var shareURL = "http://dev.seanhelvey.com/school-adobe-v9";
+    var shareURL = "http://dev.schooldoes.com/adobe/www-v10";
     var shareText="I got "+varScore+"/25 right. How would you do in the Real or Photoshop quiz? Test to see what you see: " + shareURL + " #Photoshop25 "; // used by twitter share
     var shareDesc="Photoshop users make the impossible possible, for that we thank them for taking creativity to places we never could've dreamed. Some things are so amazing, we're not sure if they're Real or Photoshop.";
     var twitterShareDesc="Some things are so amazing, we're not sure if they're Real or Photoshop.";
