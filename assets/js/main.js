@@ -12,7 +12,7 @@ var first = true;
 var lock = false;
 var once = false;
 
-var transitionTime = 1400;
+var transitionTime = 2400;
 var hover_lock = false;
 var check_or_x = "Adobe_Desktop_X_V1";
 var att_arr = ["Alter &copy; 2011",

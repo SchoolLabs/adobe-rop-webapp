@@ -171,7 +171,7 @@ function twenty_five_transition() {
 function results_grid_transition(sum) {
     var varScore = sum.toString();
     var shareURL = "http://dev.schooldoes.com/adobe/www-v10";
-    var shareText="I got "+varScore+"/25 right. How would you do in the Real or Photoshop quiz? Test to see what you see: " + shareURL + " #Photoshop25 "; // used by twitter share
+    var shareText="I got "+varScore+"/25 right. How would you do in the Real or Photoshop quiz? Test to see what you see: #Photoshop25"; // used by twitter share
     var shareDesc="Photoshop users make the impossible possible, for that we thank them for taking creativity to places we never could've dreamed. Some things are so amazing, we're not sure if they're Real or Photoshop.";
     var twitterShareDesc="Some things are so amazing, we're not sure if they're Real or Photoshop.";
     var shareImage = "http://dev.schooldoes.com/adobe/www-v10/assets/img/social_share/Adobe_Facebook_1200x630_v3.jpg";
@@ -214,9 +214,11 @@ function results_grid_transition(sum) {
         });
     }
 
+    $('#desktop-test, #main-test').html('How good are your powers of observation?');
+
     $("#desktop-right-section").append("<div id='grid-text-mobile'></div>");
     $("#desktop-right-section").append("<div id='grid-text-desktop'></div>");
-    $("#grid-text-mobile").html(sum + "/25 a    ect!");
+    $("#grid-text-mobile").html(sum + "/25 answers correct!");
     $("#grid-text-desktop").html(sum + "/25<br/> answers correct!");
 
     $("#desktop-right-section").append("<img id='fb_button' src='assets/img/new/FB icon.png'></img>");
@@ -234,6 +236,6 @@ function results_grid_transition(sum) {
      });
 
      $('#twitter_button').on("click", function() {
-        window.open("https://twitter.com/share?text="+encodeURIComponent(shareText), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;
+        window.open("https://twitter.com/share?url=" + shareURL + "&text=" + encodeURIComponent(shareText), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;
      });
 }
