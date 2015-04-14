@@ -121,6 +121,8 @@ function animate(img, delta, last) {
             not_selector = "real";
         }
         if (Modernizr.touch) {
+
+
             or_selector = "mobile-or";
             image = $("#img-text-col #mobile-" + selector);
             not_image = $("#img-text-col #mobile-" + not_selector);
@@ -153,23 +155,11 @@ function animate(img, delta, last) {
             }
         }
 
-
         $("#" + or_selector).css({"opacity":0});
         image.attr('src', "assets/img/" + src2 + ".png");
-        not_image.attr('src', "assets/img/new/" + not_src2 + ".png");
+        not_image.attr('src', "assets/img/" + not_src2 + ".png");
 
-        //note copyright animation has been moved!
 
-        // var or_height = parseInt($("#" + or_selector).height());
-        // var or_margin = parseInt($("#" + or_selector).css('margin-top'));
-        // var not_image_old_height = parseInt(not_image.height());
-        // var not_image_old_margin = parseInt(not_image.css('margin-top'));
-        // var not_image_new_height = (not_image_old_height + or_height).toString() + "px";
-        // var not_image_new_margin = (not_image_old_margin + or_margin).toString() + "px";
-
-        // not_image.css({"height": not_image_new_height, "margin-top": not_image_new_margin});
-
-        // $("#att-text").html("<p id='att-text'>" + att_arr[image_number - 1] + "</p>");
         $("#att-text").html("<p id='att-text'>" + att_arr[image_number - 1] + "</p>");
 
         setTimeout( function() {
@@ -258,10 +248,10 @@ function getRandomInt(min, max) {
 var real_images = ["Adobe_Mobile_R_ImageSwap_032615", "Adobe_Mobile_R_ImageSwap2_032615", "Adobe_Mobile_R_ImageSwap3_032615"];
 var pshop_images = ["Adobe_Mobile_PS_ImageSwap_032615", "Adobe_Mobile_PS_ImageSwap2_032615", "Adobe_Mobile_PS_ImageSwap3_032615"];
 
-var ps_correct_images = ["ps_correct_03","ps_correct_06","ps_correct_08","ps_correct_10","ps_correct_13"];
-var ps_wrong_images = ["ps_wrong_03","ps_wrong_06","ps_wrong_08","ps_wrong_10","ps_wrong_13"];
-var real_wrong_images = ["real_wrong_03","real_wrong_06","real_wrong_08","real_wrong_10","real_wrong_13"];
-var real_correct_images = ["real_correct_03","real_correct_06","real_correct_08","real_correct_10","real_correct_13"];
+var ps_correct_images = ["Feedback_Selected/PS-Correct/PS-correct-nailedit","Feedback_Selected/PS-Correct/PS-correct-skills","Feedback_Selected/PS-Correct/PS-correct-whatgave","Feedback_Selected/PS-Correct/PS-correct-wish","Feedback_Selected/PS-Correct/PS-correct-yep"];
+var ps_wrong_images = ["Feedback_Selected/PS-Incorrect/PS-incorrect-cmon","Feedback_Selected/PS-Incorrect/PS-incorrect-convincing","Feedback_Selected/PS-Incorrect/PS-incorrect-duped","Feedback_Selected/PS-Incorrect/PS-incorrect-gotya","Feedback_Selected/PS-Incorrect/PS-incorrect-yep-that-good"];
+var real_correct_images = ["Feedback_Selected/Real-Correct/REAL-correct-cheating","Feedback_Selected/Real-Correct/REAL-correct-good-eye","Feedback_Selected/Real-Correct/REAL-correct-know-it-all","Feedback_Selected/Real-Correct/REAL-correct-right-on","Feedback_Selected/Real-Correct/REAL-correct-you-know"];
+var real_wrong_images  = ["Feedback_Selected/Real-Incorrect/REAL-incorrect-as-if","Feedback_Selected/Real-Incorrect/REAL-incorrect-at-best","Feedback_Selected/Real-Incorrect/REAL-incorrect-magic","Feedback_Selected/Real-Incorrect/REAL-incorrect-maybe","Feedback_Selected/Real-Incorrect/REAL-incorrect-trust"];
 
 function getRandomImage(pshop,score) {
     var image_index = getRandomInt(0,4);
