@@ -52,15 +52,23 @@ if (!Modernizr.touch) {
 /* Calculate and return delta, which is the direction and distance the image will move.
 This method also sets "scores" each time the user swipes */
 function score_swipe(event) {
-    if (event.type === "swiperight" || event.target.id == "desktop-photoshop") {
+    if (event.type === "swipeleft" || event.target.id == "desktop-photoshop") {
         delta = BEG_DELTA;
+        if(Modernizr.touch) {
+            delta = -1 * BEG_DELTA;
+        }
+        
         if (IMAGES[image_number - 1] == 0) {
             correct_number++;
             check_or_x = "Adobe_Desktop_CHECK_V1";
             scores[image_number - 1] = 1;
         }
     } else {
-        delta = -1 * BEG_DELTA;
+        if(Modernizr.touch) {
+            delta = BEG_DELTA;
+        } else {
+            delta = -1 * BEG_DELTA;
+        }
         if (IMAGES[image_number - 1] == 1) {
             correct_number++;
             check_or_x = "Adobe_Desktop_CHECK_V1";
