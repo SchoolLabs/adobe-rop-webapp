@@ -66,13 +66,13 @@ function desktop_click (event){
         if (lock === false) {
             lock = true;
             delta = score_swipe(event);
-            slide_transition($("#main-img"));
+            slide_transition($("#main-img"), "real");
         }
     } else if (event.target.id == "desktop-photoshop") {
         if (lock === false) {
             lock = true;
             delta = score_swipe(event);
-            slide_transition($("#main-img"));
+            slide_transition($("#main-img"), "ps");
         }
     }
 }
@@ -117,9 +117,9 @@ function twenty_five_transition() {
         // $("#below-main-mobile").append("<img id='left-real-mobile' class='col-xs-offset-1 col-xs-2' src='assets/img/new/Adobe_MobileStates_LeftForReal.png'></img>");
         // $("#below-main-mobile").append("<img id='swipe-mobile' class='col-xs-offset-2 col-xs-2' src='assets/img/new/Adobe_MobileStates_Swipe.png'></img>");
         // $("#below-main-mobile").append("<img id='right-photoshop-mobile' class='col-xs-offset-2 col-xs-2' src='assets/img/new/Adobe_Mobile-States_RightForPhotoshop.png'></img>");
-        $("#below-main-mobile").append("<div id='left-real-mobile' class='col-xs-4'><img id='left-real-mobile-image' src='assets/img/new/Adobe_SwipeL_040615.png'></img></div>");
+        $("#below-main-mobile").append("<div id='left-real-mobile' class='col-xs-4'><img id='left-real-mobile-image' src='assets/img/mobile-swipe/swipe-L-PS.png'></img></div>");
         $("#below-main-mobile").append("<div id='swipe-mobile' class='col-xs-4'>SWIPE</div>");
-        $("#below-main-mobile").append("<div id='right-photoshop-mobile' class='col-xs-4'><img id='right-photoshop-mobile-image' src='assets/img/new/Adobe_SwipeR_040615.png'></img></div>");
+        $("#below-main-mobile").append("<div id='right-photoshop-mobile' class='col-xs-4'><img id='right-photoshop-mobile-image' src='assets/img/mobile-swipe/swipe-R-REAL.png'></img></div>");
     } else {
         $("#img-col").removeClass("col-lg-7");
         $("#desktop-right-section").removeClass("col-lg-5");
@@ -211,7 +211,7 @@ function results_grid_transition(sum) {
         });
         $("#img-row").css({
             "height": "75%"
-        });
+        }); 
     }
 
     $('#desktop-test, #main-test').html('How good are your powers of observation?');
@@ -236,6 +236,6 @@ function results_grid_transition(sum) {
      });
 
      $('#twitter_button').on("click", function() {
-        window.open("https://twitter.com/share?url=" + shareURL + "&text=" + encodeURIComponent(shareText), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;
+        window.open("https://twitter.com/share?url="+encodeURIComponent(shareURL)+"&text="+encodeURIComponent(shareText), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;
      });
 }

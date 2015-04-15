@@ -57,7 +57,8 @@ function score_swipe(event) {
         if(Modernizr.touch) {
             delta = -1 * BEG_DELTA;
         }
-        
+         delta = -1 * BEG_DELTA;
+
         if (IMAGES[image_number - 1] == 0) {
             correct_number++;
             check_or_x = "Adobe_Desktop_CHECK_V1";
@@ -69,6 +70,8 @@ function score_swipe(event) {
         } else {
             delta = -1 * BEG_DELTA;
         }
+
+         delta = BEG_DELTA;
         if (IMAGES[image_number - 1] == 1) {
             correct_number++;
             check_or_x = "Adobe_Desktop_CHECK_V1";
@@ -128,6 +131,9 @@ function animate(img, delta, last) {
             selector = "photoshop";
             not_selector = "real";
         }
+
+        var photoShopGuess = (delta < 0 )? 1 : 0;
+        console.log("CLICK", photoShopGuess);
         if (Modernizr.touch) {
 
 
@@ -139,12 +145,12 @@ function animate(img, delta, last) {
                 src2 = "buttons/photoshop_off_btn";
                 src2 = (score)? "labels/real_correct_label" : "labels/real_incorrect_label";
                 not_src1 = "new/Adobe_RealOrPhotoshop_Photoshop_White";
-                not_src2 = getRandomImage(0, score); //randomize
+                not_src2 = getRandomImage(photoShopGuess, score); //randomize
             } else {
                 src1 = "new/Adobe_RealOrPhotoshop_Photoshop_White";
                 src2 = (score)? "labels/photoshop_correct_label" : "labels/photoshop_incorrect_label";
                 not_src1 = "new/Adobe_RealOrPhotoshop_Real_White";
-                not_src2 = getRandomImage(1, score); //randomize
+                not_src2 = getRandomImage(photoShopGuess, score); //randomize
             }
         } else {
             or_selector = "desktop-or";
@@ -154,12 +160,12 @@ function animate(img, delta, last) {
                 src1 = "buttons/real_off_btn";
                 src2 = (score)? "buttons/real_correct_btn" : "buttons/real_incorrect_btn";
                 not_src1 = "buttons/photoshop_off_btn";
-                not_src2 = getRandomImage(0, score); //randomize
+                not_src2 = getRandomImage(photoShopGuess, score); //randomize
             } else {
                 src1 = "buttons/photoshop_off_btn";
                 src2 = (score)? "buttons/photoshop_correct_btn" : "buttons/photoshop_incorrect_btn";
                 not_src1 = "buttons/real_off_btn";
-                not_src2 = getRandomImage(1, score); //randomize
+                not_src2 = getRandomImage(photoShopGuess, score); //randomize
             }
         }
 
@@ -259,19 +265,26 @@ var pshop_images = ["Adobe_Mobile_PS_ImageSwap_032615", "Adobe_Mobile_PS_ImageSw
 var ps_correct_images = ["Feedback_Selected/PS-Correct/PS-correct-nailedit","Feedback_Selected/PS-Correct/PS-correct-skills","Feedback_Selected/PS-Correct/PS-correct-whatgave","Feedback_Selected/PS-Correct/PS-correct-wish","Feedback_Selected/PS-Correct/PS-correct-yep"];
 var ps_wrong_images = ["Feedback_Selected/PS-Incorrect/PS-incorrect-cmon","Feedback_Selected/PS-Incorrect/PS-incorrect-convincing","Feedback_Selected/PS-Incorrect/PS-incorrect-duped","Feedback_Selected/PS-Incorrect/PS-incorrect-gotya","Feedback_Selected/PS-Incorrect/PS-incorrect-yep-that-good"];
 var real_correct_images = ["Feedback_Selected/Real-Correct/REAL-correct-cheating","Feedback_Selected/Real-Correct/REAL-correct-good-eye","Feedback_Selected/Real-Correct/REAL-correct-know-it-all","Feedback_Selected/Real-Correct/REAL-correct-right-on","Feedback_Selected/Real-Correct/REAL-correct-you-know"];
-var real_wrong_images  = ["Feedback_Selected/Real-Incorrect/REAL-incorrect-as-if","Feedback_Selected/Real-Incorrect/REAL-incorrect-at-best","Feedback_Selected/Real-Incorrect/REAL-incorrect-magic","Feedback_Selected/Real-Incorrect/REAL-incorrect-maybe","Feedback_Selected/Real-Incorrect/REAL-incorrect-trust"];
+var real_wrong_images  = ["Feedback_Selected/Real-Incorrect/REAL-incorrect-as-if","Feedback_Selected/Real-Incorrect/REAL-incorrect-at-best","Feedback_Selected/Real-Incorrect/REAL-incorrect-magic","Feedback_Selected/Real-Incorrect/REAL-incorrect-maybe","Feedback_Selected/Real-incorrect/REAL-incorrect-trust"];
 
 function getRandomImage(pshop,score) {
     var image_index = getRandomInt(0,4);
+
+    console.log("getting image, pshop== ", pshop, " score== "+ score);
     if (pshop == 1 && score == 1) {
+        console.log("PHOTOSHOP CORRECT", ps_correct_images[image_index]);
         return ps_correct_images[image_index];
     } else if (pshop == 1 && score == 0) {
+        console.log("PHOTOSHOP INCORRECT", ps_wrong_images[image_index]);
         return ps_wrong_images[image_index];
     } else if (pshop == 0 && score == 0) {
+        console.log("REAL INCORRECT", real_wrong_images[image_index]);
         return real_wrong_images[image_index];
     } else if (pshop == 0 && score == 1) {
+        console.log("REAL CORRECT", real_correct_images[image_index]);
         return real_correct_images[image_index];
     } else {
+        console.log("ELSE");
         return real_correct_images[image_index];
         console.log("image warning");
     }
