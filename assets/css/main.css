@@ -1,8 +1,44 @@
+html * {
+    font-family: "adobe-clean",sans-serif;
+}
+
 html, body {
-    background-color: #333333;
+    background-color: #11162f;
 /*    background-color: turquoise;*/
     height: 100%;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+body.mobile {
+    background-image: url(../img/backgrounds/mobile-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+body.desktop {
+    background-image: url(../img/backgrounds/desktop-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+#share_img {
+    display: none;
+}
+
+#desktop-photoshop,
+#mobile-photoshop,
+#fb_button,
+#twitter_button {
+    cursor: pointer;
 }
 
 #wrap {
@@ -13,7 +49,6 @@ html, body {
 }
 
 #main-container {
-    background-color: #333333;
 /*    background-color: lightgreen;*/
     height: 100%;
     width: 100%;
@@ -23,11 +58,10 @@ html, body {
 
 #header {
     margin-bottom: 0%;
-    background-color: #333333;
 /*    color: #333333; /* CHANGE */
 /*    background-color: salmon;*/
     margin: 0%;
-    height: 10%;
+    height: 5%;
     width: 100%;
     padding: 0%;
 }
@@ -37,86 +71,191 @@ html, body {
     height: 0%;
 }
 
-#prompt-row {
-    color: white;
-    padding: 10%;
-    height: 10%;
+#ps-logo {
+    padding-top: 20%;
 }
 
-#prompt-col {
-    height: auto;
+#spin {
+    height: 40%;
+    clear: both;
+    color: white;
 }
 
 #header-col {
     height:100%;
+    padding: 0px 5px;
 }
 
 #upper-left-adobe {
-    height: 80%;
+    margin: 1% 0% 1% 0%;
+    height: auto;
     width: auto;
+    max-height: 60%;
+    max-width: 50%;
     float: left;
     display: none;
 }
 
 #upper-right-ps-logo {
-    height: 80%;
+    margin: 1% 0% 1% 0%;
+    height: auto;
     width: auto;
+    max-height: 40%;
+    max-width: 30%;
     float: right;
     display: none;
 }
 
 #img-text-row {
-    width: 100%;
-    height: 5%;
+    display: none;
+    height: 100%;
     margin: 0%;
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: #333333;
+/*    background-color: #333333;*/
+}
+
+#main-test, #desktop-test {
+    color: white;
+    font-size: 16px;
+    padding-top: 1%;
 }
 
 #img-text-col {
     padding: 0%;
     margin: 0%;
+    height: 100%;
 }
 
 #real-or-fake {
-    padding: 0% 20% 0% 20%;
-    background-color: #333333;
-    opacity: 0;
+    max-height: 100%;
+    width: auto;
 /*    background-color: yellow;*/
+}
+
+#two-five-real, #two-five-photoshop {
+    height: 8%;
+    background-size: 100%;
+    max-width: 80%
+}
+
+#two-five-or {
+    height: 2%;
+    max-width: 80%
+}
+
+#mobile-real, #mobile-photoshop {
+    height: 30%;
+    margin-top: 1%;
+    background-size: 100%;
+    max-width: 80%
+}
+
+#mobile-photoshop {
+    margin-top: 0%;
+}
+
+#mobile-or {
+    height: 8%;
+    margin-top: 0%;
+    max-width: 80%
+}
+
+#desktop-real, #desktop-photoshop {
+    height: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-size: 100%;
+    max-width: 190px;
+    max-height: 69px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    #desktop-real, #desktop-photoshop {
+        max-width: 377px;
+        max-height: 137px;
+    }
+}
+
+#desktop-or {
+    height: 2%;
+    margin-top: 0%;
+    max-width: 80%
 }
 
 #img-row {
     width: 100%;
-    height: 40%;
-    padding: 0%;
+    height: 90%;
+    padding: 5% 0% 0% 0%;
     margin: 0%;
-    background-color: #333333;
-/*    background-color: blue;*/
+/*    background-color: #333333;*/
 }
 
 #img-col {
     padding: 0%;
     margin: 0%;
-    height: auto;
+    height: 80%;
+}
+
+#two-five-logo {
+    padding: 0% 30% 0% 30%;
 }
 
 #main-img {
     display: none;
+    max-height: 100%;
+/*    height: 100%;*/
+    width: auto;
+    border-width: 1px;
+    border-color: white;
+    border-style: solid;
+}
+
+#below-main-mobile {
+    padding-top: 2%;
+    height: 15%;
+    margin: 0%;
+}
+
+#mobile-attribution, #desktop-attribution {
+    height: 5%;
+    padding-top: 1%;
+    color: transparent;
+}
+
+#desktop-attribution {
+    padding-top: 2%;
+    font-size: 12px;
+}
+
+#left-real-mobile, #swipe-mobile, #right-photoshop-mobile {
+    max-height: 100%;
+    color: white;
+    vertical-align: middle;
+}
+
+#left-real-mobile, #right-photoshop-mobile {
+    max-height: 100%;
+    vertical-align: middle;
+}
+
+#swipe-mobile {
+    padding-top: 1%;
 }
 
 #twenty-five-wrapper {
-    margin: 10%;
+    max-height: 100%;
     display: none;
     height: auto;
     overflow: auto;
-    background-color: #333333;
+/*    background-color: purple;*/
 }
 
 #twenty-five-text {
     color: white;
-    text-align: left;
+    text-align: center;
+    padding: 2% 10% 0% 10%;
 }
 
 #twenty-five-img {
@@ -134,20 +273,30 @@ html, body {
     padding: 5px;
 }
 
-#begin {
-    margin-top: 20%;
+/*#begin {
+    margin-top: 10%;
     width: 100%;
     max-height: 100%;
     height: auto;
+}*/
+
+/*#real-or-photoshop {
+    padding: 2% 30% 0% 30%;
+    max-width: 100%;
+}*/
+
+#start-button {
+    margin: 0 auto;
+    max-width: 80%
 }
 
 #above-footer-row {
     margin: 0;
     height: 10%;
-    background-color: #333333;
 }
 
 #above-footer-col {
+    text-align: center;
     height: 100%;
     width: 100%;
 }
@@ -168,27 +317,18 @@ html, body {
     max-width: 20%;
 }
 
-#share-div {
-    height: 100%;
-    padding: 2%;
-}
-
 #brag-about-it, #fb_button, #twitter_button {
-    margin: 2%;
-    max-height: 100%;
-}
-
-#share-col {
-    height: 40%;
-    background-color: lightgreen;
+    margin-left: 5%;
+    margin-right: 5%;
+    max-height: 10%;
+    max-width: 30%;
 }
 
 #footer {
     margin: 0%;
     background-color: #333333;
 /*    color: #333333; /* CHANGE */
-/*    background-color: teal;*/
-    height: 10%;
+    height: 5%;
     width: 100%;
 }
 
@@ -197,13 +337,20 @@ html, body {
 }
 
 #terms {
+    padding-top: 1%;
     float: left;
     color: white;
-    margin-top: 4%;
     display: none;
 }
 
-#bottom-right-adobe {
+.copy-footer {
+    padding-top: 1%;
+    float: right;
+    color: white;
+    display: block;
+}
+
+/*#bottom-right-adobe {
     height: 80%;
     width: auto;
     float: right;
@@ -211,32 +358,34 @@ html, body {
     bottom: 0%;
     right: 4%;
     display: none;
-}
+}*/
 
 #final {
     font-size: 96px;
 }
 
 .row {
-    margin-top: 10px;
-    margin-bottom: 10px;
+/*    margin-top: 10px;
+    margin-bottom: 10px;*/
 }
 
 .grid-row {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    padding-bottom: 1%;
+    height: 18%;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .col-xs-15 {
-    position: relative;
-    min-height: 1px;
+    height: 100%;
     padding-right: 10px;
     padding-left: 10px;
 }
 
 #grid {
+    display: none;
     opacity: 0;
-    height: 0%;
+    height: 55%;
 }
 
 .grid-img {
@@ -245,11 +394,12 @@ html, body {
 }
 
 .grid-img img {
+    max-height: 100%;
+    width: auto;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
     background-repeat: none;
-}
-
-#grid-text {
-    color: white;
 }
 
 .col-xs-15 {
@@ -261,20 +411,192 @@ html, body {
     color: white;
 }
 
-@media only screen and (min-width : 768px) {
-    #img-row {
-        margin: 0% 25% 0% 25%;
-        width: 50%;
+#desktop-right-section {
+    display: block;
+    text-align: center;
+    height: 100%;
+    padding: 0%;
+/*    background-color: green;*/
+}
+
+#desktop-right-img {
+    padding: 0% 15%;
+    display: block;
+}
+
+#footer {
+    height: 6%;
+}
+
+#stat-counter {
+    color: white;
+    padding-top: 1%;
+    text-align: right;
+    display: none;
+}
+
+#current-number {
+    color: #2691e3;
+    display: none;
+}
+
+#att-text {
+    font-weight: 100;
+}
+
+@media (orientation: landscape) and (max-width: 767px) {
+    .mobile {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        transform: rotate(-90deg);
     }
 }
 
-/* all other phones */
-@media (orientation: landscape) and (max-width: 767px) {
-  body {
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-  }
+@media only screen and (max-width : 768px) {
+    #start-button {
+        padding: 2% 20% 0% 20%;
+    }
+    #main-test {
+        font-size: 12px;
+    }
+    #grid-text-mobile {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width : 768px) {
+    #img-row {
+        margin: 0% 15% 0% 15%;
+        width: 70%;
+    }
+    #mobile-real, #mobile-photoshop {
+        height: 40%;
+    }
+}
+
+@media (max-width: 1024px) {
+    #grid-text-mobile {
+        font-size: 14px;
+        display: block;
+        height: 5%;
+        color: white;
+        clear: both;
+        margin: 0% 0% 2% 0%;
+    }
+    #grid-text-desktop {
+        display: none;
+    }
+    #twenty-five-text {
+        color: white;
+        text-align: center;
+        margin-top: 1%;
+    }
+    #two-five-real {
+        margin-top: 2%;
+    }
+
+    #two-five-photoshop {
+        margin-bottom: 2%;
+    }
+}
+
+@media only screen and (min-width : 1025px) {
+/*    html {
+      background: url(../img/new/Adobe25_Desktop_BabyLilyPad.jpg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }*/
+    #left-for-fake, #right-for-real {
+        max-width: 100%;
+    }
+/*    #desktop-right-section {
+        display: block;
+        text-align: center;
+    }
+    #desktop-right-img {
+        display: block;
+    }*/
+    #grid-text-mobile {
+        display: none;
+    }
+    #grid-text-desktop {
+        color: white;
+        display: block;
+        margin: 0% 0%;
+        font-size: 24px;
+    }
+    #brag-about-it, #fb_button, #twitter_button {
+        clear: both;
+        display: block;
+        margin: 0 auto;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    #mobile-real, #mobile-photoshop {
+        height: 50%;
+        margin-top: 3%;
+        background-size: 100%;
+        max-width: 80%
+    }
+    #mobile-photoshop {
+        margin-top: 0%;
+    }
+}
+
+@media only screen and (min-width : 1281px) {
+    #twenty-five-text {
+        color: white;
+        text-align: center;
+        padding: 2% 30% 0% 30%;
+    }
+}
+
+@media only screen and (max-height : 500px) {
+    #img-row {
+        padding-top: 2%;
+    }
+    #two-five-logo {
+        padding: 0% 35% 0% 35%;
+    }
+    #main-test {
+        font-size: 8px;
+        padding-top: 1%;
+    }
+    #grid-text-mobile {
+        font-size: 8px;
+    }
+}
+
+@media only screen and (max-height : 700px) {
+    #left-real-mobile, #swipe-mobile, #right-photoshop-mobile {
+        font-size: 10px;
+    }
+    #mobile-attribution {
+        padding-top: 2%;
+        font-size: 10px;
+    }
+    #img-row {
+        padding-top: 0%;
+    }
+
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+    #main-test {
+        margin-top: 0%;
+/*        padding-top: 0%;*/
+    }
+    #mobile-real {
+        margin-top: 0%;
+    }
+}
+
+@media screen and (min-aspect-ratio: 3/2) {
+    #img-row {
+        padding-top: 2%;
+    }
 }

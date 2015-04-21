@@ -1,152 +1,231 @@
-var total = $(window).outerHeight(true);
-var header = $("#header").outerHeight(true);
-var img_text_row = $("#img-text-row").outerHeight(true);
-var img_row_margin = 0;
-var img_row = $("#img-row").outerHeight(true);
-var prompt_row = $("#prompt-row").outerHeight(true);
-var prompt_row_margin = $("#prompt-row").outerHeight(true) - $("#prompt-row").height();
-var grid = $("#grid").outerHeight(true);
-var above_footer = 0;
-var footer = $("#footer").outerHeight(true);
-var adjusted = false;
-var condition = 0;
-var background_size = "";
-
 function splash_screen_transition() {
-    $("#real-or-fake").css({
-        "opacity": 1
-    });
+    /* Event handlers */
+    if (Modernizr.touch) {
+        $("#img-row").on("swipeleft swiperight", mobile_touch);
+    } else {
+        $("#img-row").on("click", desktop_click);
+    }
+
     $("#ps-logo").hide();
     $("#spin").hide();
-    $("#prompt-row").hide();
+    // $("#two-five-logo").hide();
     $("#upper-left-adobe").show();
-    $("#upper-right-ps-logo").show();
     $("#terms").show();
-    $("#bottom-right-adobe").show();
-    $("#img-text-row").css("background-image", "url(assets/img/REALor_fake.png)");
-    $("#img-text-row").css({
-        "height": "auto"
-    });
-    img_text_row = $("#img-text-row").outerHeight(true);
-    $("#img-row").css({
-        "height": "50%"
-    });
-    $("#img-col").append("<div id='twenty-five-wrapper'><div id='twenty-five-img'><img src='assets/img/25years_together.png'></div><p id='twenty-five-text'>SSS</p></div>");
+    // $("#bottom-right-adobe").show();
+
+    $("#img-col").append("<div id='twenty-five-wrapper'><p id='twenty-five-text' class='text-center'>SSS</p></div>");
     $("#twenty-five-wrapper").show();
-    $("#twenty-five-text").text("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate.");
-    $("#twenty-five-wrapper").append("<img class='center-block' id='begin' src='assets/img/SwipetoBegin.png'>");
-    imagesLoaded("#begin", function() {
-        total = $(window).outerHeight(true);
-        header = $("#header").outerHeight(true);
-        img_text_row = $("#img-text-row").outerHeight(true);
-        img_row = $("#img-row").outerHeight(true);
-        footer = $("#footer").outerHeight(true);
-        adjusted = false;
-        condition = header + img_text_row + img_row + footer;
-        //try reducing margin
-        if (condition > total) {
-            $("#twenty-five-wrapper").css({"margin":"2%"});
-            $("#begin").css({"margin-top":"5%"});
-        }
-        img_row = $("#img-row").outerHeight(true);
-        condition = header + img_text_row + img_row + footer;
-        //hide
-        if (condition > total) {
-            $("#twenty-five-text").hide();
-            $("#twenty-five-img").hide();
-        }
-        // for taller or longer phones like iPhone 5 & 6
-        img_row = $("#img-row").outerHeight(true);
-        while (header + img_text_row + img_row + footer < total) {
-            $("#img-row").css({
-                "margin-bottom": (parseInt($("#img-row").css("margin-bottom").replace("px", "")) + 1).toString() + "px"
-            });
-            img_row = $("#img-row").outerHeight(true);
-        }
-    });
-    $("#img-row").css({
-        "height": "auto"
-    });
+    if (window.innerHeight < 600) {
+        $("#twenty-five-text").html("Some things are so amazing, we're not sure if they're Real or Photoshop. Can you tell?<br/><br/>Test your powers of observation.");
+    } else {
+        $("#twenty-five-text").html("Photoshop users make the impossible possible, and for that, we thank them for taking creativity to places we never could have dreamed. Some things are so amazing, we're not sure if they're Real or Photoshop. Can you tell?<br/><br/>Test your powers of observation.");
+    }
+
+    $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-real' src='assets/img/new/Adobe_REAL_PsBlue_040615.png'>");
+    $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-or' src='assets/img/new/Adobe_Desktop_Or.png'>");
+    $("#twenty-five-wrapper").append("<img class='center-block' id='two-five-photoshop' src='assets/img/new/Adobe_PT_PsBlue_040615.png'>");
+
+    if (Modernizr.touch) {
+        $("#twenty-five-wrapper").append("<img class='center-block' id='start-button' src='assets/img/new/Adobe_SwipeStart_040815.png'>");
+    }
+    else {
+        $("#twenty-five-wrapper").append("<img class='center-block' id='start-button' src='assets/img/new/start_orig.png'>");
+        $("#start-button").hover(
+            function() {
+                $("#start-button").attr("src","assets/img/new/start_roll.png");
+                $("#start-button").css({ cursor: "pointer", cursor: "hand"});
+            }, function() {
+                $("#start-button").attr("src","assets/img/new/start_orig.png");
+               $("#start-button").css({ cursor: "none"});
+        });
+    }
 }
 
+function mobile_touch (event){
+    if (once == false) {
+        twenty_five_transition();
+        $('#copy-footer').hide();
+        old_margin = $("#main-img").css("marginLeft");
+    } else {
+        if (lock === false) {
+            lock = true;
+            delta = score_swipe(event);
+            slide_transition($("#main-img"));
+        }
+    }
+    once = true;
+}
+
+function desktop_click (event){
+    if (event.target.id == "start-button") {
+        twenty_five_transition();
+        $('#copy-footer').hide();
+        old_margin = $("#main-img").css("marginLeft");
+        once = true;
+    } else if (event.target.id == "desktop-real") {
+        if (lock === false) {
+            lock = true;
+            delta = score_swipe(event);
+            slide_transition($("#main-img"), "real");
+        }
+    } else if (event.target.id == "desktop-photoshop") {
+        if (lock === false) {
+            lock = true;
+            delta = score_swipe(event);
+            slide_transition($("#main-img"), "ps");
+        }
+    }
+}
 function twenty_five_transition() {
-    img_text_row = $("#img-text-row").outerHeight(true);
-    $("#img-row").css({
-        "margin-top": 0,
-        "margin-bottom": 0
+    // fix bug of retina.js
+    // it will set height = 0 and width = 0 to img
+    // which are in a container that is initially not
+    // visible
+    $img = $('#main-img');
+    $img.removeAttr('height');
+    $img.removeAttr('width');
+    $("html, body").css({
+            "background": "none",
+            "background-color": "#11162f"
     });
-    img_row_margin = $("#img-row").outerHeight(true) - $("#img-row").height();
-    img_row = $("#img-row").outerHeight(true);
-    grid = $("#grid").outerHeight(true);
-    footer = $("#footer").outerHeight(true);
-    $("<div class='row' id='above-footer-row'><div class='col-xs-12' id='above-footer-col'></div></div>").insertBefore("#footer");
-    $("#above-footer-col").append("<img id='left-for-fake' src='assets/img/LforFAKE.png'></img>");
-    $("#above-footer-col").append("<img id='right-for-real' src='assets/img/RforREAL.png'></img>");
-    above_footer = $("#above-footer-row").outerHeight(true);
+    $("#two-five-logo").hide();
+    $("#stat-counter").show();
+    $("#current-number").show();
+    $("#img-col").addClass("col-lg-7");
+    $("#img-row").append("<div class='col-lg-5' id='desktop-right-section'></div>")
+    $("#desktop-right-section").show();
+    $("#desktop-right-section").append("<img id='desktop-right-img' src='assets/img/new/Adobe_MobileStates_LoadingScreen_25Logo.png'></img>");
     $("#twenty-five-wrapper").hide();
-    $("#main-img").show();
-    //$("#main-img").height(total - header - img_text_row - img_row_margin - grid - above_footer - footer);
-    img_row = $("#img-row").outerHeight(true);
-    condition = header + img_text_row + img_row + grid + above_footer + footer;
-    adjusted = false;
-    while (condition > total) {
-        $("#main-img").css({
-            "margin-left": (parseInt($("#main-img").css("margin-left").replace("px", "")) + 1).toString() + "px",
-            "margin-right": (parseInt($("#main-img").css("margin-right").replace("px", "")) + 1).toString() + "px",
-            "height": ($("#main-img").css("height").replace("px", "") - (2)).toString() + "px"
+    if (Modernizr.touch) {
+        $("#desktop-right-section").hide();
+        $("#desktop-right-img").hide();
+        $("#img-text-row").show();
+        $("#img-text-col").append("<img class='center-block' id='mobile-real' src='assets/img/new/Adobe_RealOrPhotoshop_Real_White.png'>");
+        $("#img-text-col").append("<img class='center-block' id='mobile-or' src='assets/img/new/Adobe_Desktop_Or.png'>");
+        $("#img-text-col").append("<img class='center-block' id='mobile-photoshop' src='assets/img/new/Adobe_RealOrPhotoshop_Photoshop_White.png'>");
+        $("#img-text-col").append("<p id='main-test'>Test your powers of observation.</p>");
+        // $("#img-text-row").css("background-image", "url(assets/img/new/Adobe_MobileStates_SplashScreen_RealOrPhotoshop.png)");
+        $("#img-text-row").css({
+            "height": "20%"
         });
-        $("#right-for-real").css({
-            "margin-right": (parseInt($("#right-for-real").css("margin-right").replace("px", "")) + 1).toString() + "px",
-        });
-        $("#left-for-fake").css({
-            "margin-left": (parseInt($("#left-for-fake").css("margin-left").replace("px", "")) + 1).toString() + "px",
-        });
-        img_row = $("#img-row").outerHeight(true);
-        condition = header + img_text_row + img_row + grid + above_footer + footer;
-        adjusted = true;
-    }
-    if (adjusted) {
-        adjust = total - header - img_text_row - grid - above_footer - footer;
-        $("img-row").css({
-            "height": adjust
-        });
-    }
-    //for taller or longer phones like iPhone 5 & 6
-    img_row = $("#img-row").outerHeight(true);
-    while (header + img_text_row + img_row + grid + above_footer + footer < total) {
         $("#img-row").css({
-            "margin-top": (parseInt($("#img-row").css("margin-top").replace("px", "")) + 1).toString() + "px",
-            "margin-bottom": (parseInt($("#img-row").css("margin-bottom").replace("px", "")) + 1).toString() + "px"
+            "height": "70%"
         });
-        img_row = $("#img-row").outerHeight(true);
+        $("#img-col").append("<div id='mobile-attribution' class='row'></div>");
+        $("#mobile-attribution").append("<p id='att-text'>Alter &copy; 2011</p>");
+        $("#img-col").append("<div id='below-main-mobile' class='row'></div>");
+        // $("#below-main-mobile").append("<img id='left-real-mobile' class='col-xs-offset-1 col-xs-2' src='assets/img/new/Adobe_MobileStates_LeftForReal.png'></img>");
+        // $("#below-main-mobile").append("<img id='swipe-mobile' class='col-xs-offset-2 col-xs-2' src='assets/img/new/Adobe_MobileStates_Swipe.png'></img>");
+        // $("#below-main-mobile").append("<img id='right-photoshop-mobile' class='col-xs-offset-2 col-xs-2' src='assets/img/new/Adobe_Mobile-States_RightForPhotoshop.png'></img>");
+        $("#below-main-mobile").append("<div id='left-real-mobile' class='col-xs-4'><img id='left-real-mobile-image' src='assets/img/mobile-swipe/swipe-L-PS.png'></img></div>");
+        $("#below-main-mobile").append("<div id='swipe-mobile' class='col-xs-4'>SWIPE</div>");
+        $("#below-main-mobile").append("<div id='right-photoshop-mobile' class='col-xs-4'><img id='right-photoshop-mobile-image' src='assets/img/mobile-swipe/swipe-R-REAL.png'></img></div>");
+    } else {
+        $("#img-col").removeClass("col-lg-7");
+        $("#desktop-right-section").removeClass("col-lg-5");
+        $("#img-col").addClass("col-xs-7");
+        $("#desktop-right-section").addClass("col-xs-5");
+        $("#img-row").css({
+            "padding-top": "10%"
+        });
+        $("#desktop-right-section").append("<p id='desktop-test'>Test your powers of observation.</p>");
+        $("#desktop-right-section").append("<img class='center-block' id='desktop-real' src='assets/img/buttons/real_off_btn.png'>");
+        $("#desktop-right-section").append("<img class='center-block' id='desktop-or' src='assets/img/new/Adobe_Desktop_Or.png'>");
+        $("#desktop-right-section").append("<img class='center-block' id='desktop-photoshop' src='assets/img/buttons/photoshop_off_btn.png'>");
+        $("#img-col").append("<div id='desktop-attribution' class='row'></div>");
+        $("#desktop-attribution").append("<p id='att-text'>Alter &copy; 2011</p>");
+
+        $("#desktop-real").hover(
+            function() {
+                if (!hover_lock) {
+                    $("#desktop-real").attr("src","assets/img/buttons/real_over_btn.png");
+                    $("#desktop-real").css({ cursor: "pointer", cursor: "hand"});
+                }
+            }, function() {
+                if (!hover_lock) {
+                    $("#desktop-real").attr("src","assets/img/buttons/real_off_btn.png");
+                    $("#desktop-real").css({ cursor: "none"});
+                }
+        });
+
+        $("#desktop-photoshop").hover(
+            function() {
+                if (!hover_lock) {
+                    $("#desktop-photoshop").attr("src","assets/img/buttons/photoshop_over_btn.png");
+                    $("#desktop-photoshop").css({ cursor: "pointer", cursor: "hand"});
+                }
+            }, function() {
+                if (!hover_lock) {
+                    $("#desktop-photoshop").attr("src","assets/img/buttons/photoshop_off_btn.png");
+                    $("#desktop-photoshop").css({ cursor: "none"});
+                }
+        });
+
     }
+    $("#main-img").show();
+    $("#att-text").css({
+        color: "white",
+    });
 }
 
 function results_grid_transition(sum) {
-    // SET THE SCORE FROM THE QUIZ HERE
     var varScore = sum.toString();
-    var shareText="I got "+ varScore +"/25 right. REAL or FAKE? Test your perception"; // used by twitter share
-    var shareDesc="Share description copy goes here";
-    var shareURL = "http://dev.seanhelvey.com/school_adobe/index.php?score="+varScore;
-    var shareImage = "http://dev.seanhelvey.com/school_adobe/assets/img/fb_shareimage_1120x500.jpg";
-    FB.init({
-          appId:'1595538550682763', cookie:true,
-          status:true, xfbml:true
-       });
-    $("#grid").css({
-        "height": "auto"
-    });
-    grid = $("#grid").outerHeight(true);
-    img_text_row = $("#img-text-row").outerHeight(true);
-    img_row = $("#img-row").outerHeight(true);
-    above_footer = $("#above-footer-row").outerHeight(true);
-    footer = $("#footer").outerHeight(true);
-    $("#above-footer-col").append("<div id='share-div'></div>");
-    $("#share-div").append("<img id='fb_button' src='assets/img/FB_icon.png'></img>");
-    $("#share-div").append("<img id='brag-about-it' src='assets/img/BragAboutIt_Button.png'></img>");
-    $("#share-div").append("<img id='twitter_button' src='assets/img/Twitter_icon.png'></img>");
+    var shareURL = "http://dev.schooldoes.com/adobe/www-v10";
+    var shareText="I got "+varScore+"/25 right. How would you do in the Real or Photoshop quiz? Test to see what you see: #Photoshop25"; // used by twitter share
+    var shareDesc="Photoshop users make the impossible possible, for that we thank them for taking creativity to places we never could've dreamed. Some things are so amazing, we're not sure if they're Real or Photoshop.";
+    var twitterShareDesc="Some things are so amazing, we're not sure if they're Real or Photoshop.";
+    var shareImage = "http://dev.schooldoes.com/adobe/www-v10/assets/img/social_share/Adobe_Facebook_1200x630_v3.jpg";
 
-     $('#fb_button').on("click", function(){
+    $("#below-main-mobile").hide();
+    $("#left-for-fake").hide();
+    $("#right-for-real").hide();
+    $("#desktop-right-section").show();
+    $("#desktop-right-img").hide();
+    $("#desktop-real").hide();
+    $("#desktop-or").hide();
+    $("#desktop-photoshop").hide();
+    $("#desktop-attribution").hide();
+    $("#mobile-attribution").hide();
+
+    FB.init({
+        appId:'1595538550682763', cookie:true,
+        status:true, xfbml:true
+    });
+    // $("#img-row").hide()
+
+    //on desktop display real or photoshop above grid
+    if (!Modernizr.touch) {
+        $("#img-text-row").show();
+        $("#img-text-col").append("<img class='center-block' id='mobile-real' src='assets/img/new/Adobe_RealOrPhotoshop_Real_White.png'>");
+        $("#img-text-col").append("<img class='center-block' id='mobile-or' src='assets/img/new/Adobe_Desktop_Or.png'>");
+        $("#img-text-col").append("<img class='center-block' id='mobile-photoshop' src='assets/img/new/Adobe_RealOrPhotoshop_Photoshop_White.png'>");
+        // $("#img-text-row").css("background-image", "url(assets/img/new/Adobe_MobileStates_SplashScreen_RealOrPhotoshop.png)");
+        $("#real, #photoshop").css({
+            "height": "25%"
+        })
+        $("#or").css({
+            "height": "20%"
+        })
+        $("#img-text-row").css({
+            "height": "15%"
+        });
+        $("#img-row").css({
+            "height": "75%"
+        }); 
+    }
+
+    $('#desktop-test, #main-test').html('How good are your powers of observation?');
+
+    $("#desktop-right-section").append("<div id='grid-text-mobile'></div>");
+    $("#desktop-right-section").append("<div id='grid-text-desktop'></div>");
+    $("#grid-text-mobile").html(sum + "/25 answers correct!");
+    $("#grid-text-desktop").html(sum + "/25<br/> answers correct!");
+
+    $("#desktop-right-section").append("<img id='fb_button' src='assets/img/new/FB icon.png'></img>");
+    $("#desktop-right-section").append("<img id='brag-about-it' src='assets/img/new/Brag.png'></img>");
+    $("#desktop-right-section").append("<img id='twitter_button' src='assets/img/new/Twitter icon.png'></img>");
+
+    $('#fb_button').on("click", function(){
         FB.ui({
           method: 'feed',
           link: shareURL,
@@ -157,42 +236,6 @@ function results_grid_transition(sum) {
      });
 
      $('#twitter_button').on("click", function() {
-        console.log("twitter clicked");
         window.open("https://twitter.com/share?url="+encodeURIComponent(shareURL)+"&text="+encodeURIComponent(shareText), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;
      });
-
-     // var oFBElement2 = $('#fb_button_2');
-     // oFBElement2.onclick = onFBClick;
-
-    // $("#brag-about-it").on("click tap", share_page_transition);
-    $("#above-footer-col").css({
-        "text-align": "center"
-    });
-    $("#left-for-fake").hide();
-    $("#right-for-real").hide();
-    condition = header + img_text_row + grid + above_footer + footer;
-    adjusted = false;
-
-    while (condition > total) {
-        // $(".grid-img").css({
-        //     "height": (parseInt($(".grid-img").css("height").replace("px", "")) - 1).toString() + "px",
-        //     "width": (parseInt($(".grid-img").css("width").replace("px", "")) - 1).toString() + "px",
-        // });
-        background_height = (parseInt($(".grid-img img").css("height").replace("px", "")) - 1).toString() + "px";
-        background_width = (parseInt($(".grid-img img").css("width").replace("px", "")) - 1).toString() + "px";
-        $(".grid-img img").css({
-            "height": (parseInt($(".grid-img img").css("height").replace("px", "")) - 1).toString() + "px",
-            "width": (parseInt($(".grid-img img").css("width").replace("px", "")) - 1).toString() + "px",
-            "background-size": background_height + " " + background_width
-        });
-        grid = $("#grid").outerHeight(true);
-        condition = header + img_text_row + grid + above_footer + footer;
-        adjusted = true;
-    }
-    if (adjusted) {
-        adjust = total - header - img_text_row - above_footer - footer;
-        $("#grid").css({
-            "height": adjust
-        });
-    }
 }

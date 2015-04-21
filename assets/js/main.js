@@ -1,5 +1,5 @@
 /* indicates whether image is real or fake */
-var IMAGES = [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var IMAGES = [0,0,1,1,0,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,1,0,0,1,1];
 var BEG_DELTA = 120;
 var SWIPE_SPEED = 250;
 var HIGHLIGHT_SPEED = 250;
@@ -8,49 +8,73 @@ var correct_number = 0;
 var image_number = 1;
 var scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var old_margin = 0;
-
-/* Event handlers */
+var first = true;
+var lock = false;
 var once = false;
 
-if (Modernizr.touch) {
-    $("#img-row").on("swipeleft swiperight", function(e) {
-        if (once == false) {
-            twenty_five_transition();
-            old_margin = $("#main-img").css("marginLeft");
-        } else {
-            delta = score_swipe(e);
-            slide_transition($("#main-img"));
-        }
-        once = true;
-    });
-} else {
-    $("#img-row").on("click", function(e) {
-        if (once == false) {
-            twenty_five_transition();
-            old_margin = $("#main-img").css("marginLeft");
-        } else {
-            delta = score_swipe(e);
-            slide_transition($("#main-img"));
-        }
-        once = true;
-    });
-}
+var transitionTime = 2400;
+var hover_lock = false;
+var check_or_x = "Adobe_Desktop_X_V1";
+var att_arr = ["Alter &copy; 2011",
+               "Dariusz Klimczak &copy; 2015",
+               "Alexander Remnev &copy; 2015",
+               "Aman Agrawal &copy; 2015",
+               "Ibrahim Oubahmane &copy; 2015",
+               "Andreas Tauber &copy; 2015",
+               "Benjamin Von Wong &copy; 2014",
+               "Corey Rich &copy; 2002",
+               "Caras Ionut &copy; 2014",
+               "Caras Ionut &copy; 2014",
+               "Caras Ionut &copy; 2014",
+               "Joel Robison / Trevillion Images &copy; 2015",
+               "Dimitris Vavylis / Caters News &copy; 2011",
+               "John Wilhelm &copy; 2015",
+               "Eco Suparman / Caters News &copy; 2012",
+               "Lauri Tammik &copy; 2015",
+               "Martin Le-May &copy; 2015",
+               "Richard Silvera &copy; 2015",
+               "Rudi Young &copy; 2015",
+               "Natalie Fletcher &copy; 2013",
+               "Olga Gladysheva &copy; 2015",
+               "St<font face='Symbol'>&#233;</font>fane Gautier &copy; 2015",
+               "Tawan Chaisom &copy; 2015",
+               "Pete McBride &copy; 2011",
+               "Yaroslav Segeda &copy; 2015"];
 
 setMobileOperatingSystemLinks();
+
+if (!Modernizr.touch) {
+    $(document.body).addClass("desktop");
+} else {
+    $(document.body).addClass("mobile");
+}
 
 /* Calculate and return delta, which is the direction and distance the image will move.
 This method also sets "scores" each time the user swipes */
 function score_swipe(event) {
-    if (event.type === "swiperight") {
+    if (event.type === "swipeleft" || event.target.id == "desktop-photoshop") {
         delta = BEG_DELTA;
-        if (IMAGES[image_number - 1] == 1) {
+        if(Modernizr.touch) {
+            delta = -1 * BEG_DELTA;
+        }
+         delta = -1 * BEG_DELTA;
+
+        if (IMAGES[image_number - 1] == 0) {
             correct_number++;
+            check_or_x = "Adobe_Desktop_CHECK_V1";
             scores[image_number - 1] = 1;
         }
     } else {
-        delta = -1 * BEG_DELTA;
-        if (IMAGES[image_number - 1] == 0) {
+        if(Modernizr.touch) {
+            delta = BEG_DELTA;
+        } else {
+            delta = -1 * BEG_DELTA;
+        }
+
+         delta = BEG_DELTA;
+        if (IMAGES[image_number - 1] == 1) {
             correct_number++;
+            check_or_x = "Adobe_Desktop_CHECK_V1";
             scores[image_number - 1] = 1;
         }
     }
@@ -59,81 +83,209 @@ function score_swipe(event) {
 
 /* Slide transition will either show next image or redirect to final page via anmate */
 function slide_transition(img) {
-    incremental_preload();
+    incremental_preload(image_number);
+    if (first) {
+        image_number = getParameterByName('image');
+        first = false;
+        if (!image_number) {
+            image_number = 1;
+        }
+    }
     // image_number = 25;
     if (image_number < IMAGES.length) {
         animate(img, delta);
     } else {
         build_grid();
+        $("#img-row").off();
     }
+}
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
 /* Call highlight, move the swiped image, either show next image or final page */
 function animate(img, delta, last) {
+    hover_lock = true;
     var real = IMAGES[image_number - 1];
+    var score = scores[image_number - 1];
     image_number++;
-
     //move left or right based on delta calculated above and reduce opacity
     img.animate({
         marginLeft: delta + "px",
         opacity: 0
     }, SWIPE_SPEED, "linear", function() {
+        var selector = "";
+        var or_selector = "";
+        var or_height = 0;
+        var or_margin = 0;
+        var src1 = "";
+        var src2 = "";
         if (real) {
-            $("#img-text-row").css("background-image", "url(assets/img/REALor_fake.png)");
+            selector = "real";
+            not_selector = "photoshop";
         } else {
-            $("#img-text-row").css("background-image", "url(assets/img/real_orFAKE.png)");
+            selector = "photoshop";
+            not_selector = "real";
         }
-        $("#real-or-fake").animate({
-            opacity: 0
-        }, 500, "linear", function() {
-            $(this).animate({
-                opacity: 1
-            }, 500, "linear");
-        });
-        img.attr("src", preloaded_images[image_number - 1].src).load(function() {
-            //restore prior margin and opacity
-            img.css({
-                "margin-left": old_margin,
-                opacity: 1,
+
+        var photoShopGuess = (delta < 0 )? 1 : 0;
+        console.log("CLICK", photoShopGuess);
+        if (Modernizr.touch) {
+
+
+            or_selector = "mobile-or";
+            image = $("#img-text-col #mobile-" + selector);
+            not_image = $("#img-text-col #mobile-" + not_selector);
+            if (selector == "real") {
+                src1 = "new/Adobe_RealOrPhotoshop_Real_White";
+                src2 = "buttons/photoshop_off_btn";
+                src2 = (score)? "labels/real_correct_label" : "labels/real_incorrect_label";
+                not_src1 = "new/Adobe_RealOrPhotoshop_Photoshop_White";
+                not_src2 = getRandomImage(photoShopGuess, score); //randomize
+            } else {
+                src1 = "new/Adobe_RealOrPhotoshop_Photoshop_White";
+                src2 = (score)? "labels/photoshop_correct_label" : "labels/photoshop_incorrect_label";
+                not_src1 = "new/Adobe_RealOrPhotoshop_Real_White";
+                not_src2 = getRandomImage(photoShopGuess, score); //randomize
+            }
+        } else {
+            or_selector = "desktop-or";
+            image = $("#desktop-right-section #desktop-" + selector);
+            not_image = $("#desktop-right-section #desktop-" + not_selector);
+            if (selector == "real") {
+                src1 = "buttons/real_off_btn";
+                src2 = (score)? "buttons/real_correct_btn" : "buttons/real_incorrect_btn";
+                not_src1 = "buttons/photoshop_off_btn";
+                not_src2 = getRandomImage(photoShopGuess, score); //randomize
+            } else {
+                src1 = "buttons/photoshop_off_btn";
+                src2 = (score)? "buttons/photoshop_correct_btn" : "buttons/photoshop_incorrect_btn";
+                not_src1 = "buttons/real_off_btn";
+                not_src2 = getRandomImage(photoShopGuess, score); //randomize
+            }
+        }
+
+        $("#" + or_selector).css({"opacity":0});
+        image.attr('src', "assets/img/" + src2 + ".png");
+        not_image.attr('src', "assets/img/" + not_src2 + ".png");
+
+
+        $("#att-text").html("<p id='att-text'>" + att_arr[image_number - 1] + "</p>");
+
+        setTimeout( function() {
+            image.attr('src', "assets/img/" + src1 + ".png");
+            // not_image.css({"height": not_image_old_height, "margin-top": not_image_old_margin});
+            not_image.attr('src', "assets/img/" + not_src1 + ".png");
+            $("#" + or_selector).css({"opacity":1});
+            lock = false;
+            hover_lock = false;
+        }, transitionTime);
+
+
+        if (preloaded_images[image_number - 1] === undefined) {
+            img.attr("src", "assets/img/new/Swipe" + image_number + ".jpg").load(function() {
+                //restore prior margin and opacity
+                img.css({
+                    "margin-left": old_margin,
+                    opacity: 1,
+                });
             });
-        });
+        } else {
+            img.attr("src", "assets/img/new/" + check_or_x + ".png").load(function() {
+                //restore prior margin and opacity
+                img.css({
+                    "margin-left": old_margin,
+                    opacity: 1,
+                    "border-width": "0px"
+                });
+            });
+            $("#att-text").css({opacity:0});
+            setTimeout( function() {
+                img.attr("src", preloaded_images[image_number - 1].src).load(function() {
+                    //restore prior margin and opacity
+                    img.css({
+                        "margin-left": old_margin,
+                        opacity: 1,
+                        "border-width": "1px"
+                    });
+                });
+                $("#att-text").css({opacity:1});
+                $("#current-number").html(image_number);
+            }, transitionTime);
+        }
+        check_or_x = "Adobe_Desktop_X_V1"; //reset
     });
 }
 
 function build_grid() {
     $("#main-img").hide();
-    $("#grid").css({
-        "opacity": 1
-    });
     var sum = 0;
     for (var i = 0; i < scores.length; i++) {
         sum += parseInt(scores[i]);
         if (i % 5 == 0) {
-            $("<div class='row grid-row'></div>").insertBefore($("#grid #grid-text"));
+            // $("<div class='row grid-row'></div>").insertBefore($("#img-col #grid-text"));
+            $("#img-col").append("<div class='row grid-row'></div>");
         }
         if (scores[i] == 1) {
             $(".grid-row:last").append("<div class='col-xs-15 grid-img'><img class='img' src='assets/img/Adobe_Clearx_v1_12.19.15.png'></div>");
-            $(".grid-row:last .grid-img:last .img").css({'background-image':'url("assets/img/Grid' + (i + 1) + '.png")'});
+            $(".grid-row:last .grid-img:last .img").css({'background-image':'url("assets/img/new/Grid' + (i + 1) + '.jpg")'});
         } else {
             $(".grid-row:last").append("<div class='col-xs-15 grid-img'><img class='img' src='assets/img/Adobe_RedX_v1_12.19.15.png'></div>");
-            $(".grid-row:last .grid-img:last .img").css({'background-image':'url("assets/img/Grid' + (i + 1) + '.png")'});
+            $(".grid-row:last .grid-img:last .img").css({'background-image':'url("assets/img/new/Grid' + (i + 1) + '.jpg")'});
         }
     }
     imagesLoaded("#grid", function() {
         results_grid_transition(sum);
     });
-    $("#grid-text").text(sum + "/25 answers correct!");
 }
 
 function setMobileOperatingSystemLinks() {
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
   if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) ){
-    $("#upper-left-link").attr("href","http://www.apple.com");
-    $("#upper-right-link").attr("href","http://www.apple.com");
-
+    // $("#upper-left-link").attr("href","http://www.apple.com");
+    // $("#upper-right-link").attr("href","http://www.apple.com");
   }
   else if( userAgent.match( /Android/i ) ){
-    $("#upper-left-link").attr("href","http://www.android.com");
-    $("#upper-right-link").attr("href","http://www.android.com");
+    // $("#upper-left-link").attr("href","http://www.android.com");
+    // $("#upper-right-link").attr("href","http://www.android.com");
   }
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+var real_images = ["Adobe_Mobile_R_ImageSwap_032615", "Adobe_Mobile_R_ImageSwap2_032615", "Adobe_Mobile_R_ImageSwap3_032615"];
+var pshop_images = ["Adobe_Mobile_PS_ImageSwap_032615", "Adobe_Mobile_PS_ImageSwap2_032615", "Adobe_Mobile_PS_ImageSwap3_032615"];
+
+var ps_correct_images = ["Feedback_Selected/PS-Correct/PS-correct-nailedit","Feedback_Selected/PS-Correct/PS-correct-skills","Feedback_Selected/PS-Correct/PS-correct-whatgave","Feedback_Selected/PS-Correct/PS-correct-wish","Feedback_Selected/PS-Correct/PS-correct-yep"];
+var ps_wrong_images = ["Feedback_Selected/PS-Incorrect/PS-incorrect-cmon","Feedback_Selected/PS-Incorrect/PS-incorrect-convincing","Feedback_Selected/PS-Incorrect/PS-incorrect-duped","Feedback_Selected/PS-Incorrect/PS-incorrect-gotya","Feedback_Selected/PS-Incorrect/PS-incorrect-yep-that-good"];
+var real_correct_images = ["Feedback_Selected/Real-Correct/REAL-correct-cheating","Feedback_Selected/Real-Correct/REAL-correct-good-eye","Feedback_Selected/Real-Correct/REAL-correct-know-it-all","Feedback_Selected/Real-Correct/REAL-correct-right-on","Feedback_Selected/Real-Correct/REAL-correct-you-know"];
+var real_wrong_images  = ["Feedback_Selected/Real-Incorrect/REAL-incorrect-as-if","Feedback_Selected/Real-Incorrect/REAL-incorrect-at-best","Feedback_Selected/Real-Incorrect/REAL-incorrect-magic","Feedback_Selected/Real-Incorrect/REAL-incorrect-maybe","Feedback_Selected/Real-incorrect/REAL-incorrect-trust"];
+
+function getRandomImage(pshop,score) {
+    var image_index = getRandomInt(0,4);
+
+    console.log("getting image, pshop== ", pshop, " score== "+ score);
+    if (pshop == 1 && score == 1) {
+        console.log("PHOTOSHOP CORRECT", ps_correct_images[image_index]);
+        return ps_correct_images[image_index];
+    } else if (pshop == 1 && score == 0) {
+        console.log("PHOTOSHOP INCORRECT", ps_wrong_images[image_index]);
+        return ps_wrong_images[image_index];
+    } else if (pshop == 0 && score == 0) {
+        console.log("REAL INCORRECT", real_wrong_images[image_index]);
+        return real_wrong_images[image_index];
+    } else if (pshop == 0 && score == 1) {
+        console.log("REAL CORRECT", real_correct_images[image_index]);
+        return real_correct_images[image_index];
+    } else {
+        console.log("ELSE");
+        return real_correct_images[image_index];
+        console.log("image warning");
+    }
 }
