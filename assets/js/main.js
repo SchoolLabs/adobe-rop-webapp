@@ -16,7 +16,7 @@ var transitionTime = 2400;
 var hover_lock = false;
 var check_or_x = "Adobe_Desktop_X_V1";
 var att_arr = ["Abbey Benson &copy;",
-                "Benjamin Von Wong  &copy;",
+                "Benjamin Von Wong &copy;",
                 "Maximilian Gibas &copy;",
                 "Glen Wexler &copy;",
                 "Andreas Tauber &copy;",
