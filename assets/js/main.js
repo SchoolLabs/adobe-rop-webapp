@@ -1,5 +1,5 @@
 /* indicates whether image is real or fake */
-var IMAGES = [0,1,0,0,1,1,1,0,1,1,0,0,1,0,1,0,0,0,1,0,1,1,0,0,1];
+var IMAGES = [0,1,0,1,1,1,1,0,1,1,0,0,1,0,1,0,0,0,1,0,1,1,0,0,1];
 var BEG_DELTA = 120;
 var SWIPE_SPEED = 250;
 var HIGHLIGHT_SPEED = 250;
@@ -23,7 +23,7 @@ var att_arr = ["Abbey Benson &copy;",
                 "Jeronimo Contreras Flores &copy;",
                 "Christian Adam / Massif &copy;",
                 "Joel Robison / Trevillion Images &copy;",
-                "Natalie Fletcher. &copy;",
+                "Natalie Fletcher &copy;",
                 "Max Ellis / Caters News &copy;",
                 "Adrian Chudek &copy;",
                 "Ionut Caras &copy;",
