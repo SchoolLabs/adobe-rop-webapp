@@ -9,12 +9,13 @@ In `main.js` there's two arrays that need to be changed: `att_arr` and `IMAGES`.
 
 `IMAGES` holds the `0` or `1` that represents photoshopped or not. `0` = Photohopped. `1` = Real.
 
-Both `IMAGES` and `att_arr` should be in the same order that the Swipe files are numbered.
+Both `IMAGES` and `att_arr` should be in the same order that the Image files are numbered.
 
-####Swipe Files
-In `/assets/img/new/` all of the `Swipe#.jpg` & `Swipe#@2x.jpg` photos should be replaced with the new images.
+####Image Files
+In `/assets/img/new/` all of the `Swipe#.jpg`, `Swipe#@2x.jpg`, and `Grid#.jpg` photos should be replaced with the new images. Numbers should range from 1-25, inclusive.
 
 `Swipe#.jpg` images should be 600 x 600 pixels.
 
 `Swipe#@2x.jpg` images should be 1200 x 1200 pixels.
 
+`Grid#.jpg` images should be 170 x 170 pixels.
