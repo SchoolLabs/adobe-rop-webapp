@@ -1,4 +1,6 @@
-/* indicates whether image is real or fake */
+/* indicates whether image is real (1) or fake (0) */
+//
+// count help 1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5
 var IMAGES = [0,1,0,1,1,1,1,0,1,1,0,0,1,0,1,0,0,0,1,0,0,1,0,0,1];
 var BEG_DELTA = 120;
 var SWIPE_SPEED = 250;
@@ -27,7 +29,7 @@ var att_arr = ["Abbey Benson &copy;",
                 "Max Ellis / Caters News &copy;",
                 "Adrian Chudek &copy;",
                 "Ionut Caras &copy;",
-                "Andres Amador &copy;",
+                "Andres Amador / Adobe Remix &copy;",
                 "Oleg Belov &copy;",
                 "Esmar Abdul &copy;",
                 "Oliver Zwilling &copy;",
