@@ -1,7 +1,7 @@
 /* indicates whether image is real (1) or fake (0) */
 //
 // count help 1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5
-var IMAGES = [0,1,0,1,1,1,1,0,1,1,0,0,1,0,1,0,0,0,1,0,0,1,0,0,1];
+var IMAGES = [0,1,0,1,1,1,1,0,1,1,0,0,1,0,1,0,0,1,1,0,0,1,0,0,1];
 var BEG_DELTA = 120;
 var SWIPE_SPEED = 250;
 var HIGHLIGHT_SPEED = 250;
